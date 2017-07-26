@@ -1,0 +1,289 @@
+<modification>
+	<id><![CDATA[This extension let you easy manage image background & resize type]]></id>
+	<version><![CDATA[1.1]]></version>
+	<vqmver><![CDATA[2.3.2]]></vqmver>
+	<author><![CDATA[Giedrius Kaminskas / gone.lt]]></author>
+	<file name="system/library/image.php">
+		<operation>
+			<search position="before" error="log"><![CDATA[public function resize]]></search>
+			<add><![CDATA[    public function zoomin($width = 0, $height = 0) {
+    	if (!$this->info['width'] || !$this->info['height']) {
+    		return;
+    	}
+    	
+        $photo_width = $this->info['width']; 
+        $photo_height = $this->info['height'];
+        
+        $new_width = $width;
+        $new_height = $height;
+
+        if (($photo_width/$new_width) < ($photo_height/$new_height)) {
+        	$from_x = '0'; $photo_x = $photo_width;
+        	$from_y = ceil(($photo_height - ($new_height * $photo_width / $new_width))/2);
+        	$photo_y = ceil(($new_height * $photo_width / $new_width)); 
+        	
+        }
+   
+        if (($photo_height/$new_height) < ($photo_width/$new_width)) {
+        	$from_y = '0'; $photo_y = $photo_height;
+        	$from_x = ceil(($photo_width - ($new_width * $photo_height / $new_height))/2);
+        	$photo_x = ceil(($new_width * $photo_height / $new_height)); 
+    	}
+        
+        if (($photo_width/$new_width) == ($photo_height/$new_height)) {
+        	$from_x = ceil(($photo_width - ($new_width * $photo_height / $new_height))/2);
+        	$from_y = '0'; $photo_y = $photo_height;
+        	$photo_x = ceil(($new_width * $photo_height / $new_height)); 
+        }
+        
+        	        
+       	$image_old = $this->image;
+        $this->image = imagecreatetruecolor($width, $height);
+		
+        $bgcolor = $this->gkbgcolor();
+		
+		if (isset($this->info['mime']) && $this->info['mime'] == 'image/png') {		
+			imagealphablending($this->image, false);
+			imagesavealpha($this->image, true);
+			$background = imagecolorallocatealpha($this->image, $bgcolor[0], $bgcolor[1], $bgcolor[2], 127);
+			imagecolortransparent($this->image, $background);
+		} else {
+			$background = imagecolorallocate($this->image, $bgcolor[0], $bgcolor[1], $bgcolor[2]);
+		}
+		
+		
+		
+		imagefilledrectangle($this->image, 0, 0, $width, $height, $background);
+        imagecopyresampled($this->image, $image_old, 0, 0, $from_x, $from_y, $new_width, $new_height, $photo_x, $photo_y);
+        imagedestroy($image_old);
+           
+        $this->info['width']  = $width;
+        $this->info['height'] = $height;
+
+    
+    }
+
+    public function bywidth($width = 0, $height = 0) {
+    	if (!$this->info['width'] || !$this->info['height']) {
+    		return;
+    	}
+
+        $photo_width = $this->info['width']; 
+        $photo_height = $this->info['height'];
+
+    	if ($photo_width >= $width) {
+	    	$scale = $photo_width / $width;
+			$height = round ($photo_height / $scale);
+    	}else{
+    	
+    		$width = $photo_width;
+    		$height = $photo_height;
+    	
+    	}
+        	   
+       	$image_old = $this->image;
+        $this->image = imagecreatetruecolor($width, $height);
+		
+        $bgcolor = $this->gkbgcolor();
+		
+		if (isset($this->info['mime']) && $this->info['mime'] == 'image/png') {		
+			imagealphablending($this->image, false);
+			imagesavealpha($this->image, true);
+			$background = imagecolorallocatealpha($this->image, $bgcolor[0], $bgcolor[1], $bgcolor[2], 127);
+			imagecolortransparent($this->image, $background);
+		} else {
+			$background = imagecolorallocate($this->image, $bgcolor[0], $bgcolor[1], $bgcolor[2]);
+		}
+		
+		imagefilledrectangle($this->image, 0, 0, $width, $height, $background);
+	
+	
+        imagecopyresampled($this->image, $image_old, 0, 0, 0, 0, $width, $height, $photo_width, $photo_height);
+        imagedestroy($image_old);
+           
+        $this->info['width']  = $width;
+        $this->info['height'] = $height;
+
+    
+    }
+    
+    public function byheight($width = 0, $height = 0) {
+    	if (!$this->info['width'] || !$this->info['height']) {
+    		return;
+    	}
+
+        $photo_width = $this->info['width']; 
+        $photo_height = $this->info['height'];
+
+    	if ($photo_height >= $height) {
+    		
+			$scale = $photo_height / $height;
+			$width = round ($photo_width / $scale);
+    	
+    	}else{
+    	
+    		$width = $photo_width;
+    		$height = $photo_height;
+    	
+    	}
+        	   
+       	$image_old = $this->image;
+        $this->image = imagecreatetruecolor($width, $height);
+		
+        $bgcolor = $this->gkbgcolor();
+		
+		if (isset($this->info['mime']) && $this->info['mime'] == 'image/png') {		
+			imagealphablending($this->image, false);
+			imagesavealpha($this->image, true);
+			$background = imagecolorallocatealpha($this->image, $bgcolor[0], $bgcolor[1], $bgcolor[2], 127);
+			imagecolortransparent($this->image, $background);
+		} else {
+			$background = imagecolorallocate($this->image, $bgcolor[0], $bgcolor[1], $bgcolor[2]);
+		}
+		
+		imagefilledrectangle($this->image, 0, 0, $width, $height, $background);
+	
+	
+        imagecopyresampled($this->image, $image_old, 0, 0, 0, 0, $width, $height, $photo_width, $photo_height);
+        imagedestroy($image_old);
+           
+        $this->info['width']  = $width;
+        $this->info['height'] = $height;
+
+    
+    }
+    
+    public function gkbgcolor() {
+	    $config_bgcolor = "#FFFFFF";
+        $bgcolor = $this->html2rgb($config_bgcolor);
+        return $bgcolor;
+    }
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace" error="log"><![CDATA[$background = imagecolorallocatealpha($this->image, 255, 255, 255, 127);]]></search>
+			<add><![CDATA[$background = imagecolorallocatealpha($this->image, $bgcolor[0], $bgcolor[1], $bgcolor[2], 127);]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[$background = imagecolorallocate($this->image, 255, 255, 255);]]></search>
+			<add><![CDATA[$background = imagecolorallocate($this->image, $bgcolor[0], $bgcolor[1], $bgcolor[2]);]]></add>
+		</operation>
+		<operation>
+			<search position="after" error="log"><![CDATA[$this->image = imagecreatetruecolor($width, $height);]]></search>
+			<add><![CDATA[$bgcolor = $this->gkbgcolor();]]></add>
+		</operation>
+	</file>
+	<file name="catalog/model/tool/image.php">
+		<operation>
+			<search position="before" error="log"><![CDATA[public function resize]]></search>
+			<add><![CDATA[	public function zoomin($filename, $width, $height) {
+		if (!file_exists(DIR_IMAGE . $filename) || !is_file(DIR_IMAGE . $filename)) {
+			return;
+		} 
+		
+		$info = pathinfo($filename);
+		$extension = $info['extension'];
+		
+		$old_image = $filename;
+		$new_image = 'cache/' . substr($filename, 0, strrpos($filename, '.')) . '-zoom-' . $width . 'x' . $height . '.' . $extension;
+		
+		if (!file_exists(DIR_IMAGE . $new_image) || (filemtime(DIR_IMAGE . $old_image) > filemtime(DIR_IMAGE . $new_image))) {
+			$path = '';
+			$directories = explode('/', dirname(str_replace('../', '', $new_image)));
+			foreach ($directories as $directory) {
+				$path = $path . '/' . $directory;
+				
+				if (!file_exists(DIR_IMAGE . $path)) {
+					@mkdir(DIR_IMAGE . $path, 0777);
+				}		
+			}
+			
+			$image = new Image(DIR_IMAGE . $old_image);
+			$image->zoomin($width, $height);
+			$image->save(DIR_IMAGE . $new_image);
+		}
+		
+		if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
+			return $this->config->get('config_ssl') . 'image/' . $new_image;
+		} else {
+			return $this->config->get('config_url') . 'image/' . $new_image;
+		}
+			
+	}
+	
+	public function bywidth($filename, $width, $height) {
+		if (!file_exists(DIR_IMAGE . $filename) || !is_file(DIR_IMAGE . $filename)) {
+			return;
+		} 
+		
+		$info = pathinfo($filename);
+		$extension = $info['extension'];
+		
+		$old_image = $filename;
+		$new_image = 'cache/' . substr($filename, 0, strrpos($filename, '.')) . '-width-' . $width . '.' . $extension;
+		
+		if (!file_exists(DIR_IMAGE . $new_image) || (filemtime(DIR_IMAGE . $old_image) > filemtime(DIR_IMAGE . $new_image))) {
+			$path = '';
+			
+			$directories = explode('/', dirname(str_replace('../', '', $new_image)));
+			
+			foreach ($directories as $directory) {
+				$path = $path . '/' . $directory;
+				
+				if (!file_exists(DIR_IMAGE . $path)) {
+					@mkdir(DIR_IMAGE . $path, 0777);
+				}		
+			}
+			
+			$image = new Image(DIR_IMAGE . $old_image);
+			$image->bywidth($width, $height);
+			$image->save(DIR_IMAGE . $new_image);
+		}
+		
+		if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
+			return $this->config->get('config_ssl') . 'image/' . $new_image;
+		} else {
+			return $this->config->get('config_url') . 'image/' . $new_image;
+		}
+			
+	}	
+	
+	public function byheight($filename, $width, $height) {
+		if (!file_exists(DIR_IMAGE . $filename) || !is_file(DIR_IMAGE . $filename)) {
+			return;
+		} 
+		
+		$info = pathinfo($filename);
+		$extension = $info['extension'];
+		
+		$old_image = $filename;
+		$new_image = 'cache/' . substr($filename, 0, strrpos($filename, '.')) . '-height-' . $height . '.' . $extension;
+		
+		if (!file_exists(DIR_IMAGE . $new_image) || (filemtime(DIR_IMAGE . $old_image) > filemtime(DIR_IMAGE . $new_image))) {
+			$path = '';
+			
+			$directories = explode('/', dirname(str_replace('../', '', $new_image)));
+			
+			foreach ($directories as $directory) {
+				$path = $path . '/' . $directory;
+				
+				if (!file_exists(DIR_IMAGE . $path)) {
+					@mkdir(DIR_IMAGE . $path, 0777);
+				}		
+			}
+			
+			$image = new Image(DIR_IMAGE . $old_image);
+			$image->byheight($width, $height);
+			$image->save(DIR_IMAGE . $new_image);
+		}
+		
+		if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
+			return $this->config->get('config_ssl') . 'image/' . $new_image;
+		} else {
+			return $this->config->get('config_url') . 'image/' . $new_image;
+		}
+			
+	}	]]></add>
+		</operation>
+	</file>
+</modification>

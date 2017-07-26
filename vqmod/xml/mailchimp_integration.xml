@@ -1,0 +1,197 @@
+<modification>
+	
+	<id>MailChimp Integration</id>
+	<version>201.2</version>
+	<vqmver>2.5.1</vqmver>
+	<author>Clear Thinking, LLC</author>
+	<email>johnathan@getclearthinking.com</email>
+	<website>http://www.getclearthinking.com</website>
+	
+	<!-- Admin actions -->
+	<file name="*/model/sale/customer.php">
+		<operation error="skip">
+			<search position="after"><![CDATA[
+				public function addCustomer($data) {
+			]]></search>
+			<add trim="true"><![CDATA[
+				// Clear Thinking: MailChimp Integration
+				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "extension WHERE type = 'module' AND code = 'mailchimp_integration'");
+				if ($data['newsletter'] && $query->num_rows) {
+					$this->load->library('mailchimp_integration');
+					$mailchimp_integration = new MailChimp_Integration($this->config, $this->db, $this->log, $this->session);
+					$mailchimp_integration->send(array_merge($data, array('double_optin' => false)));
+				}
+				// end MailChimp Integration
+			]]></add>
+		</operation>
+		<operation error="skip">
+			<search position="after"><![CDATA[
+				public function editCustomer($customer_id, $data) {
+			]]></search>
+			<add trim="true"><![CDATA[
+				// Clear Thinking: MailChimp Integration
+				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "extension WHERE type = 'module' AND code = 'mailchimp_integration'");
+				if ($query->num_rows) {
+					$this->load->library('mailchimp_integration');
+					$mailchimp_integration = new MailChimp_Integration($this->config, $this->db, $this->log, $this->session);
+					$mailchimp_integration->send(array_merge($data, array('customer_id' => $customer_id, 'double_optin' => false)));
+				}
+				// end MailChimp Integration
+			]]></add>
+		</operation>
+		<operation error="skip">
+			<search position="after"><![CDATA[
+				public function deleteCustomer($customer_id) {
+			]]></search>
+			<add trim="true"><![CDATA[
+				// Clear Thinking: MailChimp Integration
+				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "extension WHERE type = 'module' AND code = 'mailchimp_integration'");
+				if ($query->num_rows) {
+					$this->load->library('mailchimp_integration');
+					$mailchimp_integration = new MailChimp_Integration($this->config, $this->db, $this->log, $this->session);
+					$mailchimp_integration->send(array('customer_id' => $customer_id));
+				}
+				// end MailChimp Integration
+			]]></add>
+		</operation>
+	</file>
+	
+	<!-- Customer actions -->
+	<file name="catalog/model/account/customer.php">
+		<operation error="skip">
+			<search position="after"><![CDATA[
+				$address_id = $this->db->getLastId();
+			]]></search>
+			<add trim="true"><![CDATA[
+				// Clear Thinking: MailChimp Integration
+				if (!empty($data['newsletter'])) {
+					$this->load->library('mailchimp_integration');
+					$mailchimp_integration = new MailChimp_Integration($this->config, $this->db, $this->log, $this->session);
+					$mailchimp_integration->send(array_merge($data, array('customer_id' => $customer_id)));
+				}
+				// end MailChimp Integration
+			]]></add>
+		</operation>
+		<operation error="skip">
+			<search position="after"><![CDATA[
+				public function editCustomer($data) {
+			]]></search>
+			<add trim="true"><![CDATA[
+				// Clear Thinking: MailChimp Integration
+				if ($this->customer->getNewsletter()) {
+					$this->load->library('mailchimp_integration');
+					$mailchimp_integration = new MailChimp_Integration($this->config, $this->db, $this->log, $this->session);
+					$mailchimp_integration->send(array_merge($data, array('newsletter' => 1, 'customer_id' => $this->customer->getId())));
+				}
+				// end MailChimp Integration
+			]]></add>
+		</operation>
+		<operation error="skip">
+			<search position="after"><![CDATA[
+				public function editNewsletter($newsletter) {
+			]]></search>
+			<add trim="true"><![CDATA[
+				// Clear Thinking: MailChimp Integration
+				$this->load->library('mailchimp_integration');
+				$mailchimp_integration = new MailChimp_Integration($this->config, $this->db, $this->log, $this->session);
+				$mailchimp_integration->send(array('newsletter' => $newsletter, 'customer_id' => $this->customer->getId()));
+				// end MailChimp Integration
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/model/account/address.php">
+		<operation error="skip">
+			<search position="after"><![CDATA[
+				public function editAddress($address_id, $data) {
+			]]></search>
+			<add trim="true"><![CDATA[
+				// Clear Thinking: MailChimp Integration
+				if (!empty($data['default']) && $this->customer->getNewsletter()) {
+					$this->load->library('mailchimp_integration');
+					$mailchimp_integration = new MailChimp_Integration($this->config, $this->db, $this->log, $this->session);
+					$mailchimp_integration->send(array_merge($data, array('newsletter' => 1, 'customer_id' => $this->customer->getId())));
+				}
+				// end MailChimp Integration
+			]]></add>
+		</operation>
+	</file>
+	
+	<!-- Pop-up if enabled -->
+	<file name="catalog/controller/common/footer.php" error="skip">
+		<operation error="skip">
+			<search position="after"><![CDATA[
+				function index() {
+			]]></search>
+			<add trim="true"><![CDATA[
+				if (version_compare(VERSION, '2.0') < 0) {
+					$this->data['mailchimp_integration'] = ($this->config->get('mailchimp_integration_modules_popup')) ? $this->getChild('module/mailchimp_integration') : '';
+				} else {
+					$data['mailchimp_integration'] = ($this->config->get('mailchimp_integration_modules_popup')) ? $this->load->controller('module/mailchimp_integration') : '';
+				}
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/view/theme/*/template/common/footer.tpl" error="skip">
+		<operation error="skip">
+			<search position="before"><![CDATA[
+				</body>
+			]]></search>
+			<add trim="true"><![CDATA[
+				<?php echo $mailchimp_integration; ?>
+			]]></add>
+		</operation>
+	</file>
+	
+	<!-- Contact Form if that modification is added -->
+	<file name="catalog/controller/information/contact.php" error="skip">
+		<operation error="skip">
+			<search position="after"><![CDATA[
+				if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+			]]></search>
+			<add trim="true"><![CDATA[
+				// Clear Thinking: MailChimp Integration
+				if (!empty($this->request->post['newsletter'])) {
+					$this->load->library('mailchimp_integration');
+					$mailchimp_integration = new MailChimp_Integration($this->config, $this->db, $this->log, $this->session);
+					$mailchimp_integration->send(array_merge($this->request->post, array('customer_id' => $this->customer->getId())));
+				}
+				// end MailChimp Integration
+			]]></add>
+		</operation>
+	</file>
+	
+	<!-- Guest Checkout if that modification is installed -->
+	<file name="catalog/controller/checkout/guest.php,catalog/controller/onecheckout/guest.php" error="skip">
+		<operation error="skip">
+			<search position="before"><![CDATA[
+				unset($this->session->data['shipping_methods']);
+			]]></search>
+			<add trim="true"><![CDATA[
+				// Clear Thinking: MailChimp Integration
+				if (!empty($this->request->post['newsletter'])) {
+					$this->load->library('mailchimp_integration');
+					$mailchimp_integration = new MailChimp_Integration($this->config, $this->db, $this->log, $this->session);
+					$mailchimp_integration->send(array_merge($this->request->post, array('customer_id' => 0)));
+				}
+				// end MailChimp Integration
+			]]></add>
+		</operation>
+	</file>
+	
+	<!-- One-Page Checkout extension -->
+	<file name="catalog/model/onecheckout/checkout.php" error="skip">
+		<operation error="skip">
+			<search position="after"><![CDATA[
+				public function addCustomer($data) {
+			]]></search>
+			<add trim="true"><![CDATA[
+				// Clear Thinking: MailChimp Integration
+				$this->load->library('mailchimp_integration');
+				$mailchimp_integration = new MailChimp_Integration($this->config, $this->db, $this->log, $this->session);
+				$mailchimp_integration->send($data);
+				// end MailChimp Integration
+			]]></add>
+		</operation>
+	</file>
+	
+</modification>

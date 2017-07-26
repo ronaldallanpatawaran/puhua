@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name>X-Payment</name>
+	<code>xpayment</code>
+    <version>2.0</version>
+    <author>OpenCartMart</author>
+    <link>http://www.opencartmart.com</link>
+    <file path="catalog/controller/api/payment.php">                
+		<operation>
+			<search position="after"><![CDATA[ $method = $this->{'model_payment_' . $result['code']}->getMethod($this->session->data['payment_address'], $total); ]]></search>		                        
+			<add><![CDATA[
+		       if($result['code']=='xpayment'){
+						if ($method && $method['methods']) {
+						   foreach($method['methods'] as $single){
+						     $json['payment_methods'][$single['code']] = $single;
+						   }
+						}
+						continue;
+					}
+			]]></add>
+		</operation>
+	</file>
+    <file path="catalog/controller/checkout/payment_method.php">                
+		<operation>
+			<search position="after"><![CDATA[ $method = $this->{'model_payment_' . $result['code']}->getMethod($this->session->data['payment_address'], $total); ]]></search>		                        
+			<add><![CDATA[
+		       if($result['code']=='xpayment'){
+						if ($method && $method['methods']) {
+						   foreach($method['methods'] as $single){
+						     $method_data[$single['code']] = $single;
+						   }
+						}
+						continue;
+					}
+			]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/checkout/confirm.php">
+		<operation>
+			<search position="replace"><![CDATA[ $data['payment'] = $this->load->controller('payment/' . $this->session->data['payment_method']['code']); ]]></search>			                        
+			<add><![CDATA[
+			if(strstr($this->session->data['payment_method']['code'],'xpayment')){
+				$data['payment'] = $this->load->controller('payment/xpayment');
+			}else{
+				$data['payment'] = $this->load->controller('payment/' . $this->session->data['payment_method']['code']);
+			}
+			]]></add>
+			
+		</operation>
+			
+	</file>	
+	<file path="catalog/controller/journal2/checkout.php">                
+		<operation error="log">
+			<search position="replace"><![CDATA[ $this->data['payment'] = $this->load->controller('payment/' . $value); ]]></search>                 
+			<add><![CDATA[
+		        if(strstr($value,'xpayment')){
+				  $this->data['payment'] = $this->load->controller('payment/xpayment');
+			    }else{
+				  $this->data['payment'] = $this->load->controller('payment/' . $value);
+			    }
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search position="replace"><![CDATA[ if ($payment_method = Journal2Utils::getProperty($this->session->data, 'payment_methods.' . Journal2Utils::getProperty($this->request->post, 'payment_method') . '.title')) { ]]></search>		                        
+			<add><![CDATA[
+		        if ($payment_method = $this->session->data['payment_methods'][$this->request->post['payment_method']]['title']) {
+			]]></add>
+		</operation>
+	</file>
+	<file path="catalog/model/journal2/checkout.php">                
+		<operation error="log">
+			<search position="after"><![CDATA[ $method = $this->{'model_payment_' . $result['code']}->getMethod($this->session->data['payment_address'], $total); ]]></search>		                        
+			<add><![CDATA[
+		       if($result['code']=='xpayment'){
+						if ($method && $method['methods']) {
+						   foreach($method['methods'] as $single){
+						     $method_data[$single['code']] = $single;
+						   }
+						}
+						continue;
+					}
+			]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/checkout/simplecheckout_payment.php">                
+		<operation error="log">
+			<search position="after"><![CDATA[ $method = $this->{'model_payment_' . $result['code']}->getMethod($address, $total); ]]></search>
+			<add><![CDATA[
+		       if($result['code']=='xpayment'){
+						if ($method && $method['methods']) {
+						   foreach($method['methods'] as $single){
+						     $method_data[$single['code']] = $single;
+						   }
+						}
+						continue;
+					}
+			]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/checkout/simplecheckout.php">
+	   <operation error="log">
+			<search position="replace"><![CDATA[ $this->_templateData['simple_blocks']['payment_form'] = $this->getChildController('payment/' . $paymentCode[0]); ]]></search>			                        
+			<add><![CDATA[
+			if(strstr($paymentCode[0],'xpayment')){
+				$this->_templateData['simple_blocks']['payment_form'] = $this->load->controller('payment/xpayment');
+			}else{
+				$this->_templateData['simple_blocks']['payment_form'] = $this->getChildController('payment/' . $paymentCode[0]);
+			}
+			]]></add>
+			
+		</operation>
+		<operation error="log">
+			<search position="replace"><![CDATA[ $data['payment_form'] = $this->load->controller('payment/' . $this->session->data['payment_method']['code']); ]]></search>			                        
+			<add><![CDATA[
+			if(strstr($payment_method['code'],'xpayment')){
+				$data['payment_form'] = $this->load->controller('payment/xpayment');
+			}else{
+				$data['payment_form'] = $this->load->controller('payment/' . $this->session->data['payment_method']['code']);
+			}
+			]]></add>
+			
+		</operation>
+		<operation error="log">
+			<search position="replace"><![CDATA[ $data['simple_blocks']['payment_form'] = $this->load->controller('payment/' . $this->session->data['payment_method']['code']); ]]></search>			                        
+			<add><![CDATA[
+			if(strstr($payment_method['code'],'xpayment')){
+				$data['simple_blocks']['payment_form'] = $this->load->controller('payment/xpayment');
+			}else{
+				$data['simple_blocks']['payment_form'] = $this->load->controller('payment/' . $this->session->data['payment_method']['code']);
+			}
+			]]></add>
+		</operation>
+	</file>	
+	<file path="catalog/controller/module/quickcheckout.php">
+		<operation error="log">
+			<search position="replace"><![CDATA[ $data['payment'] = $this->load->controller('payment/' . $this->session->data['payment_method']['code']); ]]></search>			                        
+			<add><![CDATA[
+			if(strstr($this->session->data['payment_method']['code'],'xpayment')){
+				$data['payment'] = $this->load->controller('payment/xpayment');
+			}else{
+				$data['payment'] = $this->load->controller('payment/' . $this->session->data['payment_method']['code']);
+			}
+			]]></add>
+			
+		</operation>
+		<operation error="log">
+			<search position="after"><![CDATA[ $method = $this->{'model_payment_' . $result['code']}->getMethod($this->session->data['payment_address'], $total); ]]></search>		                        
+			<add><![CDATA[
+		       if($result['code']=='xpayment'){
+						if ($method && $method['methods']) {
+						   foreach($method['methods'] as $single){
+						     $method_data[$single['code']] = $single;
+						   }
+						}
+						continue;
+					}
+			]]></add>
+		</operation>
+	</file>	
+	<file path="catalog/controller/quickcheckout/payment_method.php">
+		<operation error="log">
+			<search position="after"><![CDATA[ $method = $this->{'model_payment_' . $result['code']}->getMethod($payment_address, $total); ]]></search>		                        
+			<add><![CDATA[
+		       if($result['code']=='xpayment'){
+						if ($method && $method['methods']) {
+						   foreach($method['methods'] as $single){
+						     $method_data[$single['code']] = $single;
+						   }
+						}
+						continue;
+					}
+			]]></add>
+		</operation>
+	</file>	
+	<file path="catalog/controller/quickcheckout/confirm.php">
+		<operation error="log">
+			<search position="replace"><![CDATA[ $data['payment'] = $this->load->controller('payment/' . $this->session->data['payment_method']['code']); ]]></search>			                        
+			<add><![CDATA[
+			if(strstr($this->session->data['payment_method']['code'],'xpayment')){
+				$data['payment'] = $this->load->controller('payment/xpayment');
+			}else{
+				$data['payment'] = $this->load->controller('payment/' . $this->session->data['payment_method']['code']);
+			}
+			]]></add>
+			
+		</operation>
+	</file>	
+	<file path="catalog/model/d_quickcheckout/method.php">
+		<operation error="log">
+			<search position="after"><![CDATA[ $method = $this->{'model_payment_' . $result['code']}->getMethod($payment_address, $total); ]]></search>			                        
+			<add><![CDATA[
+		       if($result['code']=='xpayment'){
+						if ($method && $method['methods']) {
+						   foreach($method['methods'] as $single){
+						     $method_data[$single['code']] = $single;
+						   }
+						}
+						continue;
+					}
+			]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/d_quickcheckout/payment.php">
+		<operation error="log">
+			<search position="replace"><![CDATA[ $json['payment'] = $this->load->controller('payment/' . $this->session->data['payment_method']['code']); ]]></search>			                        
+			<add><![CDATA[
+			if(strstr($this->session->data['payment_method']['code'],'xpayment')){
+				$data['payment'] = $this->load->controller('payment/xpayment');
+			}else{
+				$data['payment'] = $this->load->controller('payment/' . $this->session->data['payment_method']['code']);
+			}
+			]]></add>
+			
+		</operation>
+	</file>		
+	<file path="catalog/model/checkout/order.php">
+		<operation>
+			<search position="before"><![CDATA[ $data['products'] = array(); ]]></search>			                        
+			<add><![CDATA[
+			
+			   $this->load->language('payment/xpayment');
+			   $data['text_payment_instruction'] = $this->language->get('text_payment_instruction');
+			   $payment_instruction='';
+			   if(strstr($order_info['payment_code'],'xpayment')){
+			       
+			        $xpayment=$this->config->get('xpayment');
+		 		    if($xpayment) $xpayment=unserialize(base64_decode($xpayment));
+		  
+		            if(!isset($xpayment['name']))$xpayment['name']=array();
+		            if(!is_array($xpayment['name']))$xpayment['name']=array();
+		            
+		            $language_id=$order_info['language_id'];
+                    
+                    foreach($xpayment['name'] as $no_of_tab=>$names){
+              
+                    if($order_info['payment_code']=='xpayment'.'.xpayment'.$no_of_tab){
+		 	             if(isset($xpayment['inc_email'][$no_of_tab]) && $xpayment['inc_email'][$no_of_tab])                       
+		 	              $payment_instruction=isset($xpayment['email_instruction'][$no_of_tab][$language_id])?$xpayment['email_instruction'][$no_of_tab][$language_id]:$xpayment['instruction'][$no_of_tab][$language_id];
+		 	             break;
+		 	            }
+                    }
+			    }
+				
+                $amount =$this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value']);
+			    
+			    $placeholder=array('{orderId}','{orderTotal}');
+		        $replacer=array($order_id,$amount);
+		        $payment_instruction=str_replace($placeholder,$replacer,$payment_instruction);
+			    
+			    $data['payment_instruction'] = $payment_instruction; 
+			    
+			]]></add>
+			
+		</operation>
+			
+	</file>	
+	<file path="catalog/view/theme/*/template/mail/order.tpl">
+		<operation>
+			<search position="before"><![CDATA[ <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_footer; ?></p> ]]></search>
+			<add><![CDATA[
+			 <?php if($payment_instruction){?>
+			   <p style="margin-top: 0px; margin-bottom: 20px;"><b><?php echo $text_payment_instruction;?>:</b> <?php echo html_entity_decode($payment_instruction); ?></p>
+			  <?php } ?> 
+			]]></add>
+			
+		</operation>
+	</file>
+	
+	<file path="catalog/controller/account/order.php">
+		<operation>
+			<search position="before"><![CDATA[ $data['order_id'] = $this->request->get['order_id']; ]]></search>			                        
+			<add><![CDATA[
+			
+			   $this->load->language('payment/xpayment');
+			   $data['text_payment_instruction'] = $this->language->get('text_payment_instruction');
+			   $payment_instruction='';
+			   $order_info['payment_code']=$this->db->query("SELECT payment_code FROM `" . DB_PREFIX . "order` WHERE order_id = '" . (int)$order_id . "' AND customer_id = '" . (int)$this->customer->getId() . "' AND order_status_id > '0'")->row['payment_code'];
+			   if(strstr($order_info['payment_code'],'xpayment')){
+			       
+			        $xpayment=$this->config->get('xpayment');
+		 		    if($xpayment) $xpayment=unserialize(base64_decode($xpayment));
+		  
+		            if(!isset($xpayment['name']))$xpayment['name']=array();
+		            if(!is_array($xpayment['name']))$xpayment['name']=array();
+		            
+		            $language_id=$order_info['language_id'];
+                    
+                    foreach($xpayment['name'] as $no_of_tab=>$names){
+              
+                    if($order_info['payment_code']=='xpayment'.'.xpayment'.$no_of_tab){
+		 	             if(isset($xpayment['inc_order'][$no_of_tab]) && $xpayment['inc_order'][$no_of_tab]) 						  
+		 	             $payment_instruction=$xpayment['instruction'][$no_of_tab][$language_id];
+		 	             break;
+		 	            }
+                    }
+			    }
+			    
+                $amount =$this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value']);
+			    
+			    $placeholder=array('{orderId}','{orderTotal}');
+		        $replacer=array($order_id,$amount);
+		        $payment_instruction=str_replace($placeholder,$replacer,$payment_instruction);
+			    
+			    $data['payment_instruction'] = $payment_instruction; 
+			    
+			]]></add>
+			
+		</operation>
+			
+	</file>	
+	<file path="catalog/view/theme/*/template/account/order_info.tpl">
+		<operation>
+			<search position="before"><![CDATA[ <?php if ($histories) { ?> ]]></search>			                        
+			<add><![CDATA[
+			 <?php if($payment_instruction){?>
+			    <h3><?php echo $text_payment_instruction; ?></h3>   
+			    <p><?php echo html_entity_decode($payment_instruction); ?></p>
+			  <?php } ?> 
+			]]></add>
+			
+		</operation>
+	</file>	
+</modification>

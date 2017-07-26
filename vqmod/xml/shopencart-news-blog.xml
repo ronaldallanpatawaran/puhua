@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<name>Shopencart News/Blog integration OCmod</name>
+	<version>1.1</version>
+	<link>http://shopencart.com</link>
+	<author>Flo from shopencart.com</author>
+	<code>shopencart-newsblog</code>
+	<file path="admin/controller/common/dashboard.php">
+		<operation>
+			<search position="after"><![CDATA[$data['footer'] = $this->load->controller('common/footer');]]></search>
+			<add><![CDATA[$data['newspanel'] = $this->load->controller('common/newspanel');]]></add>
+		</operation>
+	</file>
+	<file path="admin/view/template/common/dashboard.tpl">
+		<operation>
+			<search position="before"><![CDATA[<?php if ($error_install) { ?>]]></search>
+			<add><![CDATA[  <?php  global $registry; $muser = $registry->get('user'); ?>
+    <?php if ($muser->hasPermission('access','common/newspanel'))  {?>
+    <?php echo $newspanel; ?>
+							<br />
+							<?php } ?>]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/common/column_left.php">
+		<operation>
+			<search position="after"><![CDATA[$this->load->model('catalog/information');]]></search>
+			<add><![CDATA[$this->load->model('catalog/news');
+			$this->load->model('catalog/ncategory');
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[if ($route == 'product/category' && isset($this->request->get['path'])) {]]></search>
+			<add><![CDATA[
+			if ($route == 'news/article' && isset($this->request->get['news_id'])) {
+				$layout_id = $this->model_catalog_news->getNewsLayoutId($this->request->get['news_id']);
+			}
+			if ($route == 'news/ncategory' && isset($this->request->get['ncat'])) {
+				$ncat = explode('_', (string)$this->request->get['ncat']);
+				
+				$layout_id = $this->model_catalog_ncategory->getncategoryLayoutId(end($ncat));			
+			}
+		]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/common/column_right.php">
+		<operation>
+			<search position="after"><![CDATA[$this->load->model('catalog/information');]]></search>
+			<add><![CDATA[$this->load->model('catalog/news');
+			$this->load->model('catalog/ncategory');
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[if ($route == 'product/category' && isset($this->request->get['path'])) {]]></search>
+			<add><![CDATA[
+			if ($route == 'news/article' && isset($this->request->get['news_id'])) {
+				$layout_id = $this->model_catalog_news->getNewsLayoutId($this->request->get['news_id']);
+			}
+			if ($route == 'news/ncategory' && isset($this->request->get['ncat'])) {
+				$ncat = explode('_', (string)$this->request->get['ncat']);
+				
+				$layout_id = $this->model_catalog_ncategory->getncategoryLayoutId(end($ncat));			
+			}
+		]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/common/content_top.php">
+		<operation>
+			<search position="after"><![CDATA[$this->load->model('catalog/information');]]></search>
+			<add><![CDATA[$this->load->model('catalog/news');
+			$this->load->model('catalog/ncategory');
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[if ($route == 'product/category' && isset($this->request->get['path'])) {]]></search>
+			<add><![CDATA[
+			if ($route == 'news/article' && isset($this->request->get['news_id'])) {
+				$layout_id = $this->model_catalog_news->getNewsLayoutId($this->request->get['news_id']);
+			}
+			if ($route == 'news/ncategory' && isset($this->request->get['ncat'])) {
+				$ncat = explode('_', (string)$this->request->get['ncat']);
+				
+				$layout_id = $this->model_catalog_ncategory->getncategoryLayoutId(end($ncat));			
+			}
+		]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/common/content_bottom.php">
+		<operation>
+			<search position="after"><![CDATA[$this->load->model('catalog/information');]]></search>
+			<add><![CDATA[$this->load->model('catalog/news');
+			$this->load->model('catalog/ncategory');
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[if ($route == 'product/category' && isset($this->request->get['path'])) {]]></search>
+			<add><![CDATA[
+			if ($route == 'news/article' && isset($this->request->get['news_id'])) {
+				$layout_id = $this->model_catalog_news->getNewsLayoutId($this->request->get['news_id']);
+			}
+			if ($route == 'news/ncategory' && isset($this->request->get['ncat'])) {
+				$ncat = explode('_', (string)$this->request->get['ncat']);
+				
+				$layout_id = $this->model_catalog_ncategory->getncategoryLayoutId(end($ncat));			
+			}
+		]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/common/footer.php">
+		<operation>
+			<search position="before"><![CDATA[$data['newsletter'] = $this->url->link('account/newsletter', '', 'SSL');]]></search>
+			<add><![CDATA[
+		$this->language->load('module/news');
+		$data['blog_url'] = $this->url->link('news/ncategory');
+		$data['blog_name'] = $this->language->get('text_blogpage');
+		]]></add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/common/footer.tpl">
+		<operation>
+			<search><![CDATA[<li><a href="<?php echo $special; ?>"><?php echo $text_special; ?></a></li>]]></search>
+			<add position="after"><![CDATA[
+			<li><a href="<?php echo $blog_url; ?>"><?php echo $blog_name; ?></a></li>
+			]]></add>
+		</operation>
+	</file>
+	<file path="system/library/document.php">
+		<operation>
+			<search position="after"><![CDATA[private $scripts = array();]]></search>
+			<add><![CDATA[
+			private $extra_tags = array();
+			public function addExtraTag($property, $content = '', $name=''){
+				$this->extra_tags[md5($property)] = array(
+					'property' => $property,
+					'content'  => $content,
+					'name'     => $name,
+				);
+			}
+			
+			public function getExtraTags(){
+				return $this->extra_tags;
+			}
+			]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/common/header.php">
+		<operation>
+			<search position="after"><![CDATA[$data['scripts'] = $this->document->getScripts();]]></search>
+			<add><![CDATA[$data['extra_tags'] = $this->document->getExtraTags();]]></add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/common/header.tpl">
+		<operation>
+			<search position="before"><![CDATA[<?php if ($description) { ?>]]></search>
+			<add><![CDATA[<?php foreach($extra_tags as $extra_tag) {?>
+<meta <?php echo ($extra_tag['name']) ? 'name="' . $extra_tag['name'] . '" ' : ''; ?><?php echo (!in_array($extra_tag['property'], array("noprop", "noprop1", "noprop2", "noprop3", "noprop4"))) ? 'property="' . $extra_tag['property'] . '" ' : ''; ?> content="<?php echo addslashes($extra_tag['content']); ?>" />
+<?php } ?>]]></add>
+		</operation>
+	</file>
+</modification>

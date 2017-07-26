@@ -1,0 +1,66 @@
+/*
+    gallbox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#gallbox, #cgallOverlay, #cgallWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cgallWrapper {max-width:none;}
+#cgallOverlay{position:fixed; width:100%; height:100%;}
+#cgallMiddleLeft, #cgallBottomLeft{clear:left;}
+#cgallContent{position:relative;}
+#cgallLoadedContent{overflow:auto; -webkit-overflow-scrolling: touch;}
+#cgallTitle{margin:0;}
+#cgallLoadingOverlay, #cgallLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cgallPrevious, #cgallNext, #cgallClose, #cgallSlideshow{cursor:pointer;}
+.cgallPhoto{float:left; margin:auto; border:0; display:block; max-width:none; -ms-interpolation-mode:bicubic;}
+.cgallIframe{width:100%; height:100%; display:block; border:0; padding:0; margin:0;}
+#gallbox, #cgallContent, #cgallLoadedContent{box-sizing:content-box; -moz-box-sizing:content-box; -webkit-box-sizing:content-box;}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of gallbox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cgallOverlay{background:#fff;}
+#gallbox{outline:0;}
+    #cgallTopLeft{width:25px; height:25px; background:url(images/border1.png) no-repeat 0 0;}
+    #cgallTopCenter{height:25px; background:url(images/border1.png) repeat-x 0 -50px;}
+    #cgallTopRight{width:25px; height:25px; background:url(images/border1.png) no-repeat -25px 0;}
+    #cgallBottomLeft{width:25px; height:25px; background:url(images/border1.png) no-repeat 0 -25px;}
+    #cgallBottomCenter{height:25px; background:url(images/border1.png) repeat-x 0 -75px;}
+    #cgallBottomRight{width:25px; height:25px; background:url(images/border1.png) no-repeat -25px -25px;}
+    #cgallMiddleLeft{width:25px; background:url(images/border2.png) repeat-y 0 0;}
+    #cgallMiddleRight{width:25px; background:url(images/border2.png) repeat-y -25px 0;}
+    #cgallContent{background:#fff; overflow:hidden;}
+        .cgallIframe{background:#fff;}
+        #cgallError{padding:50px; border:1px solid #ccc;}
+        #cgallLoadedContent{margin-bottom:20px;}
+        #cgallTitle{position:absolute; bottom:0px; left:0; text-align:center; width:100%; color:#999;}
+        #cgallCurrent{position:absolute; bottom:0px; left:100px; color:#999;}
+        #cgallLoadingOverlay{background:#fff url(images/loading.gif) no-repeat 5px 5px;}
+
+        /* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+        #cgallPrevious, #cgallNext, #cgallSlideshow, #cgallClose {border:0; padding:0; margin:0; overflow:visible; width:auto; background:none; }
+        
+        /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+        #cgallPrevious:active, #cgallNext:active, #cgallSlideshow:active, #cgallClose:active {outline:0;}
+
+        #cgallSlideshow{position:absolute; bottom:0px; right:42px; color:#444;}
+        #cgallPrevious{position:absolute; bottom:0px; left:0; color:#444;}
+        #cgallNext{position:absolute; bottom:0px; left:63px; color:#444;}
+        #cgallClose{position:absolute; bottom:0; right:0; display:block; color:#444;}
+
+/*
+  The following fixes a problem where IE7 and IE8 replace a PNG's alpha transparency with a black fill
+  when an alpha filter (opacity change) is set on the element or ancestor element.  This style is not applied to or needed in IE9.
+  See: http://jacklmoore.com/notes/ie-transparency-problems/
+*/
+.cgallIE #cgallTopLeft,
+.cgallIE #cgallTopCenter,
+.cgallIE #cgallTopRight,
+.cgallIE #cgallBottomLeft,
+.cgallIE #cgallBottomCenter,
+.cgallIE #cgallBottomRight,
+.cgallIE #cgallMiddleLeft,
+.cgallIE #cgallMiddleRight {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+}

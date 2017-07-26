@@ -1,0 +1,318 @@
+<modification>
+	<id><![CDATA[CKEditor is back!]]></id>
+	<version><![CDATA[1]]></version>
+	<vqmver><![CDATA[2.5.1]]></vqmver>
+	<author><![CDATA[-vito- (http://opencartmodding.com)]]></author>
+	<file name="admin/controller/module/html.php,admin/controller/module/faqmanager.php">
+		<operation info="Add 'token' to controller">
+			<search position="before"><![CDATA[$data['header'] = $this->load->controller('common/header');]]></search>
+			<add><![CDATA[$data['token'] = $this->session->data['token'];]]></add>
+		</operation>
+	</file>
+	<!--<file name="admin/view/template/common/header.tpl">
+		<operation info="Load ckeditor.js">
+			<search position="replace"><![CDATA[<script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>]]></search>
+			<add><![CDATA[<script type="text/javascript" src="view/javascript/ckeditor/ckeditor.js"></script> 
+]]></add>
+		</operation>
+	</file>-->
+	<file name="admin/view/template/catalog/product_form.tpl">
+		<operation info="Change Summernote with CKEditor">
+			<search position="before"><![CDATA[$('#input-attribute<?php echo $row; ?>-<?php echo $language['language_id']; ?>').summernote({height: 150});]]></search>
+			<add><![CDATA[
+CKEDITOR.replace('input-attribute<?php echo $row; ?>-<?php echo $language['language_id']; ?>', {height: 150});
+CKEDITOR.on('dialogDefinition', function (event)
+        {
+            var editor = event.editor;
+            var dialogDefinition = event.data.definition;
+            var dialogName = event.data.name;
+
+            var tabCount = dialogDefinition.contents.length;
+            for (var i = 0; i < tabCount; i++) {
+                var browseButton = dialogDefinition.contents[i].get('browse');
+
+                if (browseButton !== null) {
+                    browseButton.hidden = false;
+                    browseButton.onClick = function() {
+						$('#modal-image').remove();
+						$.ajax({
+							url: 'index.php?route=common/filemanager&token=<?php echo $token; ?>&ckedialog='+this.filebrowser.target,
+							dataType: 'html',
+							success: function(html) {
+								$('body').append('<div id="modal-image" style="z-index: 10020;" class="modal">' + html + '</div>');
+								$('#modal-image').modal('show');
+							}
+						});	
+					}
+                }
+            }
+        });
+]]></add>
+		</operation>
+		<operation info="Change Summernote with CKEditor">
+			<search position="before"><![CDATA[$('#input-attribute' + attribute_row + '-<?php echo $language['language_id']; ?>').summernote({height: 150});]]></search>
+			<add><![CDATA[
+CKEDITOR.replace('input-attribute' + attribute_row + '-<?php echo $language['language_id']; ?>', {height: 150});
+CKEDITOR.on('dialogDefinition', function (event)
+        {
+            var editor = event.editor;
+            var dialogDefinition = event.data.definition;
+            var dialogName = event.data.name;
+
+            var tabCount = dialogDefinition.contents.length;
+            for (var i = 0; i < tabCount; i++) {
+                var browseButton = dialogDefinition.contents[i].get('browse');
+
+                if (browseButton !== null) {
+                    browseButton.hidden = false;
+                    browseButton.onClick = function() {
+						$('#modal-image').remove();
+						$.ajax({
+							url: 'index.php?route=common/filemanager&token=<?php echo $token; ?>&ckedialog='+this.filebrowser.target,
+							dataType: 'html',
+							success: function(html) {
+								$('body').append('<div id="modal-image" style="z-index: 10020;" class="modal">' + html + '</div>');
+								$('#modal-image').modal('show');
+							}
+						});	
+					}
+                }
+            }
+        });
+]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/catalog/news_form.tpl">
+		<operation info="Change Summernote with CKEditor">
+			<search position="before"><![CDATA[$('#input-descriptions<?php echo $language['language_id']; ?>').summernote({]]></search>
+			<add><![CDATA[
+CKEDITOR.replace('input-descriptions<?php echo $language['language_id']; ?>', {height: 300});
+CKEDITOR.on('dialogDefinition', function (event)
+        {
+            var editor = event.editor;
+            var dialogDefinition = event.data.definition;
+            var dialogName = event.data.name;
+
+            var tabCount = dialogDefinition.contents.length;
+            for (var i = 0; i < tabCount; i++) {
+                var browseButton = dialogDefinition.contents[i].get('browse');
+
+                if (browseButton !== null) {
+                    browseButton.hidden = false;
+                    browseButton.onClick = function() {
+						$('#modal-image').remove();
+						$.ajax({
+							url: 'index.php?route=common/filemanager&token=<?php echo $token; ?>&ckedialog='+this.filebrowser.target,
+							dataType: 'html',
+							success: function(html) {
+								$('body').append('<div id="modal-image" style="z-index: 10020;" class="modal">' + html + '</div>');
+								$('#modal-image').modal('show');
+							}
+						});	
+					}
+                }
+            }
+        });
+]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/catalog/product_form.tpl,admin/view/template/catalog/category_form.tpl,admin/view/template/catalog/information_form.tpl,admin/view/template/catalog/gallimage_form.tpl,admin/view/template/catalog/nauthor_form.tpl,admin/view/template/catalog/ncategory_form.tpl,admin/view/template/catalog/news_form.tpl,admin/view/template/module/html.tpl">
+		<operation info="Load CKEditor.js">
+			<search position="before" index="1"><![CDATA[<script type="text/javascript">]]></search>
+			<add><![CDATA[<script type="text/javascript" src="view/javascript/ckeditor/ckeditor.js"></script>]]></add>
+		</operation>
+		<operation info="Change Summernote with CKEditor">
+			<search position="before"><![CDATA[$('#input-description<?php echo $language['language_id']; ?>').summernote({]]></search>
+			<add><![CDATA[
+CKEDITOR.replace('input-description<?php echo $language['language_id']; ?>', {height: 300});
+CKEDITOR.on('dialogDefinition', function (event)
+        {
+            var editor = event.editor;
+            var dialogDefinition = event.data.definition;
+            var dialogName = event.data.name;
+
+            var tabCount = dialogDefinition.contents.length;
+            for (var i = 0; i < tabCount; i++) {
+                var browseButton = dialogDefinition.contents[i].get('browse');
+
+                if (browseButton !== null) {
+                    browseButton.hidden = false;
+                    browseButton.onClick = function() {
+						$('#modal-image').remove();
+						$.ajax({
+							url: 'index.php?route=common/filemanager&token=<?php echo $token; ?>&ckedialog='+this.filebrowser.target,
+							dataType: 'html',
+							success: function(html) {
+								$('body').append('<div id="modal-image" style="z-index: 10020;" class="modal">' + html + '</div>');
+								$('#modal-image').modal('show');
+							}
+						});	
+					}
+                }
+            }
+        });
+]]></add>
+		</operation>
+		<operation info="Disable Summernote">
+			<search position="replace"><![CDATA[<?php echo $language['language_id']; ?>').summernote(]]></search>
+			<add><![CDATA[___').attr(]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/module/faqmanager.tpl">
+		<operation info="Load CKEditor.js">
+			<search position="before" index="1"><![CDATA[<script type="text/javascript">]]></search>
+			<add><![CDATA[<script type="text/javascript" src="view/javascript/ckeditor/ckeditor.js"></script>]]></add>
+		</operation>
+		<operation info="Change Summernote with CKEditor">
+			<search position="before"><![CDATA[$('#description-<?php echo $section_row; ?>-<?php echo $group_row; ?>-<?php echo $language['language_id']; ?>').summernote({]]></search>
+			<add><![CDATA[
+CKEDITOR.replace('description-<?php echo $section_row; ?>-<?php echo $group_row; ?>-<?php echo $language['language_id']; ?>', {height: 300});
+CKEDITOR.on('dialogDefinition', function (event)
+        {
+            var editor = event.editor;
+            var dialogDefinition = event.data.definition;
+            var dialogName = event.data.name;
+
+            var tabCount = dialogDefinition.contents.length;
+            for (var i = 0; i < tabCount; i++) {
+                var browseButton = dialogDefinition.contents[i].get('browse');
+
+                if (browseButton !== null) {
+                    browseButton.hidden = false;
+                    browseButton.onClick = function() {
+						$('#modal-image').remove();
+						$.ajax({
+							url: 'index.php?route=common/filemanager&token=<?php echo $token; ?>&ckedialog='+this.filebrowser.target,
+							dataType: 'html',
+							success: function(html) {
+								$('body').append('<div id="modal-image" style="z-index: 10020;" class="modal">' + html + '</div>');
+								$('#modal-image').modal('show');
+							}
+						});	
+					}
+                }
+            }
+        });
+]]></add>
+		</operation>
+		<operation info="Change Summernote with CKEditor">
+			<search position="before"><![CDATA[$('#description-' + section_row + '-' + group_row + '-<?php echo $language['language_id']; ?>').summernote({]]></search>
+			<add><![CDATA[
+CKEDITOR.replace('description-' + section_row + '-' + group_row + '-<?php echo $language['language_id']; ?>', {height: 300});
+CKEDITOR.on('dialogDefinition', function (event)
+        {
+            var editor = event.editor;
+            var dialogDefinition = event.data.definition;
+            var dialogName = event.data.name;
+
+            var tabCount = dialogDefinition.contents.length;
+            for (var i = 0; i < tabCount; i++) {
+                var browseButton = dialogDefinition.contents[i].get('browse');
+
+                if (browseButton !== null) {
+                    browseButton.hidden = false;
+                    browseButton.onClick = function() {
+						$('#modal-image').remove();
+						$.ajax({
+							url: 'index.php?route=common/filemanager&token=<?php echo $token; ?>&ckedialog='+this.filebrowser.target,
+							dataType: 'html',
+							success: function(html) {
+								$('body').append('<div id="modal-image" style="z-index: 10020;" class="modal">' + html + '</div>');
+								$('#modal-image').modal('show');
+							}
+						});	
+					}
+                }
+            }
+        });
+]]></add>
+		</operation>
+		<operation info="Disable Summernote">
+			<search position="replace"><![CDATA[<?php echo $language['language_id']; ?>').summernote(]]></search>
+			<add><![CDATA[___').attr(]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/marketing/contact.tpl">
+		<operation info="Load CKEditor.js">
+			<search position="before" index="1"><![CDATA[<script type="text/javascript">]]></search>
+			<add><![CDATA[<script type="text/javascript" src="view/javascript/ckeditor/ckeditor.js"></script>]]></add>
+		</operation>
+		<operation info="Change Summernote with CKEditor">
+			<search position="before"><![CDATA[$('#input-message').summernote({]]></search>
+			<add><![CDATA[
+CKEDITOR.replace('input-message');
+CKEDITOR.on('dialogDefinition', function (event)
+        {
+            var editor = event.editor;
+            var dialogDefinition = event.data.definition;
+            var dialogName = event.data.name;
+
+            var tabCount = dialogDefinition.contents.length;
+            for (var i = 0; i < tabCount; i++) {
+                var browseButton = dialogDefinition.contents[i].get('browse');
+
+                if (browseButton !== null) {
+                    browseButton.hidden = false;
+                    browseButton.onClick = function() {
+						$('#modal-image').remove();
+						$.ajax({
+							url: 'index.php?route=common/filemanager&token=<?php echo $token; ?>&ckedialog='+this.filebrowser.target,
+							dataType: 'html',
+							success: function(html) {
+								$('body').append('<div id="modal-image" style="z-index: 10020;" class="modal">' + html + '</div>');
+								$('#modal-image').modal('show');
+							}
+						});	
+					}
+                }
+            }
+        });
+]]></add>
+		</operation>
+		<operation info="Disable Summernote">
+			<search position="replace"><![CDATA[#input-message').summernote(]]></search>
+			<add><![CDATA[#input-message___').attr(]]></add>
+		</operation>
+	</file>
+	<file name="admin/controller/common/filemanager.php">
+		<operation info="Add url parameter 1 (4 instances)">
+			<search position="after" offset="1"><![CDATA[$url .= '&thumb=' . $this->request->get['thumb'];]]></search>
+			<add><![CDATA[//ocm_CKeditorIsBack_start
+		if (isset($this->request->get['ckedialog'])) {
+			$url .= '&ckedialog=' . $this->request->get['ckedialog'];
+		}
+//ocm_CKeditorIsBack_end]]></add>
+		</operation>
+		<operation info="Add url parameter 2 (1 instance)">
+			<search position="after" offset="3"><![CDATA[$data['thumb'] = $this->request->get['thumb'];]]></search>
+			<add><![CDATA[//ocm_CKeditorIsBack_start
+		if (isset($this->request->get['ckedialog'])) {
+			$data['ckedialog'] = $this->request->get['ckedialog'];
+		} else {
+			$data['ckedialog'] = '';
+		}
+//ocm_CKeditorIsBack_end]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/common/filemanager.tpl">
+		<operation info="Add js to function 'thumbnail.onclick'">
+			<search position="before"><![CDATA[$('#modal-image').modal('hide');]]></search>
+			<add><![CDATA[//ocm_CKeditorIsBack_start
+	<?php if ($ckedialog) { ?>
+		dialog = CKEDITOR.dialog.getCurrent();
+			var targetElement = '<?php echo $ckedialog; ?>' || null;
+			var target = targetElement.split( ':' );
+			dialog.setValueOf( target[ 0 ], target[ 1 ], this.getAttribute('href') );
+	<?php } ?>
+//ocm_CKeditorIsBack_end]]></add>
+		</operation>
+		<operation info="Add js to function 'btnSearch.onclick'">
+			<search position="before"><![CDATA[$('#modal-image').load(url);]]></search>
+			<add><![CDATA[//ocm_CKeditorIsBack_start
+	<?php if ($ckedialog) { ?>
+	url += '&ckedialog=' + '<?php echo $ckedialog; ?>';
+	<?php } ?>
+//ocm_CKeditorIsBack_end]]></add>
+		</operation>
+	</file>
+</modification>

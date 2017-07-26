@@ -1,0 +1,50 @@
+/*
+    gallbox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#gallbox, #cgallOverlay, #cgallWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cgallWrapper {max-width:none;}
+#cgallOverlay{position:fixed; width:100%; height:100%;}
+#cgallMiddleLeft, #cgallBottomLeft{clear:left;}
+#cgallContent{position:relative;}
+#cgallLoadedContent{overflow:auto; -webkit-overflow-scrolling: touch;}
+#cgallTitle{margin:0;}
+#cgallLoadingOverlay, #cgallLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cgallPrevious, #cgallNext, #cgallClose, #cgallSlideshow{cursor:pointer;}
+.cgallPhoto{float:left; margin:auto; border:0; display:block; max-width:none; -ms-interpolation-mode:bicubic;}
+.cgallIframe{width:100%; height:100%; display:block; border:0; padding:0; margin:0;}
+#gallbox, #cgallContent, #cgallLoadedContent{box-sizing:content-box; -moz-box-sizing:content-box; -webkit-box-sizing:content-box;}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of gallbox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cgallOverlay{background:#fff;}
+#gallbox{outline:0;}
+    #cgallContent{margin-top:32px; overflow:visible; background:#000;}
+        .cgallIframe{background:#fff;}
+        #cgallError{padding:50px; border:1px solid #ccc;}
+        #cgallLoadedContent{background:#000; padding:1px;}
+        #cgallLoadingGraphic{background:url(images/loading.gif) no-repeat center center;}
+        #cgallLoadingOverlay{background:#000;}
+        #cgallTitle{position:absolute; top:-22px; left:0; color:#000;}
+        #cgallCurrent{position:absolute; top:-22px; right:205px; text-indent:-9999px;}
+
+        /* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+        #cgallPrevious, #cgallNext, #cgallSlideshow, #cgallClose {border:0; padding:0; margin:0; overflow:visible; text-indent:-9999px; width:20px; height:20px; position:absolute; top:-20px; background:url(images/controls.png) no-repeat 0 0;}
+        
+        /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+        #cgallPrevious:active, #cgallNext:active, #cgallSlideshow:active, #cgallClose:active {outline:0;}
+
+        #cgallPrevious{background-position:0px 0px; right:44px;}
+        #cgallPrevious:hover{background-position:0px -25px;}
+        #cgallNext{background-position:-25px 0px; right:22px;}
+        #cgallNext:hover{background-position:-25px -25px;}
+        #cgallClose{background-position:-50px 0px; right:0;}
+        #cgallClose:hover{background-position:-50px -25px;}
+        .cgallSlideshow_on #cgallPrevious, .cgallSlideshow_off #cgallPrevious{right:66px;}
+        .cgallSlideshow_on #cgallSlideshow{background-position:-75px -25px; right:44px;}
+        .cgallSlideshow_on #cgallSlideshow:hover{background-position:-100px -25px;}
+        .cgallSlideshow_off #cgallSlideshow{background-position:-100px 0px; right:44px;}
+        .cgallSlideshow_off #cgallSlideshow:hover{background-position:-75px -25px;}

@@ -1,0 +1,459 @@
+<modification>
+    <name>Top Super Ninja Admin OC2</name>
+	<code>TopSuperNinjaAdminOC2</code>
+	<version>1.2</version>
+	<author>◘ Dotbox Creative</author>
+	<link>http://dotboxcreative.com/</link>
+	<file path="admin/language/english/common/header.php">
+		<operation>
+			<search position="after"><![CDATA[
+			// Text
+			]]></search>
+			<add><![CDATA[
+			////
+					$_['heading_title_2'] = 'Assign Super Ninja Admin';
+					$_['heading_title_av'] = 'Available Admin Groups';
+					$_['heading_title_user'] = 'Available Admin Users';
+					$_['heading_title_superuser'] = 'SET Super Ninja Admin';
+					$_['text_group_id'] = 'Group ID :';
+					$_['text_group_name'] = 'Group Name :';
+					$_['text_user_id'] = 'User ID :';
+					$_['text_username_ad'] = 'Username :';
+					$_['text_view'] = 'View';
+					$_['text_error'] = 'The page you are looking for cannot be found.';
+			////
+			]]></add>
+		</operation>
+    </file>
+	<file path="admin/language/english/user/user_group.php">
+		<operation>
+			<search position="before"><![CDATA[
+			// Error
+			]]></search>
+			<add><![CDATA[
+			////
+			$_['entry_hide'] = 'Hide Permission for User:';
+			////
+			]]></add>
+		</operation>
+    </file>
+	<file path="admin/view/template/user/user_list.tpl">
+		<operation>
+			<search position="after"><![CDATA[<?php foreach ($users as $user) { ?>]]></search>
+			<add><![CDATA[
+			<?php global $registry; $muser = $registry->get('user');
+			if ($user['user_group_id'] != "96846" or $muser->getGroupId() == "96846" ){ ?>
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before" index="5"><![CDATA[<?php } else { ?>]]></search>
+			<add><![CDATA[<?php } ?>]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[<td class="text-left"><?php echo $user['username']; ?></td>]]></search>
+			<add><![CDATA[<td class="text-left"><?php echo $user['username']; ?><?php if ($user['user_id'] == "96846"){ ?><color style="color:red"> - Super User</color><?php } ?></td>]]></add>
+		</operation>
+    </file>
+	<file path="admin/view/template/user/user_form.tpl">
+		<operation>
+			<search position="before"><![CDATA[
+			<option value="<?php echo $user_group['user_group_id']; ?>"><?php echo $user_group['name']; ?></option>
+			]]></search>
+			<add><![CDATA[
+			<?php global $registry; $muser = $registry->get('user');
+			if ($user_group['user_group_id'] != "96846" or $muser->getGroupId() == "96846" ){ ?>
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+			<option value="<?php echo $user_group['user_group_id']; ?>"><?php echo $user_group['name']; ?></option>
+			]]></search>
+			<add><![CDATA[<?php } ?>]]></add>
+		</operation>
+    </file>
+	
+	<file path="admin/view/template/user/user_group_list.tpl">
+		<operation>
+			<search position="after"><![CDATA[<?php foreach ($user_groups as $user_group) { ?>]]></search>
+			<add><![CDATA[
+			<?php global $registry; $muser = $registry->get('user');
+			if ($user_group['user_group_id'] != "96846" or $muser->getGroupId() == "96846" ){ ?>
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before" index="3"><![CDATA[<?php } else { ?>]]></search>
+			<add><![CDATA[<?php } ?>]]></add>
+		</operation>
+		<operation>
+			<search limit="1"><![CDATA[<td class="text-left"><?php echo $user_group['name']; ?></td>]]></search>
+			<add position="replace" ><![CDATA[
+			<td class="text-left"><?php echo $user_group['name']; ?><?php if ($user_group['user_group_id'] == "96846"){ ?><color style="color:red"> - Super Group</color><?php } ?></td>
+			]]></add>
+		</operation>
+    </file>
+	
+	<file path="admin/controller/user/user_permission.php">
+		<operation>
+			<search position="after"><![CDATA[protected function getForm() {]]></search>
+			<add><![CDATA[
+			////
+			$data['entry_hide'] = $this->language->get('entry_hide');
+			////
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before" index="2"><![CDATA[$data['header'] = $this->load->controller('common/header');]]></search>
+			<add><![CDATA[
+			////
+			if (isset($this->request->post['permission']['view'])) { 
+			$data['view'] = $this->request->post['permission']['view'];
+			} elseif (isset($user_group_info['permission']['view'])) {
+				$data['view'] = $user_group_info['permission']['view'];
+			} else { 
+				$data['view'] = array();
+			}
+			////
+		]]></add>
+		</operation>
+    </file>
+	
+	
+	
+	<file path="admin/view/template/user/user_group_form.tpl">
+		<operation>
+			<search position="after" index="1"><![CDATA[<?php foreach ($permissions as $permission) { ?>]]></search>
+			<add><![CDATA[
+			
+			<?php global $registry; $muser = $registry->get('user');
+			if(!in_array($permission,$view) or $muser->getGroupId() == "96846"){?>
+			
+			]]></add>
+		</operation>
+		
+		
+		
+		<operation>
+			<search position="after" index="2"><![CDATA[<?php echo $permission; ?>]]></search>
+			<add><![CDATA[
+			
+			<?php if(in_array($permission,$view)) {?><color style="color:red"><?php echo " - HIDDEN" ?></color><?php } ?> 
+			
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after" index="4"><![CDATA[<?php echo $permission; ?>]]></search>
+			<add><![CDATA[
+			
+			<?php if(in_array($permission,$view)) {?><color style="color:red"><?php echo " - HIDDEN" ?></color><?php } ?> 
+			
+			]]></add>
+		</operation>
+		
+		
+		
+		<operation>
+			<search position="before" index="6"><![CDATA[
+			<?php } ?>
+			]]></search>
+			<add><![CDATA[
+			<?php } ?>
+			]]></add>
+		</operation>
+		
+		
+		
+		<operation>
+			<search position="after" index="2"><![CDATA[<?php foreach ($permissions as $permission) { ?>]]></search>
+			<add><![CDATA[
+			
+			<?php global $registry; $muser = $registry->get('user');
+			if(!in_array($permission,$view) or $muser->getGroupId() == "96846"){?>
+			
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after" index="6"><![CDATA[<?php echo $permission; ?>]]></search>
+			<add><![CDATA[
+			
+			<?php if(in_array($permission,$view)) {?><color style="color:red"><?php echo " - HIDDEN" ?></color><?php } ?> 
+			
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after" index="8"><![CDATA[<?php echo $permission; ?>]]></search>
+			<add><![CDATA[
+			<?php if(in_array($permission,$view)) {?><color style="color:red"><?php echo " - HIDDEN" ?></color><?php } ?> 
+			]]></add>
+		</operation>
+		
+		
+		<operation>
+			<search position="before" index="11"><![CDATA[
+			<?php } ?>
+			]]></search>
+			<add><![CDATA[
+			<?php } ?>
+			]]></add>
+		</operation>
+		
+		<operation>
+			<search position="before"><![CDATA[</form>]]></search>
+			<add><![CDATA[
+			
+			<?php global $registry; $muser = $registry->get('user');
+			if ($muser->getGroupId() == "96846" ){ ?><div class="form-group"><?php } else { ?><div style="display:none;" class="form-group"><?php } ?>
+            <label class="col-sm-2 control-label"><?php echo $entry_hide; ?></label>
+            <div class="col-sm-10">
+              <div class="well well-sm" style="height: 150px; overflow: auto;">
+                <?php foreach ($permissions as $permission) { ?>
+                <div class="checkbox">
+                  <label>
+                    <?php if (isset($view) && in_array($permission, $view)) { ?>
+                    <input type="checkbox" name="permission[view][]" value="<?php echo $permission; ?>" checked="checked" />
+                    <color style="color:red"><?php echo $permission; ?><?php echo " - HIDDEN" ?></color>
+                    <?php } else { ?>
+                    <input type="checkbox" name="permission[view][]" value="<?php echo $permission; ?>" />
+                    <?php echo $permission; ?>
+                    <?php } ?>
+                  </label>
+                </div>
+               <?php } ?>
+              </div>
+              <a onclick="$(this).parent().find(':checkbox').prop('checked', true);"><?php echo $text_select_all; ?></a> / <a onclick="$(this).parent().find(':checkbox').prop('checked', false);"><?php echo $text_unselect_all; ?></a></div>
+          </div>
+		  
+		]]></add>
+		</operation>
+    </file>
+	
+	
+	
+	<file path="admin/view/template/common/header.tpl">
+		<operation>
+			<search position="before"><![CDATA[</head>]]></search>
+			<add><![CDATA[
+			<!---------------------------------->
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('#superadminform').click(function(){$('#superadmin').addClass('myClassAdminForm');});
+			    });
+   			</script>
+			<!---------------------------------->
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[<li><a href="<?php echo $logout; ?>">]]></search>
+			<add><![CDATA[
+			<!---------------------------------->
+<?php $admincheck = "false";?>
+<?php foreach ($all_group as $group){if ($group['groupid'] == "96846"){$admincheck = "true";}}?>
+<?php if ($admincheck == "false") { ?> 
+<div id="superadmin">  
+<style>.myClassAdminForm {display:none;}#superadmin{position: absolute;left: 50%;margin-left: -350px;width:700px;top:50px;border:1px solid #000;z-index:999;background-color:#fff;}</style>
+<p style="text-align: center;margin: 0 0 10px 0;font-size: 16px;font-weight: bold;"><?php echo $heading_title_2; ?></p>
+<p style="text-align: center;margin: 0 0 10px 0;font-weight: bold;"><?php echo $heading_title_av; ?></p>
+	<center>
+		<table style="width:80%; border-collapse: collapse; border-left: 1px solid #eeeeee; border-right: 1px solid #eeeeee;">
+			<tr style="font-weight:bold;">
+				<td style="width:50%; padding:10px 0px 10px 10px; background:#eeeeee; text-align:left;"><?php echo $text_group_id; ?></td>
+				<td style="width:50%; padding:10px 0px 10px 10px; background:#eeeeee; text-align:left;"><?php echo $text_group_name; ?></td>
+			</tr>
+			<?php foreach ($all_group as $group) { ?>
+			<tr>
+				<td style="padding:10px 0px 10px 10px; text-align:left; border-bottom: 1px solid #eeeeee;">
+                <?php echo $group['groupid']; ?></td>
+				<td style="padding:10px 0px 10px 10px; text-align:left; border-bottom: 1px solid #eeeeee; border-left: 1px solid #eeeeee;">
+                <?php echo $group['groupname']; ?></td>
+			</tr>
+			<?php } ?>
+		</table>
+	</center>
+        
+    <p style="text-align: center;margin: 10px 0 10px 0;font-weight: bold;"><?php echo $heading_title_user; ?></p>
+	<center>
+		<table style="width:80%; border-collapse: collapse; border-left: 1px solid #eeeeee; border-right: 1px solid #eeeeee;">
+			<tr style="font-weight:bold;">
+				<td style="width:30%; padding:10px 0px 10px 10px; background:#eeeeee; text-align:left;"><?php echo $text_user_id; ?></td>
+				<td style="width:30%; padding:10px 0px 10px 10px; background:#eeeeee; text-align:left;"><?php echo $text_group_id; ?></td>
+				<td style="width:30%; padding:10px 10px 10px 10px; background:#eeeeee; text-align:left;"><?php echo $text_username_ad; ?></td>
+			</tr>  
+			<?php foreach ($all_user as $user) { ?>
+				<tr>
+					<td style="padding:10px 0px 10px 10px; text-align:left; border-bottom: 1px solid #eeeeee;">
+                    <?php echo $user['userid']; ?></td>
+					<td style="padding:10px 0px 10px 10px; text-align:left; border-bottom: 1px solid #eeeeee; border-left: 1px solid #eeeeee;">
+                    <?php echo $user['usergroupid']; ?></td>
+                    <td style="padding:10px 0px 10px 10px; text-align:left; border-bottom: 1px solid #eeeeee; border-left: 1px solid #eeeeee;">
+                    <?php echo $user['username']; ?></td>
+				</tr>
+			<?php } ?>
+		</table>
+	</center>     
+    <p style="text-align: center;margin: 10px 0 10px 0;font-weight: bold;"><?php echo $heading_title_superuser; ?></p>
+	<center>
+<form action="<?php echo $action_SA; ?>" method="post" enctype="multipart/form-data" id="form2">
+        <table style="width:80%; border-collapse: collapse; border-left: 1px solid #eeeeee; border-right: 1px solid #eeeeee;">
+          <tr>
+            <td style="width:25%; padding:10px 0px 10px 10px; background:#eeeeee;"><span class="required">*</span> <?php echo $entry_username; ?></td>
+            <td style="width:25%;border-bottom: 1px solid #eeeeee;border-top: 1px solid #eeeeee;"><input style="width:160px;height:100%;border:none;"type="text" name="username" value="<?php echo $username; ?>" />
+              <?php if ($error_username) { ?>
+              <span class="error"><?php echo $error_username; ?></span>
+              <?php } ?></td>
+            <td style="padding-left:10px;width:25%;background:#eeeeee;"><span class="required">*</span> <?php echo $entry_email; ?></td>
+            <td style="width:25%;border-top: 1px solid #eeeeee;"><input style="width:160px;height:100%;border:none;"type="text" name="email" value="<?php echo $email; ?>" /></td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0px 10px 10px;background:#eeeeee;"><span class="required">*</span> <?php echo $entry_firstname; ?></td>
+            <td style="border-bottom: 1px solid #eeeeee;"><input style="width:160px;height:100%;border:none;"type="text" name="firstname" value="<?php echo $firstname; ?>" />
+              <?php if ($error_firstname) { ?>
+              <span class="error"><?php echo $error_firstname; ?></span>
+              <?php } ?></td>
+            <td style="padding-left:10px;background:#eeeeee;"><span class="required">*</span> <?php echo $entry_lastname; ?></td>
+            <td style="border-bottom: 1px solid #eeeeee;border-top: 1px solid #eeeeee;"><input style="width:160px;height:100%;border:none;"type="text" name="lastname" value="<?php echo $lastname; ?>" />
+              <?php if ($error_lastname) { ?>
+              <span class="error"><?php echo $error_lastname; ?></span>
+              <?php } ?></td>
+          </tr>      
+          <tr>
+            <td style="padding:10px 0px 10px 10px;background:#eeeeee;"><span class="required">*</span> <?php echo $entry_password; ?></td>
+            <td style="border-bottom: 1px solid #eeeeee;"><input style="width:160px;height:100%;border:none;"type="password" name="password" value="<?php echo $password; ?>"  />
+              <?php if ($error_password) { ?>
+              <span class="error"><?php echo $error_password; ?></span>
+              <?php  } ?></td>
+            <td style="padding-left:10px;background:#eeeeee;"><span class="required">*</span> <?php echo $entry_confirm; ?></td>
+            <td style="border-bottom: 1px solid #eeeeee;"><input style="width:160px;height:100%;border:none;"type="password" name="confirm" value="<?php echo $confirm; ?>" />
+              <?php if ($error_confirm) { ?>
+              <span class="error"><?php echo $error_confirm; ?></span>
+              <?php  } ?></td>
+          </tr>
+          <tr style="font-weight: bold;">
+            <td style="padding:10px 0px 10px 10px;background:#eeeeee;"></td>
+            <td style="background:#eeeeee;"></td>
+          	<td style="padding-left:10px;background:#eeeeee;"></td>
+            <td style="background:#eeeeee;"></td>
+          </tr>    
+        </table>
+      </form>  
+</center>
+      <div class="pull-right"><a onclick="$('#form2').submit();" data-toggle="tooltip" title="<?php echo $button_save; ?>" class="btn btn-primary"><i class="fa fa-save"></i></a>
+ <a id="superadminform" data-toggle="tooltip" style="margin:10px;margin-left:2px;" title="<?php echo $button_cancel; ?>" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+</div>
+<?php } ?> 
+<!---------------------------------->   
+	]]></add>
+		</operation>
+    </file>
+	<file path="admin/model/user/user.php">
+		<operation>
+			<search position="before"><![CDATA[public function editPassword($user_id, $password) {]]></search>
+			<add><![CDATA[
+			////
+			public function addSuperUser($data) {
+			$this->db->query("INSERT INTO `" . DB_PREFIX . "user` SET username = '" . $this->db->escape($data['username']) . "', salt = '" . $this->db->escape($salt = substr(md5(uniqid(rand(), true)), 0, 9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "', firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', user_group_id = '96846', status = '1', user_id = '96846', date_added = NOW()");
+			$str ="a:2:{s:6:&quot;access&quot;;a:4:{i:0;s:18:&quot;dashboard/activity&quot;;i:1;s:15:&quot;dashboard/chart&quot;;i:2;s:13:&quot;dashboard/map&quot;;i:3;s:20:&quot;user/user_permission&quot;;}s:6:&quot;modify&quot;;a:1:{i:0;s:20:&quot;user/user_permission&quot;;}}";
+			$this->db->query("INSERT INTO " . DB_PREFIX . "user_group SET name = 'SuperNinjaAdmin', user_group_id = '96846', permission = '". htmlspecialchars_decode($str) ."'");}
+			public function getAllUserId() { $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "user ORDER BY user_id ASC");
+			return $query->rows;}
+			public function getAllGroupId() {
+			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "user_group ORDER BY user_group_id ASC");
+			return $query->rows;}
+			public function getSuperGroupId($data = array()) { $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "user_group ORDER BY user_group_id ASC");
+			return $query->rows;}
+			////
+]]></add>
+		</operation>
+    </file>
+	<file path="admin/controller/user/user.php">
+		<operation>
+			<search position="before"><![CDATA[public function edit() {]]></search>
+			<add><![CDATA[
+			////
+public function insertSuper() {
+			$this->language->load('user/user');
+			$this->load->model('user/user');	
+				if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+					$this->model_user_user->addSuperUser($this->request->post);	
+					$this->session->data['success'] = $this->language->get('text_success');	
+					$url = '';
+					if (isset($this->request->get['sort'])) {$url .= '&sort=' . $this->request->get['sort'];}
+					if (isset($this->request->get['order'])) {$url .= '&order=' . $this->request->get['order'];}
+					if (isset($this->request->get['page'])) {$url .= '&page=' . $this->request->get['page'];}					
+					$this->response->redirect($this->url->link('common/dashboard', 'token=' . $this->session->data['token'] . $url, 'SSL'));}	
+				$this->getForm();}	
+			////
+		]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[$data['users'][] = array(]]></search>
+			<add><![CDATA[
+			'user_group_id'   => $result['user_group_id'],
+			]]></add>
+		</operation>
+    </file>
+	<file path="admin/controller/common/header.php">
+		<operation>
+			<search position="before"><![CDATA[foreach ($results as $result)]]></search>
+			<add><![CDATA[
+			////
+			$this->load->model('user/user');
+			$data['heading_title_2']	= $this->language->get('heading_title_2');
+			$data['heading_title_av']	= $this->language->get('heading_title_av');
+			$data['heading_title_user']	= $this->language->get('heading_title_user');
+			$data['text_group_id']		= $this->language->get('text_group_id');
+			$data['text_group_name']= $this->language->get('text_group_name');
+			$data['text_user_id']		= $this->language->get('text_user_id');
+			$data['text_username_ad']= $this->language->get('text_username_ad');
+			$data['text_view']		= $this->language->get('text_view');
+			$data['heading_title_superuser'] = $this->language->get('heading_title_superuser');
+			$all_group = $this->model_user_user->getAllGroupId();
+			$all_user = $this->model_user_user->getAllUserId();
+			$data['all_group'] = array();
+			foreach ($all_group as $group) {$data['all_group'][] = array ('groupid' => $group['user_group_id'],'groupname' => $group['name']);}
+			$data['all_user'] = array();
+			foreach ($all_user as $user) {$data['all_user'][] = array ('userid' => $user['user_id'],'usergroupid'	=> $user['user_group_id'],'username' => $user['username']);}
+			$this->load->model('user/user');
+			$this->language->load('user/user');
+			$data['heading_title'] = $this->language->get('heading_title');
+			$data['text_enabled'] = $this->language->get('text_enabled');
+			$data['text_disabled'] = $this->language->get('text_disabled');	
+			$data['entry_username'] = $this->language->get('entry_username');
+			$data['entry_password'] = $this->language->get('entry_password');
+			$data['entry_confirm'] = $this->language->get('entry_confirm');
+			$data['entry_firstname'] = $this->language->get('entry_firstname');
+			$data['entry_lastname'] = $this->language->get('entry_lastname');
+			$data['entry_email'] = $this->language->get('entry_email');
+			$data['entry_user_group'] = $this->language->get('entry_user_group');
+			$data['entry_status'] = $this->language->get('entry_status');
+			$data['entry_captcha'] = $this->language->get('entry_captcha');
+			$data['button_save'] = $this->language->get('button_save');
+			$data['button_cancel'] = $this->language->get('button_cancel');  
+			if (isset($this->error['warning'])){$data['error_warning'] = $this->error['warning'];}else{$data['error_warning'] = '';}
+			if (isset($this->error['username'])){$data['error_username'] = $this->error['username'];}else{$data['error_username'] = '';}
+			if (isset($this->error['password'])) {$data['error_password'] = $this->error['password'];} else {$data['error_password'] = '';}
+			if (isset($this->error['confirm'])) {$data['error_confirm'] = $this->error['confirm'];} else {$data['error_confirm'] = '';}
+			if (isset($this->error['firstname'])) {$data['error_firstname'] = $this->error['firstname'];} else {$data['error_firstname'] = '';}
+			if (isset($this->error['lastname'])) {$data['error_lastname'] = $this->error['lastname'];} else {$data['error_lastname'] = '';}
+			$url = '';	
+			if (!isset($this->request->get['user_id'])) {$data['action_SA'] = $this->url->link('user/user/insertSuper', 'token=' . $this->session->data['token'] . $url, 'SSL');} else {$data['action_SA'] = $this->url->link('user/user/update', 'token=' . $this->session->data['token'] . '&user_id=' . $this->request->get['user_id'] . $url, 'SSL');}  
+			if (isset($this->request->get['user_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {$user_info = $this->model_user_user->getUser($this->request->get['user_id']);}
+			if (isset($this->request->post['username'])) {$data['username'] = $this->request->post['username'];
+			} elseif (!empty($user_info)) {$data['username'] = $user_info['username'];
+			} else {$data['username'] = '';}
+			if (isset($this->request->post['password'])) {$data['password'] = $this->request->post['password'];
+			} else {$data['password'] = '';}
+			if (isset($this->request->post['confirm'])) {$data['confirm'] = $this->request->post['confirm'];
+			} else {$data['confirm'] = '';}
+			if (isset($this->request->post['firstname'])) {$data['firstname'] = $this->request->post['firstname'];
+			} elseif (!empty($user_info)) {$data['firstname'] = $user_info['firstname'];
+			} else { $data['firstname'] = '';}
+			if (isset($this->request->post['lastname'])) { $data['lastname'] = $this->request->post['lastname'];
+			} elseif (!empty($user_info)) { $data['lastname'] = $user_info['lastname'];
+			} else { $data['lastname'] = '';}
+			if (isset($this->request->post['email'])){$data['email'] = $this->request->post['email'];
+			} elseif (!empty($user_info)) {$data['email'] = $user_info['email'];
+			} else {$data['email'] = '';}	
+			////
+		]]></add>
+		</operation>
+    </file>
+</modification>

@@ -1,0 +1,70 @@
+<modification>
+    <name>Admin Menu/Module Hide - Delete buttons plugin</name>
+	<code>AdminMenuModuleHideDeletePlugin</code>
+    <version>2.0</version>
+    <author>◘ Dotbox Creative</author>
+	<link>http://dotboxcreative.com/</link>
+	<file path="admin/controller/user/user_permission.php">
+		<operation>
+			<search position="before"><![CDATA[if (isset($this->request->post['permission']['access']))]]></search>
+			<add><![CDATA[	
+		if (!in_array($permission, $ignore)) {$data['ex_permissions'][] = 'product/delete_button_enabled';}
+		if (!in_array($permission, $ignore)) {$data['ex_permissions'][] = 'category/delete_button_enabled';}
+		if (!in_array($permission, $ignore)) {$data['ex_permissions'][] = 'sales/ORDER_delete_button_enabled';}
+			]]></add>
+		</operation>
+	</file>
+	<file path="admin/view/template/catalog/product_list.tpl">
+        <operation>
+            <search position="before"><![CDATA[
+       			<button type="button" data-toggle="tooltip" title="<?php echo $button_delete; ?>
+            ]]></search>
+            <add><![CDATA[
+				<?php  global $registry; $muser = $registry->get('user'); ?>
+				<?php if ($muser->hasPermission('access','product/delete_button_enabled'))  {?>
+            ]]></add>
+        </operation>
+		<operation>
+            <search position="after"><![CDATA[
+       			<i class="fa fa-trash-o"></i></button>
+            ]]></search>
+            <add><![CDATA[
+				<?php } ?>
+            ]]></add>
+        </operation>
+	</file>
+	<file path="admin/view/template/catalog/category_list.tpl">
+        <operation>
+            <search position="before"><![CDATA[
+       			<button type="button" data-toggle="tooltip" title="<?php echo $button_delete; ?>
+            ]]></search>
+            <add><![CDATA[
+				<?php  global $registry; $muser = $registry->get('user'); ?>
+				<?php if ($muser->hasPermission('access','category/delete_button_enabled'))  {?>
+            ]]></add>
+        </operation>
+		<operation>
+            <search position="after"><![CDATA[
+       			<i class="fa fa-trash-o"></i></button>
+            ]]></search>
+            <add><![CDATA[
+				<?php } ?>
+            ]]></add>
+        </operation>
+	</file>
+	<file path="admin/view/template/sale/order_list.tpl">
+        <operation>
+            <search position="replace"><![CDATA[
+       			class="btn btn-danger"
+            ]]></search>
+            <add><![CDATA[
+				<?php  global $registry; $muser = $registry->get('user'); ?>
+				<?php if ($muser->hasPermission('access','sales/ORDER_delete_button_enabled'))  {?>
+				class="btn btn-danger"
+				<?php } else {?> 
+				class="btn btn-danger" style="display:none!important;"
+				<?php } ?> 
+            ]]></add>
+        </operation>
+	</file>
+</modification>

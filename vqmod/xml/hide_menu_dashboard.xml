@@ -1,0 +1,178 @@
+<modification>
+    <name>PLUGIN for Admin Menu/Module Hide - Hide Dashboard + </name>
+	<code>PluginHideDashboard+</code>
+    <version>1.5</version>
+    <author>◘ Dotbox Creative</author>
+	<link>http://dotboxcreative.com/</link>
+	<file path="admin/controller/common/dashboard.php">
+		<operation error="skip">
+			<search position="replace"><![CDATA[$this->response->setOutput($this->load->view('common/dashboard.tpl', $data));]]></search>
+			<add><![CDATA[
+             global $registry; $muser = $registry->get('user'); 
+			 if ( $muser->hasPermission('access','dashboard/order') || 
+			 $muser->hasPermission('access','dashboard/sale') ||
+			 $muser->hasPermission('access','dashboard/customer') ||
+			 $muser->hasPermission('access','dashboard/online') ||
+			 $muser->hasPermission('access','dashboard/map') ||
+			 $muser->hasPermission('access','dashboard/chart') ||
+			 $muser->hasPermission('access','dashboard/activity') ||
+			 $muser->hasPermission('access','dashboard/recent') ||
+			 $muser->hasPermission('access','common/newspanel')
+			 )  {
+				$this->response->setOutput($this->load->view('common/dashboard.tpl', $data));
+			 } else {
+				$this->response->setOutput($this->load->view('common/dashboard_plugin.tpl', $data)); 
+			 }
+			]]></add>
+		</operation>
+	</file>
+	<file path="admin/view/template/module/menuhide.tpl">
+		<operation error="skip">
+			<search position="after"><![CDATA[class="form-horizontal">]]></search>
+			<add><![CDATA[
+				<div class="form-group">   
+					<label class="col-sm-2 control-label" for="menuhidewelcome"><span data-toggle="tooltip" data-container="#tab-data" title="<?php echo $text_welcome_info; ?>"><?php echo $text_welcome; ?></span></label>
+						<div class="col-sm-10">
+						<textarea name="menuhide_welcome" id="menuhidewelcome" placeholder="<?php echo $menuhide_welcome; ?>" rows="6" class="form-control"><?php echo ($menuhide_welcome) ? $menuhide_welcome : $entry_welcome; ?></textarea>
+					</div>
+				</div> 
+			]]></add>
+		</operation>
+		<operation error="skip">
+			<search position="before"><![CDATA[<?php echo $footer; ?>]]></search>
+			<add><![CDATA[
+				<script type="text/javascript"><!--
+				$('#menuhidewelcome').summernote({
+						height: 150
+					});
+				//--></script> 
+			]]></add>
+		</operation>
+	</file>
+	<file path="admin/controller/module/menuhide.php">
+		<operation error="skip">
+			<search position="before"><![CDATA[$data['header']]]></search>
+			<add><![CDATA[
+			//
+			$data['text_welcome'] = $this->language->get('text_welcome');
+			$data['text_welcome_info'] = $this->language->get('text_welcome_info');
+			$data['entry_welcome'] = $this->language->get('entry_welcome');
+			
+			if (isset($this->request->post['menuhide_welcome'])) {
+				$data['menuhide_welcome'] = $this->request->post['menuhide_welcome'];
+			} else {
+				$data['menuhide_welcome'] = $this->config->get('menuhide_welcome');
+			}
+			//
+			]]></add>
+		</operation>
+	</file>
+	
+	<file path="admin/language/*/module/menuhide.php">
+		<operation error="skip">
+			<search position="after"><![CDATA[// Heading]]></search>
+			<add><![CDATA[
+				$_['text_welcome']     = 'Welcome Text';
+				$_['text_welcome_info']     = 'Set the welcome message when the user has no access to the dashboard.';
+				$_['entry_welcome']    = '<p><h1 style="text-align: center;" >Welcome to our <span><strong>FANTASTIC</strong></span> store administration panel.</h1></p>';
+			]]></add>
+		</operation>
+	</file>
+	<file path="admin/controller/user/user_permission.php">
+		<operation>
+			<search position="before"><![CDATA[if (isset($this->request->post['permission']['access']))]]></search>
+			<add><![CDATA[	
+		if (!in_array($permission, $ignore)) {$data['ex_permissions'][] = 'dashboard/customer';}	
+		if (!in_array($permission, $ignore)) {$data['ex_permissions'][] = 'dashboard/online';}	
+		if (!in_array($permission, $ignore)) {$data['ex_permissions'][] = 'dashboard/map';}
+		if (!in_array($permission, $ignore)) {$data['ex_permissions'][] = 'dashboard/chart';}	
+		if (!in_array($permission, $ignore)) {$data['ex_permissions'][] = 'dashboard/activity';}
+		if (!in_array($permission, $ignore)) {$data['ex_permissions'][] = 'dashboard/recent';}	
+		if (!in_array($permission, $ignore)) {$data['ex_permissions'][] = 'dashboard/order';}					
+		if (!in_array($permission, $ignore)) {$data['ex_permissions'][] = 'dashboard/sale';}	
+			]]></add>
+		</operation>
+	</file>
+	<file path="admin/view/template/common/dashboard.tpl">
+		<operation>
+			<search position="replace"><![CDATA[
+			<div class="col-lg-3 col-md-3 col-sm-6"><?php echo $order; ?></div>
+			]]></search>
+			<add><![CDATA[	
+            <?php if ($muser->hasPermission('access','dashboard/order'))  {?>
+            <div class="col-lg-3 col-md-3 col-sm-6"><?php echo $order; ?></div>
+            <?php } ?>
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+			<div class="col-lg-3 col-md-3 col-sm-6"><?php echo $sale; ?></div>
+			]]></search>
+			<add><![CDATA[	
+            <?php if ($muser->hasPermission('access','dashboard/sale'))  {?>
+            <div class="col-lg-3 col-md-3 col-sm-6"><?php echo $sale; ?></div>
+            <?php } ?>
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+			<div class="col-lg-3 col-md-3 col-sm-6"><?php echo $customer; ?></div>
+			]]></search>
+			<add><![CDATA[	
+            <?php if ($muser->hasPermission('access','dashboard/customer'))  {?>
+            <div class="col-lg-3 col-md-3 col-sm-6"><?php echo $customer; ?></div>
+            <?php } ?>
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+			<div class="col-lg-3 col-md-3 col-sm-6"><?php echo $online; ?></div>
+			]]></search>
+			<add><![CDATA[	
+            <?php if ($muser->hasPermission('access','dashboard/online'))  {?>
+            <div class="col-lg-3 col-md-3 col-sm-6"><?php echo $online; ?></div>
+            <?php } ?>
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+			<div class="col-lg-6 col-md-12 col-sx-12 col-sm-12"><?php echo $map; ?></div>
+			]]></search>
+			<add><![CDATA[	
+            <?php if ($muser->hasPermission('access','dashboard/map'))  {?>
+            <div class="col-lg-6 col-md-12 col-sx-12 col-sm-12"><?php echo $map; ?></div>
+            <?php } ?>
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+			<div class="col-lg-6 col-md-12 col-sx-12 col-sm-12"><?php echo $chart; ?></div>
+			]]></search>
+			<add><![CDATA[	
+            <?php if ($muser->hasPermission('access','dashboard/chart'))  {?>
+            <div class="col-lg-6 col-md-12 col-sx-12 col-sm-12"><?php echo $chart; ?></div>
+            <?php } ?>
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+			<div class="col-lg-4 col-md-12 col-sm-12 col-sx-12"><?php echo $activity; ?></div>
+			]]></search>
+			<add><![CDATA[	
+            <?php if ($muser->hasPermission('access','dashboard/activity'))  {?>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-sx-12"><?php echo $activity; ?></div>
+            <?php } ?>
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+			<div class="col-lg-8 col-md-12 col-sm-12 col-sx-12"> <?php echo $recent; ?> </div>
+			]]></search>
+			<add><![CDATA[	
+            <?php if ($muser->hasPermission('access','dashboard/recent'))  {?>
+            <div class="col-lg-8 col-md-12 col-sm-12 col-sx-12"> <?php echo $recent; ?> </div>
+            <?php } ?>
+			]]></add>
+		</operation>
+	</file>
+</modification>

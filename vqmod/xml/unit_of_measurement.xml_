@@ -1,0 +1,427 @@
+<modification>
+<id><![CDATA[Unit Of Measurement]]></id>
+<version><![CDATA[1.0]]></version>
+<opencart><![CDATA[2.0.X.X]]></opencart>
+<vqmver><![CDATA[2.5.1]]></vqmver>
+<author><![CDATA[Raul Marosan]]></author>
+<file name="admin/model/catalog/product.php">
+<operation>
+<search position="replace"><![CDATA[
+sort_order = '" . (int)$data['sort_order'] . "'
+]]></search>
+<add trim="true"><![CDATA[
+sort_order = '" . (int)$data['sort_order'] . "', `um` = '" . $this->db->escape($data['um']) . "'
+]]></add>
+</operation>
+</file>
+<file name="admin/controller/catalog/product.php">
+<operation>
+<search position="replace"><![CDATA[
+$result['model'],
+]]></search>
+<add trim="true"><![CDATA[
+$result['model'],
+'um' => $result['um'],
+]]></add>
+</operation>
+<operation>
+<search position="replace"><![CDATA[
+if (isset($this->request->post['sku'])) {
+]]></search>
+<add trim="true"><![CDATA[
+if (isset($this->request->post['um'])) {
+	$data['um'] = $this->request->post['um'];
+} elseif (!empty($product_info)) {
+	$data['um'] = $product_info['um'];
+} else {
+	$data['um'] = '';
+}
+if (isset($this->request->post['sku'])) {
+]]></add>
+</operation>
+</file>
+<file name="admin/view/template/catalog/product_list.tpl">
+<operation>
+<search position="replace"><![CDATA[
+<td class="text-left"><?php if ($sort == 'p.status') { ?>
+]]></search>
+<add><![CDATA[
+<td class="text-left">UM</td>
+<td class="text-left"><?php if ($sort == 'p.status') { ?>
+]]></add>
+</operation>
+<operation>
+<search position="replace"><![CDATA[
+<td class="text-left"><?php echo $product['status']; ?></td>
+]]></search>
+<add><![CDATA[
+<td class="text-left"><?php echo $product['um']; ?></td>
+<td class="text-left"><?php echo $product['status']; ?></td>
+]]></add>
+</operation>
+<operation>
+<search position="replace"><![CDATA[
+<td class="text-center" colspan="8">
+]]></search>
+<add><![CDATA[
+<td class="text-center" colspan="9">
+]]></add>
+</operation>
+</file>
+<file name="admin/view/template/catalog/product_form.tpl">
+<operation>
+<search position="before" offset="1"><![CDATA[
+<label class="col-sm-2 control-label" for="input-sku">
+]]></search>
+<add><![CDATA[
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="input-um"><span data-toggle="tooltip" title="Unit Of Measurement">UM</span></label>
+	<div class="col-sm-10">
+		<input type="text" name="um" value="<?php echo $um; ?>" placeholder="Unit Of Measurement" id="input-um" class="form-control" />
+	</div>
+</div>
+]]></add>
+</operation>
+</file>
+<file name="admin/controller/sale/order.php">
+<operation>
+<search position="replace"><![CDATA[
+$product['model'],
+]]></search>
+<add trim="true"><![CDATA[
+$product['model'],
+'um' => $product['um'],
+]]></add>
+</operation>
+</file>
+<file name="admin/view/template/sale/order_info.tpl">
+<operation>
+<search position="replace"><![CDATA[
+<?php echo $product['quantity']; ?>
+]]></search>
+<add trim="true"><![CDATA[
+<?php echo $product['quantity']; ?><?php if ($product['um']) { echo $product['um']; } ?>
+]]></add>
+</operation>
+</file>
+<file name="admin/view/template/sale/order_form.tpl">
+<operation>
+<search position="replace"><![CDATA[
+<td class="text-right">' + product['quantity']
+]]></search>
+<add trim="true"><![CDATA[
+<td class="text-right">' + product['quantity'] + product['um']
+]]></add>
+</operation>
+</file>
+<file name="admin/view/template/sale/order_invoice.tpl">
+<operation>
+<search position="replace"><![CDATA[
+<?php echo $product['quantity']; ?>
+]]></search>
+<add trim="true"><![CDATA[
+<?php echo $product['quantity']; ?><?php if ($product['um']) { echo $product['um']; } ?>
+]]></add>
+</operation>
+</file>
+<file name="admin/controller/setting/setting.php">
+<operation info="install">
+<search position="replace"><![CDATA[
+public function index() {
+]]></search>
+<add trim="true"><![CDATA[
+public function index() {
+	$query = $this->db->query("SELECT `setting_id` FROM `" . DB_PREFIX . "setting` WHERE `key` = 'config_um_prefix' LIMIT 1");
+	if (!$query->num_rows) {
+		$this->db->query("ALTER TABLE `" . DB_PREFIX . "product` ADD `um` varchar(255) NOT NULL");
+		$this->db->query("ALTER TABLE `" . DB_PREFIX . "order_product` ADD `um` varchar(255) NOT NULL");
+		$this->db->query("INSERT INTO `" . DB_PREFIX . "setting` (`store_id`, `code`, `key`, `value`, `serialized`) VALUES
+			(0, 'config', 'config_um_prefix', '/', 0);");
+		header('Refresh: 0');
+	}
+]]></add>
+</operation>
+<operation>
+<search position="replace"><![CDATA[
+if (isset($this->request->post['config_product_count'])) {
+]]></search>
+<add trim="true"><![CDATA[
+if (isset($this->request->post['config_um_prefix'])) {
+	$data['config_um_prefix'] = $this->request->post['config_um_prefix'];
+} else {
+	$data['config_um_prefix'] = $this->config->get('config_um_prefix');
+}
+if (isset($this->request->post['config_product_count'])) {
+]]></add>
+</operation>
+</file>
+<file name="admin/view/template/setting/setting.tpl">
+<operation>
+<search position="after"><![CDATA[
+<li><a href="#tab-server"
+]]></search>
+<add trim="true"><![CDATA[
+<li><a href="#tab-um" data-toggle="tab">Unit Of Measurement</a></li>
+]]></add>
+</operation>
+<operation>
+<search position="replace"><![CDATA[
+<div class="tab-pane" id="tab-server">
+]]></search>
+<add trim="true"><![CDATA[
+<div class="tab-pane" id="tab-um">
+	<div class="form-group">
+		<label class="col-sm-2 control-label"><span data-toggle="tooltip" title="Text preceding the unit of measurement in product prices.">UM Prefix</span></label>
+		<div class="col-sm-3">
+			<input type="text" name="config_um_prefix" value="<?php echo $config_um_prefix; ?>" placeholder="UM Prefix" class="form-control" />
+		</div>
+	</div>
+</div>
+<div class="tab-pane" id="tab-server">
+]]></add>
+</operation>
+</file>
+<file name="catalog/model/catalog/product.php">
+<operation>
+<search position="replace"><![CDATA[
+$query->row['model'],
+]]></search>
+<add trim="true"><![CDATA[
+$query->row['model'],
+'um' => $query->row['um'],
+]]></add>
+</operation>
+</file>
+<file name="catalog/controller/product/product.php">
+<operation>
+<search position="before" offset="1"><![CDATA[
+$data['price'] = false;
+]]></search>
+<add trim="true"><![CDATA[
+if ($product_info['um']) {
+	$data['price'] .= $this->config->get('config_um_prefix') . $product_info['um'];
+}
+]]></add>
+</operation>
+<operation>
+<search position="before" offset="1"><![CDATA[
+$data['special'] = false;
+]]></search>
+<add trim="true"><![CDATA[
+if ($product_info['um']) {
+	$data['special'] .= $this->config->get('config_um_prefix') . $product_info['um'];
+}
+]]></add>
+</operation>
+<operation>
+<search position="before" offset="4"><![CDATA[
+if ((float)$result['special']) {
+]]></search>
+<add trim="true"><![CDATA[
+if ($result['um']) {
+	$price .= $this->config->get('config_um_prefix') . $result['um'];
+}
+]]></add>
+</operation>
+<operation>
+<search position="after" offset="1"><![CDATA[
+if ((float)$result['special']) {
+]]></search>
+<add trim="true"><![CDATA[
+if ($result['um']) {
+	$special .= $this->config->get('config_um_prefix') . $result['um'];
+}
+]]></add>
+</operation>
+</file>
+<file path="catalog/controller/product/" name="category.php,manufacturer.php,search.php,special.php">
+<operation>
+<search position="before" offset="4"><![CDATA[
+if ((float)$result['special']) {
+]]></search>
+<add trim="true"><![CDATA[
+if ($result['um']) {
+	$price .= $this->config->get('config_um_prefix') . $result['um'];
+}
+]]></add>
+</operation>
+<operation>
+<search position="after" offset="1"><![CDATA[
+if ((float)$result['special']) {
+]]></search>
+<add trim="true"><![CDATA[
+if ($result['um']) {
+	$special .= $this->config->get('config_um_prefix') . $result['um'];
+}
+]]></add>
+</operation>
+</file>
+<file path="catalog/controller/module/" name="bestseller.php,latest.php,special.php">
+<operation>
+<search position="before" offset="4"><![CDATA[
+if ((float)$result['special']) {
+]]></search>
+<add trim="true"><![CDATA[
+if ($result['um']) {
+	$price .= $this->config->get('config_um_prefix') . $result['um'];
+}
+]]></add>
+</operation>
+<operation>
+<search position="after" offset="1"><![CDATA[
+if ((float)$result['special']) {
+]]></search>
+<add trim="true"><![CDATA[
+if ($result['um']) {
+	$special .= $this->config->get('config_um_prefix') . $result['um'];
+}
+]]></add>
+</operation>
+</file>
+<file name="catalog/controller/module/featured.php">
+<operation>
+<search position="before" offset="4"><![CDATA[
+if ((float)$product_info['special']) {
+]]></search>
+<add trim="true"><![CDATA[
+if ($product_info['um']) {
+	$price .= $this->config->get('config_um_prefix') . $product_info['um'];
+}
+]]></add>
+</operation>
+<operation>
+<search position="after" offset="1"><![CDATA[
+if ((float)$product_info['special']) {
+]]></search>
+<add trim="true"><![CDATA[
+if ($product_info['um']) {
+	$special .= $this->config->get('config_um_prefix') . $product_info['um'];
+}
+]]></add>
+</operation>
+</file>
+<file name="system/library/cart.php">
+<operation>
+<search position="replace"><![CDATA[
+$product_query->row['model'],
+]]></search>
+<add trim="true"><![CDATA[
+$product_query->row['model'],
+'um' => $product_query->row['um'],
+]]></add>
+</operation>
+</file>
+<file name="catalog/controller/common/cart.php">
+<operation>
+<search position="replace"><![CDATA[
+$product['model'],
+]]></search>
+<add trim="true"><![CDATA[
+$product['model'],
+'um' => $product['um'],
+]]></add>
+</operation>
+</file>
+<file name="catalog/view/theme/*/template/common/cart.tpl">
+<operation>
+<search position="replace"><![CDATA[
+<?php echo $product['quantity']; ?>
+]]></search>
+<add trim="true"><![CDATA[
+<?php echo $product['quantity']; ?><?php if ($product['um']) { echo $product['um']; } ?>
+]]></add>
+</operation>
+</file>
+<file name="catalog/controller/checkout/cart.php">
+<operation>
+<search position="replace"><![CDATA[
+$product['model'],
+]]></search>
+<add trim="true"><![CDATA[
+$product['model'],
+'um' => $product['um'],
+]]></add>
+</operation>
+</file>
+<file name="catalog/view/theme/*/template/checkout/cart.tpl">
+<operation>
+<search position="after" offset="1"><![CDATA[
+value="<?php echo $product['quantity']; ?>" size="1" class="form-control" />
+]]></search>
+<add trim="true"><![CDATA[
+<?php if ($product['um']) { ?>
+	<span class="btn btn-default"><?php echo $product['um']; ?></span>
+<?php } ?>
+]]></add>
+</operation>
+</file>
+<file name="catalog/controller/checkout/confirm.php,catalog/controller/quickcheckout/confirm.php">
+<operation>
+<search position="replace"><![CDATA[
+$product['model'],
+]]></search>
+<add trim="true"><![CDATA[
+$product['model'],
+'um' => $product['um'],
+]]></add>
+</operation>
+</file>
+<file name="catalog/view/theme/*/template/checkout/confirm.tpl,catalog/view/theme/*/template/quickcheckout/confirm.tpl">
+<operation>
+<search position="replace"><![CDATA[
+<?php echo $product['quantity']; ?>
+]]></search>
+<add trim="true"><![CDATA[
+<?php echo $product['quantity']; ?><?php if ($product['um']) { echo " ".$product['um']; } ?>
+]]></add>
+</operation>
+</file>
+<file name="catalog/view/theme/*/template/mail/order.tpl">
+<operation>
+<search position="replace"><![CDATA[
+<?php echo $product['quantity']; ?>
+]]></search>
+<add trim="true"><![CDATA[
+<?php echo $product['quantity']; ?><?php if ($product['um']) { echo $product['um']; } ?>
+]]></add>
+</operation>
+</file>
+<file name="catalog/model/checkout/order.php">
+<operation>
+<search position="replace"><![CDATA[
+reward = '" . (int)$product['reward'] . "'
+]]></search>
+<add trim="true"><![CDATA[
+reward = '" . (int)$product['reward'] . "', `um` = '" . $this->db->escape($product['um']) . "'
+]]></add>
+</operation>
+<operation>
+<search position="replace"><![CDATA[
+$product['model'],
+]]></search>
+<add trim="true"><![CDATA[
+$product['model'],
+'um' => $product['um'],
+]]></add>
+</operation>
+<operation>
+<search position="replace"><![CDATA[
+$text .= $product['quantity']
+]]></search>
+<add trim="true"><![CDATA[
+$text .= $product['quantity'] . ($product['um']?$product['um'] . ' ':'')
+]]></add>
+</operation>
+</file>
+<file path="catalog/controller/api/" name="cart.php,order.php">
+<operation>
+<search position="replace"><![CDATA[
+$product['model'],
+]]></search>
+<add trim="true"><![CDATA[
+$product['model'],
+'um' => $product['um'],
+]]></add>
+</operation>
+</file>
+</modification>

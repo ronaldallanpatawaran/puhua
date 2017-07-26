@@ -1,0 +1,45 @@
+/*
+    gallbox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#gallbox, #cgallOverlay, #cgallWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cgallWrapper {max-width:none;}
+#cgallOverlay{position:fixed; width:100%; height:100%;}
+#cgallMiddleLeft, #cgallBottomLeft{clear:left;}
+#cgallContent{position:relative;}
+#cgallLoadedContent{overflow:auto; -webkit-overflow-scrolling: touch;}
+#cgallTitle{margin:0;}
+#cgallLoadingOverlay, #cgallLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cgallPrevious, #cgallNext, #cgallClose, #cgallSlideshow{cursor:pointer;}
+.cgallPhoto{float:left; margin:auto; border:0; display:block; max-width:none; -ms-interpolation-mode:bicubic;}
+.cgallIframe{width:100%; height:100%; display:block; border:0; padding:0; margin:0;}
+#gallbox, #cgallContent, #cgallLoadedContent{box-sizing:content-box; -moz-box-sizing:content-box; -webkit-box-sizing:content-box;}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of gallbox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cgallOverlay{background:#000;}
+#gallbox{outline:0;}
+    #cgallContent{margin-top:20px;background:#000;}
+        .cgallIframe{background:#fff;}
+        #cgallError{padding:50px; border:1px solid #ccc;}
+        #cgallLoadedContent{border:5px solid #000; background:#fff;}
+        #cgallTitle{position:absolute; top:-20px; left:0; color:#ccc;}
+        #cgallCurrent{position:absolute; top:-20px; right:0px; color:#ccc;}
+        #cgallLoadingGraphic{background:url(images/loading.gif) no-repeat center center;}
+
+        /* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+        #cgallPrevious, #cgallNext, #cgallSlideshow, #cgallClose {border:0; padding:0; margin:0; overflow:visible; width:auto; background:none; }
+        
+        /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+        #cgallPrevious:active, #cgallNext:active, #cgallSlideshow:active, #cgallClose:active {outline:0;}
+        
+        #cgallSlideshow{position:absolute; top:-20px; right:90px; color:#fff;}
+        #cgallPrevious{position:absolute; top:50%; left:5px; margin-top:-32px; background:url(images/controls.png) no-repeat top left; width:28px; height:65px; text-indent:-9999px;}
+        #cgallPrevious:hover{background-position:bottom left;}
+        #cgallNext{position:absolute; top:50%; right:5px; margin-top:-32px; background:url(images/controls.png) no-repeat top right; width:28px; height:65px; text-indent:-9999px;}
+        #cgallNext:hover{background-position:bottom right;}
+        #cgallClose{position:absolute; top:5px; right:5px; display:block; background:url(images/controls.png) no-repeat top center; width:38px; height:19px; text-indent:-9999px;}
+        #cgallClose:hover{background-position:bottom center;}

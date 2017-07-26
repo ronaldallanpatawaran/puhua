@@ -1,0 +1,154 @@
+<modification>
+        <id><![CDATA[CC and BCC Emails]]></id>
+        <version><![CDATA[2.0.0.1]]></version>
+        <vqmver><![CDATA[2.1.5]]></vqmver>
+        <author><![CDATA[Soteri Panagou (panagos@gmail.com)]]></author>
+`
+
+ 	<file name="system/library/mail.php">
+		<operation error="log">
+			<search position="before"><![CDATA[protected $to;]]></search>
+			<add><![CDATA[
+				protected $bcc;
+				protected $cc;
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search position="before"><![CDATA[public function setTo($to) {]]></search>
+			<add><![CDATA[
+	public function setCc($cc) {
+			$this->cc = $cc;
+	}	
+
+	public function setBcc($bcc) {
+		$this->bcc = $bcc;
+	}
+
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search position="after"><![CDATA[$header .= 'From: ]]></search>
+			<add><![CDATA[
+	if (isset($this->cc))
+	{
+		if (!is_array($this->cc))
+			$this->cc = explode(",", $this->cc);
+		$tmp_to = $this->to;
+		if (!is_array($tmp_to))
+			$tmp_to = explode (",", $tmp_to);
+		foreach ($tmp_to as $to_email) 
+		{
+			foreach (array_keys($this->cc, $to_email) as $key)
+			{
+				unset($this->cc[$key]);
+			}
+		}
+		$this->cc = array_values(array_unique($this->cc));
+		if (sizeof($this->cc) > 0)
+		{
+			$cc = implode (',', $this->cc);
+			$header .= "CC: " . $cc . $this->newline;
+		}
+	}
+
+
+        if (isset($this->bcc))
+        {
+                if (!is_array($this->bcc))
+                        $this->bcc = explode(",", $this->bcc);
+                $tmp_to = $this->to;
+                if (!is_array($tmp_to))
+                        $tmp_to = explode (",", $tmp_to);
+                foreach ($tmp_to as $to_email) 
+                {
+                        foreach (array_keys($this->bcc, $to_email) as $key)
+                        {
+                                unset($this->bcc[$key]);
+                        }
+                }
+                $this->bcc = array_values(array_unique($this->bcc));
+                if (sizeof($this->bcc) > 0)
+                {
+                        $bcc = implode (',', $this->bcc);
+                        $header .= "BCC: " . $bcc . $this->newline;
+                }
+        }
+			]]></add>
+		</operation>
+	</file>
+
+        
+	<file name="admin/language/*/setting/setting.php">
+		<operation error="log">
+			<search position="after"><![CDATA[$_['entry_email']]]></search>
+			<add><![CDATA[
+$_['entry_email_cc']                  = 'CC E-Mail';
+$_['entry_email_bcc']                 = 'BCC E-Mail';
+
+$_['help_email_cc']                   = 'Comma delimited';
+$_['help_email_bcc']                  = 'Comma delimited';
+			]]></add>
+
+		</operation>
+	</file>
+
+	<file name="admin/controller/setting/setting.php">
+		<operation error="log">
+			<search position="after"><![CDATA[$data['entry_email'] = $this->language->get('entry_email');]]></search>
+			<add><![CDATA[
+$data['entry_email_cc'] = $this->language->get('entry_email_cc');
+$data['entry_email_bcc'] = $this->language->get('entry_email_bcc');
+$data['help_email_cc'] = $this->language->get('help_email_cc');
+$data['help_email_bcc'] = $this->language->get('help_email_bcc');
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search position="before"><![CDATA[if (isset($this->request->post['config_email'])) {]]></search>
+			<add><![CDATA[
+		if (isset($this->request->post['config_email_cc'])) {
+                        $data['config_email_cc'] = $this->request->post['config_email_cc'];
+                } else {
+                        $data['config_email_cc'] = $this->config->get('config_email_cc');
+                }
+
+                if (isset($this->request->post['config_email_bcc'])) {
+                        $data['config_email_bcc'] = $this->request->post['config_email_bcc'];
+                } else {
+                        $data['config_email_bcc'] = $this->config->get('config_email_bcc');
+                }
+
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/setting/setting.tpl">
+		<operation error="log">
+			<search position="before" offset="1"><![CDATA[<?php echo $entry_telephone; ?></label>]]></search>
+			<add><![CDATA[
+			   <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-email_cc"><span data-toggle="tooltip" data-container="#tab-general" title="<?php echo $help_email_cc; ?>"><?php echo $entry_email_cc; ?></span></label>
+                <div class="col-sm-10">
+                  <input type="text" name="config_email_cc" value="<?php echo $config_email_cc; ?>" placeholder="<?php echo $entry_email_cc; ?>" id="input-email_cc" class="form-control" />
+                </div>
+              </div>
+			   <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-email_bcc"><span data-toggle="tooltip" data-container="#tab-general" title="<?php echo $help_email_bcc; ?>"><?php echo $entry_email_bcc; ?></span></label>
+                <div class="col-sm-10">
+                  <input type="text" name="config_email_bcc" value="<?php echo $config_email_bcc; ?>" placeholder="<?php echo $entry_email_bcc; ?>" id="input-email_bcc" class="form-control" />
+                </div>
+              </div>
+			]]></add>
+		</operation>
+	</file>
+
+
+	<file name="catalog/model/openbay/ebay_order.php,catalog/model/checkout/order.php,catalog/model/checkout/voucher.php,catalog/model/account/customer.php,catalog/model/affiliate/affiliate.php,catalog/controller/account/forgotten.php,catalog/controller/affiliate/forgotten.php,catalog/controller/information/contact.php,system/library/openbay.php,system/library/ebay.php,admin/model/sale/order.php,admin/model/sale/customer.php,admin/model/sale/return.php,admin/model/sale/voucher.php,admin/controller/common/forgotten.php" error="log">
+		<operation error="log">
+			<search position="before"><![CDATA[$mail->send();]]></search>
+			<add><![CDATA[
+				$mail->setCc($this->config->get('config_email_cc'));
+				$mail->setBcc($this->config->get('config_email_bcc'));
+			]]></add>
+		</operation>
+	</file>
+       
+</modification>

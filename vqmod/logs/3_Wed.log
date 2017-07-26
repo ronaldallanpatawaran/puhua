@@ -1,0 +1,33 @@
+---------- Date: 2017-07-26 10:09:24 ~ IP : ::1 ----------
+REQUEST URI : /e-commerce/puhua/
+MOD DETAILS:
+   modFile   : C:\xampp\htdocs\e-commerce\puhua\vqmod/xml/xpayment.xml
+   id        : 
+   version   : 2.0
+   vqmver    : 
+   author    : OpenCartMart
+VQModObject::parseMods - Could not resolve path for [catalog/controller/journal2/checkout.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/model/journal2/checkout.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/checkout/simplecheckout_payment.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/checkout/simplecheckout.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/module/quickcheckout.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/model/d_quickcheckout/method.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/d_quickcheckout/payment.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-07-26 10:19:30 ~ IP : ::1 ----------
+REQUEST URI : /e-commerce/puhua/admin/index.php?route=common/dashboard&token=418404f7b45691e32a15f72cc31fd6f6
+MOD DETAILS:
+   modFile   : C:\xampp\htdocs\e-commerce\puhua\vqmod/xml/cc_and_bcc_emails.xml
+   id        : CC and BCC Emails
+   version   : 2.0.0.1
+   vqmver    : 2.1.5
+   author    : Soteri Panagou (panagos@gmail.com)
+
+File Name    : admin/model/sale/order.php(0)
+VQModObject::applyMod - SEARCH NOT FOUND (SKIPPED): $mail->send();
+
+----------------------------------------------------------------------
+
+

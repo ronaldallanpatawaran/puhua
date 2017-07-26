@@ -1,0 +1,17 @@
+<modification>
+    <id>VQMOD FOR TESTIMONIAL PRO</id>
+    <version>2.X</version>
+    <vqmver>2.2.0</vqmver>
+    <author>opencartart.com</author>
+    <file name="admin/controller/common/menu.php">
+        <operation>
+            <search position="after">
+                <![CDATA[$data['openbay_link_amazonus_links'] = $this->url->link('openbay/amazonus/itemlinks', 'token=' . $this->session->data['token'], 'SSL');]]>
+            </search>
+            <add>
+                <![CDATA[$data['text_testimonial'] = 'Testimonial';
+                         $data['testimonial'] = $this->url->link('catalog/oca_testimonial_pro', 'token=' . $this->session->data['token'], 'SSL');]]>
+            </add>
+        </operation>
+    </file>
+</modification>
