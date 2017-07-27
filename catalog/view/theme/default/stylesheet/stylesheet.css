@@ -6,13 +6,31 @@
 	max-width: 1130px;
 }*/
 
+@font-face{
+	font-family: "OpenSansSemiBold";
+	src: url('fonts/Opensans/OpenSans-SemiBold.ttf');
+}
+
+@font-face{
+	font-family: "OpenSansRegular";
+	src: url('fonts/Opensans/OpenSans-Regular.ttf');
+}
+
+@font-face{
+	font-family: "OpenSansBold";
+	src: url('fonts/Opensans/OpenSans-Bold.ttf');
+}
+
+
 body {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-	color: #666;
-	font-size: 12px;
-	line-height: 20px;
-	width: 100%;
+    font-family: 'OpenSansSemiBold';
+    font-weight: 400;
+    color: #3c3c3c;
+    font-size: 14px;
+    line-height: 20px;
+    width: 100%;
+    overflow-x: hidden;
+    padding-top: 130px;
 }
 h1, h2, h3, h4, h5, h6 { color: #444; }
 /* default font size */
@@ -81,11 +99,10 @@ div.required .control-label:before {
 }
 /* top */
 #top {
-	background-color: #EEEEEE;
-	border-bottom: 1px solid #e2e2e2;
-	padding: 4px 0px 3px 0;
-	margin: 0 0 20px 0;
-	min-height: 40px;
+    background-color: #272727;
+    border-bottom: 5px solid #75b743;
+    padding: 5px 0px 3px 0;
+    margin: 0 0 0px 0;
 }
 #top .container {
 	padding: 0 20px;
@@ -101,15 +118,18 @@ div.required .control-label:before {
 	background-repeat: repeat-x;
 }
 #top .btn-link, #top-links li, #top-links a {
-	color: #888;
-	text-shadow: 0 1px 0 #FFF;
+	color: #fff;
 	text-decoration: none;
+}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+    background-color: #75b743;
 }
 #top .btn-link:hover, #top-links a:hover {
 	color: #444;
 }
 #top-links .dropdown-menu a {
 	text-shadow: none;
+	color: #333;
 }
 #top-links .dropdown-menu a:hover {
 	color: #FFF;
@@ -192,18 +212,20 @@ div.required .control-label:before {
 }
 /* menu */
 #menu {
-	background-color: #229ac8;
-	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
-	background-repeat: repeat-x;
-	border-color: #1f90bb #1f90bb #145e7a;
+	background-color: #ffffff;
 	min-height: 40px;
+	margin: 0;
+	padding: 15px 0 0 0;
 }
 #menu .nav > li > a {
-	color: #fff;
+	color: #333333;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	padding: 10px 15px 10px 15px;
 	min-height: 15px;
 	background-color: transparent;
+	padding: 0;
+}
+#menu .nav > li{
+	padding: 10px 15px 10px 15px;
 }
 #menu .nav > li > a:hover, #menu .nav > li.open > a {
 	background-color: rgba(0, 0, 0, 0.1);
@@ -252,7 +274,7 @@ div.required .control-label:before {
 	font-size: 16px;
 	font-weight: 700;
 	line-height: 40px;
-	color: #fff;
+	color: #6fa049;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 #menu .btn-navbar {
@@ -309,6 +331,175 @@ div.required .control-label:before {
 #content {
 	min-height: 600px;
 }
+.ms-slide-title{
+	display: none !important;
+}
+button.btn-navbar{
+	background-image: linear-gradient(to bottom, #6fa049, #6fa049) !important;
+	background-color: #6fa049 !important;
+}
+.search:after{
+	content: url('banners/general/search.png');
+	cursor: pointer;
+}
+
+.cart:after{
+	content: url('banners/general/cart.png');
+	cursor: pointer;
+}
+
+.search_cart_div{
+	float: right !important;
+}
+.ms-slide-desc{
+	text-align: left !important;
+	color: #003e6c !important;
+	font-family: "OpenSansRegular";
+	font-size: 42px !important;
+}
+.ms-slide-desc h1{
+	color: inherit !important;
+	font-size: inherit !important;
+}
+.ms-caption{
+	width: 600px !important;
+    left: 55% !important;
+    top: 100px !important;
+}
+.btn_green{
+	background-color: #75b743;
+    color: #ffffff;
+    height: 40px;
+    width: 100px;
+    border-radius: 15px;
+    border: 0px;
+    width: 150px;
+    font-size: 14px;
+}
+#menu .nav > li > a.active{
+	border-bottom: #75b743 5px solid;
+
+}
+.breadcrumb{
+	display: none;
+}
+header{
+	position: fixed;
+    z-index: 200;
+    width: 100%;
+    top: 49px;
+    background-color: #ffffff;
+}
+#top{
+    position: fixed;
+    z-index: 200;
+    width: 100%;
+    top: 0px;
+}
+#contact_banner{
+	background: url('banners/contact/banner.jpg') center center no-repeat;
+}
+.common_banners{
+	min-height: 255px;
+	text-align: center;
+	padding-top: 4%;
+}
+.common_banners h1{
+	color: #ffffff;
+	font-size: 60px;
+	font-family: "OpenSansRegular";
+}
+.banner_navigation{
+	text-align: center;
+}
+.banner_navigation button, button.btn_common{
+	width: 200px;
+    height: 45px;
+    border-radius: 20px;
+    border: #f3f3f3 1px solid;
+    background-color: #ffffff;
+    color: #363636;
+    font-size: 14px;
+}
+.banner_navigation button.active, .banner_navigation button:hover, .banner_navigation button:active, button.btn_common:active, button.btn_common:focus, button.btn_common:active, button.btn_common:hover{
+    border: #75b743 1px solid;
+    background-color: #ffffff;
+    color: #75b743;
+}
+.page_wrapper{
+	padding: 0px;
+	width: 100%;
+}
+#geocode_col iframe{
+	width: 100% !important;
+	padding-top: 2%;
+}
+.green_labels{
+	color: #75b743 !important;
+	font-family: "OpenSansRegular";
+	font-weight: bold;
+}
+.information-contact form{
+    border: #ebebeb 1px solid;
+    padding: 25px 25px 50px 25px;
+}
+.information-contact form input, .information-contact form textarea, .information-information form input, .information-information form textarea{
+	border-radius: 15px;
+	min-height: 40px;
+}
+.information-contact .panel-heading{
+	cursor: pointer;
+}
+.information-contact form a, .information-contact .panel-heading .panel-title, .information-information .panel-heading .panel-title{
+	color: #272727 !important;
+	font-weight: bold;
+	font-family: "OpenSansBold";
+	font-size: 15px;
+}
+.information-contact .panel-group .panel-heading{
+    border-bottom: #ebebeb 1px solid;
+}
+.information-contact, .information-information{
+	background: url('banners/contact/contact_bg.png') center center no-repeat;
+}
+form label{
+	color: #3d3d3d;
+	font-size: 15px;
+	font-family: "OpenSansBold";
+	font-weight: bolder;
+}
+.information-contact .panel-heading .panel-title span, .information-information .panel-heading .panel-title span{
+	position: relative;
+    top: -7px;
+    color: #75b743;
+}
+.form-horizontal .control-label{
+	text-align: left;
+	padding-right: 0px;
+}
+.address_col{
+    margin-bottom: 10px;
+}
+.accordion{
+	margin-bottom: 10px !important;
+}
+#attachment_col{
+    min-height: 40px;
+    padding-top: 10px;
+    background-color: #f3f3f3;
+    color: #393939;
+    position: relative;
+    left: -33px;
+}
+#attachment_col input{
+	color: inherit;
+}
+#attachment_label{
+	color: #333333;
+	font-size: 14px;
+}
+/* end of content */
+
 /* footer */
 footer {
 	margin-top: 30px;
@@ -322,7 +513,7 @@ footer hr {
 	border-bottom: 1px solid #666;
 }
 footer a {
-	color: #ccc;
+	color: #dadada;
 }
 footer a:hover {
 	color: #fff;
@@ -331,17 +522,20 @@ footer h5 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
 	font-weight: bold;
-	color: #fff;
+	color: #75b743;
 }
 footer .socials a {
 	border-radius: 50%;
     background: #000;
-    color: #fff;
+    color: #dadada;
     display: inline-block;
     height: 40px;
     width: 40px;
     text-align: center;
     line-height: 40px;
+}
+footer #firstcom_url{
+	color: #146faf !important;
 }
 footer .socials a i { vertical-align: middle; font-size: 20px; }
 /* alert */
@@ -796,7 +990,31 @@ h2.price {
 /* Default Breakpoint */
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
-
+	.search_cart_div{
+		float: left !important;
+	}
+	.ms-slide-desc{
+		font-size: 20px !important;
+	}
+	.ms-caption{
+		top: 5% !important;
+	}
+	.btn_green{
+		height: 30px !important;
+		font-size: 14px !important;
+	}
+	#menu{
+		padding: 5px 0 0 0 !important;
+	}
+	.common_banners{
+	    min-height: 255px;
+    	padding-top: 100px;
+	    text-align: center;
+	    width: 100%;
+	}
+	.common_banners h1{
+		font-size: 40px;
+	}
 }
 
 /* Medium Devices, Desktops */
@@ -806,15 +1024,41 @@ h2.price {
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
+	.common_banners{
+	    min-height: 255px;
+    	padding-top: 150px;
+	    text-align: center;
+	}
 
 }
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
-
+	.ms-slide-desc{
+		font-size: 14px !important;
+	}
+	.ms-caption{
+		top: -5px !important;
+	}
+	.btn_green{
+		height: 25px !important;
+		width: 100px !important;
+		font-size: 14px !important;
+	}
 }
 
 /* Custom, iPhone Retina */ 
-@media only screen and (max-width : 320px) {
-    
+@media only screen and (max-width : 360px) {
+	.ms-slide-desc{
+		font-size: 14px !important;
+	}
+	.ms-caption{
+		top: -15px !important;
+	}
+	.btn_green{
+		height: 25px !important;
+		width: 100px !important;
+		font-size: 14px !important;
+	}
+
 }

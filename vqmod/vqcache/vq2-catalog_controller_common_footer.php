@@ -19,9 +19,15 @@ if (version_compare(VERSION, '2.0') < 0) {
 		$data['text_affiliate'] = $this->language->get('text_affiliate');
 		$data['text_special'] = $this->language->get('text_special');
 		$data['text_account'] = $this->language->get('text_account');
+		$data['text_myaccount'] = $this->language->get('text_myaccount');
 		$data['text_order'] = $this->language->get('text_order');
 		$data['text_wishlist'] = $this->language->get('text_wishlist');
 		$data['text_newsletter'] = $this->language->get('text_newsletter');
+		$data['text_product']	= $this->language->get('text_product');
+		$data['text_follow_us']	= $this->language->get('text_follow_us');
+		$data['text_all_products'] = $this->language->get('text_all_products');
+		$data['text_news']	= $this->language->get('text_news');
+		$data['text_firstcom'] = $this->language->get('text_firstcom');
 
 		$data['text_fb'] = $this->language->get('text_fb');
 		$data['text_tw'] = $this->language->get('text_tw');

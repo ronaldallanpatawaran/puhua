@@ -6,7 +6,9 @@ class ControllerInformationContact extends Controller {
 		$this->load->language('information/contact');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+		$career_information_id = 7;
 
+		$data['career'] = $this->url->link('information/information&information_id='. $career_information_id);
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			$mail = new Mail();
 			$mail->protocol = $this->config->get('config_mail_protocol');
@@ -66,11 +68,19 @@ class ControllerInformationContact extends Controller {
 		$data['text_fax'] = $this->language->get('text_fax');
 		$data['text_open'] = $this->language->get('text_open');
 		$data['text_comment'] = $this->language->get('text_comment');
+		$data['text_career'] = $this->language->get('text_career');
+		$data['text_contact_details'] = $this->language->get('text_contact_details');
+		$data['text_office_address'] = $this->language->get('text_office_address');
+		$data['text_factory_address'] = $this->language->get('text_factory_address');
+		$data['text_china_branch'] = $this->language->get('text_china_branch');
+		$data['text_malaysia_branch'] = $this->language->get('text_malaysia_branch');
 
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_contact'] = $this->language->get('entry_contact');
 		$data['entry_enquiry'] = $this->language->get('entry_enquiry');
+
+		$data['contact_url'] = $this->url->link('information/contact');
 
 		$data['button_map'] = $this->language->get('button_map');
 
@@ -185,6 +195,7 @@ class ControllerInformationContact extends Controller {
 			$data['site_key'] = '';
 		}
 
+		$data['banner'] = $this->load->controller('banner/contact');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');
