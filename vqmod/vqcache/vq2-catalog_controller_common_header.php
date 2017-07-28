@@ -2,6 +2,7 @@
 class ControllerCommonHeader extends Controller {
 	public function index() {
 		$data['title'] = $this->document->getTitle();
+		$this->document->addScript('catalog/view/javascript/Lettering.js-master/jquery.lettering.js');
 
 		if ($this->request->server['HTTPS']) {
 			$server = $this->config->get('config_ssl');
@@ -53,6 +54,7 @@ $data['extra_tags'] = $this->document->getExtraTags();
 
 		$this->load->language('common/header');
 
+
 		$data['text_home'] 		= $this->language->get('text_home');
 		$data['text_aboutus'] 	= $this->language->get('text_aboutus');
 		$data['text_services'] 	= $this->language->get('text_services');
@@ -79,7 +81,7 @@ $data['extra_tags'] = $this->document->getExtraTags();
 		$data['text_all'] 			= $this->language->get('text_all');
 
 		$data['home'] 			= $this->url->link('common/home');
-		$data['aboutus'] 		= $this->url->link('information/information&information_id=4');
+		$data['aboutus'] 		= $this->url->link('information/information&information_id=8');
 		$data['services'] 		= "#";
 		$data['products'] 		= $this->url->link('product/category');
 		$data['gallery'] 		= $this->url->link('gallery/gallery');

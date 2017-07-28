@@ -7,6 +7,29 @@ class ControllerInformationInformation extends Controller {
 
 		$this->load->model('catalog/information');
 
+		$data['information_id'] = isset($_GET['information_id']) && $_GET['information_id'] != "" ? $_GET['information_id'] : "";
+
+		$data['company_profile_active'] = "";
+		$data['our_benefits_active'] = "";
+		$data['certifications_active'] = "";
+
+		if($data['information_id'] == 8){
+			$data['company_profile_active'] = "active";
+		}else if($data['information_id'] == 9){
+			$data['our_benefits_active'] = "active";
+		}else if($data['information_id'] == 10){
+			$data['certifications_active'] = "active";
+		}
+
+		$data['contact_url'] = $this->url->link('information/contact');
+		$data['company_profile'] = $this->url->link('information/information&information_id=8');
+		$data['our_benefits'] = $this->url->link('information/information&information_id=9');
+		$data['certifications'] = $this->url->link('information/information&information_id=10');
+
+		$data['text_company_profile'] = $this->language->get('text_company_profile');
+		$data['text_our_benefits'] = $this->language->get('text_our_benefits');
+		$data['text_certifications'] = $this->language->get('text_certifications');
+
 		$career_information_id = 7;
 
 		$data['breadcrumbs'] = array();
@@ -64,6 +87,9 @@ class ControllerInformationInformation extends Controller {
 			$data['comment'] = $this->config->get('config_comment');
 
 			$data['contact_url'] = $this->url->link('information/contact');
+			$data['company_profile'] = $this->url->link('information/information&information_id=8');
+			$data['our_benefits'] = $this->url->link('information/information&information_id=9');
+			$data['certifications'] = $this->url->link('information/information&information_id=10');
 
 			if (isset($this->request->post['name'])) {
 				$data['name'] = $this->request->post['name'];
@@ -200,6 +226,7 @@ class ControllerInformationInformation extends Controller {
 
 			$data['continue'] = $this->url->link('common/home');
 
+			$data['common_banner'] = $this->load->controller('banner/about');
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
@@ -239,6 +266,7 @@ class ControllerInformationInformation extends Controller {
 
 			$this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');
 
+			$data['common_banner'] = $this->load->controller('banner/about');	
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');

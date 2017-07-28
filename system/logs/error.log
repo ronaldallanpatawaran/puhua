@@ -195,3 +195,9 @@
 2017-07-27 16:31:16 - PHP Notice:  Undefined variable: attachment in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\career.tpl on line 159
 2017-07-27 16:32:01 - PHP Notice:  Undefined variable: attachment in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\career.tpl on line 159
 2017-07-27 16:48:36 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\e-commerce\puhua\vqmod\vqcache\vq2-system_library_mail.php on line 224
+2017-07-28 14:36:37 - PHP Notice:  Undefined variable: company_profile in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\information.tpl on line 18
+2017-07-28 14:36:39 - PHP Notice:  Undefined variable: company_profile in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\information.tpl on line 18
+2017-07-28 14:36:50 - PHP Notice:  Undefined variable: company_profile in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\information.tpl on line 18
+2017-07-28 14:37:21 - PHP Notice:  Undefined variable: company_profile in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\information.tpl on line 18
+2017-07-28 14:37:23 - PHP Notice:  Undefined variable: company_profile in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\information.tpl on line 18
+2017-07-28 14:37:43 - PHP Notice:  Undefined variable: company_profile in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\information.tpl on line 18

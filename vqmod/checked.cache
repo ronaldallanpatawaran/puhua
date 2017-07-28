@@ -224,3 +224,14 @@ catalog\language\english\account\login.php
 catalog\view\theme\default\template\account\login.tpl
 catalog\view\theme\default\template\information\career.tpl
 catalog\view\theme\default\template\common\success.tpl
+catalog\controller\banner\about.php
+catalog\view\theme\default\template\banner\about.tpl
+catalog\language\english\banner\banners.php
+admin\model\catalog\url_alias.php
+admin\model\user\user_group.php
+admin\controller\design\layout.php
+admin\language\english\design\layout.php
+admin\view\template\design\layout_list.tpl
+admin\view\template\design\layout_form.tpl
+catalog\controller\module\html.php
+catalog\view\theme\default\template\module\html.tpl
