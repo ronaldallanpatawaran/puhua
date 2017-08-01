@@ -11,6 +11,23 @@ class ControllerModuleCarousel extends Controller {
 
 		$data['banners'] = array();
 
+		/* For about us carousel selection */
+
+		if(isset($_GET['information_id']) && $_GET['information_id']){
+			$information_id = $_GET['information_id'];
+			$type = isset($_GET['type']) ? $_GET['type'] : 0;
+
+			if ($information_id == 10 && $type == 0) {
+				$setting['banner_id'] = 10;
+			}else if ($information_id == 10 && $type == 1) {
+				$setting['banner_id'] = 11;
+			}else if ($information_id == 10 && $type == 2) {
+				$setting['banner_id'] = 12;
+			}else if($information_id == 8){
+				$setting['banner_id'] = 13;
+			}
+		}
+
 		$results = $this->model_design_banner->getBanner($setting['banner_id']);
 
 		foreach ($results as $result) {

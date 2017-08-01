@@ -1,5 +1,5 @@
 <?php echo $header; ?>
-<?php echo $banner; ?>
+<?php echo $content_top; ?>
 <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -14,7 +14,7 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+    <div id="content" class="<?php echo $class; ?>">
       <div class="container">
         <div class="row">
           <div class="banner_navigation col-sm-12">

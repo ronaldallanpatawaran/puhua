@@ -27,6 +27,7 @@ class ControllerCommonContentMiddle extends Controller {
 
 		if ($route == 'information/information' && isset($this->request->get['information_id'])) {
 			$this->load->model('catalog/information');
+			$information_id = $this->request->get['information_id'];
 
 			$layout_id = $this->model_catalog_information->getInformationLayoutId($this->request->get['information_id']);
 		}
@@ -56,7 +57,7 @@ class ControllerCommonContentMiddle extends Controller {
 		$data['modules'] = array();
 
 		$modules = $this->model_design_layout->getLayoutModules($layout_id, 'content_middle');
-
+		
 		foreach ($modules as $module) {
 			$part = explode('.', $module['code']);
 

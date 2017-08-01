@@ -4,7 +4,7 @@ class ControllerInformationInformation extends Controller {
 
 	public function index() {
 		$this->load->language('information/information');
-
+		$this->load->model('design/banner');
 		$this->load->model('catalog/information');
 
 		$data['information_id'] = isset($_GET['information_id']) && $_GET['information_id'] != "" ? $_GET['information_id'] : "";
@@ -45,8 +45,13 @@ class ControllerInformationInformation extends Controller {
 			$information_id = 0;
 		}
 
+		if($information_id == 8){
+			$data['company_timeline'] = $this->model_design_banner->getBanner(13);
+		}
+
 
 		if($information_id == $career_information_id){
+
 			$this->load->language('information/contact');
 			$data['banner'] = $this->load->controller('banner/contact');
 
@@ -70,17 +75,17 @@ class ControllerInformationInformation extends Controller {
 			$data['text_malaysia_branch'] = $this->language->get('text_malaysia_branch');
 			$data['text_attachment'] = $this->language->get('text_attachment');
 
-			$data['locations'] = "";
+			$data['locations'] 		= "";
 
-			$data['entry_name'] = $this->language->get('entry_name');
-			$data['entry_email'] = $this->language->get('entry_email');
-			$data['entry_contact'] = $this->language->get('entry_contact');
-			$data['entry_enquiry'] = $this->language->get('entry_enquiry');
+			$data['entry_name'] 	= $this->language->get('entry_name');
+			$data['entry_email'] 	= $this->language->get('entry_email');
+			$data['entry_contact'] 	= $this->language->get('entry_contact');
+			$data['entry_enquiry'] 	= $this->language->get('entry_enquiry');
 
-			$data['store'] = $this->config->get('config_name');
-			$data['address'] = nl2br($this->config->get('config_address'));
-			$data['config_email'] = $this->config->get('config_email');
-			$data['geocode'] = html_entity_decode($this->config->get('config_geocode'), ENT_QUOTES, 'UTF-8');
+			$data['store'] 			= $this->config->get('config_name');
+			$data['address'] 		= nl2br($this->config->get('config_address'));
+			$data['config_email'] 	= $this->config->get('config_email');
+			$data['geocode'] 		= html_entity_decode($this->config->get('config_geocode'), ENT_QUOTES, 'UTF-8');
 			$data['telephone'] = $this->config->get('config_telephone');
 			$data['fax'] = $this->config->get('config_fax');
 			$data['open'] = nl2br($this->config->get('config_open'));
@@ -231,6 +236,7 @@ class ControllerInformationInformation extends Controller {
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
+			$data['content_middle'] = $this->load->controller('common/content_middle');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 

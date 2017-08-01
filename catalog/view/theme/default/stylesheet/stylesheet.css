@@ -405,15 +405,19 @@ header{
 #contact_banner{
 	background: url('banners/contact/banner.jpg') center center no-repeat;
 }
-.common_banners{
+.banners img{
 	min-height: 255px;
 	text-align: center;
-	padding-top: 4%;
 }
-.common_banners h1{
-	color: #ffffff;
-	font-size: 60px;
-	font-family: "OpenSansRegular";
+.banner_description{
+	position: relative;
+}
+.common_banners h1, .banners h1.banner_description{
+    color: #ffffff;
+    font-size: 60px;
+    font-family: "OpenSansRegular";
+    position: relative;
+    top: -3em;
 }
 .banner_navigation{
 	text-align: center;
@@ -527,6 +531,60 @@ form label{
     margin-bottom: 15px;
 }
 
+.owl-wrapper-outer{
+	border: 0px !important;
+	box-shadow: none !important;
+}
+#about_carousel a{
+	color: #000000 !important;
+}
+#certifications span.active{
+	border-bottom: #7e9b19 2px solid;
+}
+#company_timeline{
+	background: url('banners/about/company profile/line.png') center center no-repeat;
+    min-height: 350px;
+}
+#company_timeline img{
+	max-width: 100%;
+}
+#company_timeline .owl-wrapper-outer{
+	min-height: inherit !important;
+	padding-top: 75px !important;
+}
+#company_timeline .down{
+	position: relative;
+    bottom: -135px;
+}
+#company_timeline .up{
+	position: relative;
+    top: 35px;
+}
+.timeline span.title{
+    position: absolute;
+    top: 24%;
+    left: 20%;
+    color: #ffffff;
+    font-size: 100%;
+}
+.timeline span.description p{
+	position: absolute;
+	left: -10%;
+    color: #000000;
+    font-size: 100%;
+}
+.timeline.up span.description p{
+	top: 100px;
+}
+.timeline.down span.description p{
+	top: -100px;
+}
+.left-arrow:before{
+	content: url('banners/about/company profile/arrow.png');
+}
+.owl-carousel:hover .owl-buttons div{
+	opacity: 1 !important;
+}
 /* end of content */
 
 /* footer */

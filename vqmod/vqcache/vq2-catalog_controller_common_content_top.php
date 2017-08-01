@@ -10,6 +10,7 @@ class ControllerCommonContentTop extends Controller {
 		}
 
 		$layout_id = 0;
+		$information_id = isset($_GET['information_id'])  && $_GET['information_id'] != "" ? $_GET['information_id'] : "";
 
 
 			if ($route == 'news/article' && isset($this->request->get['news_id'])) {
@@ -42,6 +43,9 @@ $this->load->model('catalog/news');
 			
 
 			$layout_id = $this->model_catalog_information->getInformationLayoutId($this->request->get['information_id']);
+			if($information_id == 7 && $information_id!=""){
+				$layout_id = 8;
+			}
 		}
 
 		if ($route == 'gallery/gallery' && isset($this->request->get['gallimage_id'])) {
@@ -67,7 +71,7 @@ $this->load->model('catalog/news');
 		$this->load->model('extension/module');
 
 		$data['modules'] = array();
-
+		
 		$modules = $this->model_design_layout->getLayoutModules($layout_id, 'content_top');
 
 		foreach ($modules as $module) {

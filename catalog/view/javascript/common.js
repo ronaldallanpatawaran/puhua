@@ -23,6 +23,15 @@ function getURLVar(key) {
 }
 
 $(document).ready(function() {
+
+	$('#company_timeline').owlCarousel({
+		items: 4,
+		autoPlay: 3000,
+		navigation: true,
+		navigationText: ['<i class="left-arrow fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
+		pagination: true
+	});
+
 	// Adding the clear Fix
 	cols1 = $('#column-right, #column-left').length;
 	
