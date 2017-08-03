@@ -30,7 +30,7 @@ class ControllerGalleryAlbum extends Controller {
 
 	if (isset($this->request->get['gcat'])) {
 		$gcat = '';
-
+		$data['gcat'] = $this->request->get['gcat'] ? $this->request->get['gcat'] : 1;
 		$parts = explode('_', (string)$this->request->get['gcat']);
 
 		$category_id = (int)array_pop($parts);
@@ -89,7 +89,7 @@ class ControllerGalleryAlbum extends Controller {
 
 	$data['categories'] = array();
 
-	$results = $this->model_catalog_gallimage->getGallCategories($category_id);
+	$results = $this->model_catalog_gallimage->getGallCategories(0);
 
 	foreach ($results as $result) {
 		$cwidth  = 500;
@@ -103,12 +103,14 @@ class ControllerGalleryAlbum extends Controller {
 			$data['categories'][] = array(
 				'name'  => $result['name'],
 				'thumb' => $image,
-				'href'  => $this->url->link('gallery/album', 'gcat=' . $this->request->get['gcat'] . '_' . $result['category_id'])
+				'category_id' => $result['category_id'],
+				'href'  => $this->url->link('gallery/album', 'gcat=' . $result['category_id'])
 			);
 		} else {
 			$data['categories'][] = array(
 				'name'  => $result['name'],
 				'thumb' => $image,
+				'category_id' => $result['category_id'],
 				'href'  => $this->url->link('gallery/album', 'gcat=' . $result['category_id'])
 			);
 		}

@@ -265,7 +265,7 @@ class ControllerNewsNcategory extends Controller {
 				$display_image = $ncategory_info['top'];
 					
 				if ($ncategory_info['image']) {
-					$data['thumb'] = $this->model_tool_image->resize($ncategory_info['image'], 100, 100);
+					$data['thumb'] = $this->model_tool_image->resize($ncategory_info['image'], 363, 195);
 				} else {
 					$data['thumb'] = '';
 				}
@@ -294,7 +294,7 @@ class ControllerNewsNcategory extends Controller {
 			if ($author_info) {
 				$data['is_author'] = true;
 				$data['author'] = $author_info['name'];
-				$data['author_image'] = ($author_info['image']) ? $this->model_tool_image->resize($author_info['image'], 80, 80) : false;
+				$data['author_image'] = ($author_info['image']) ? $this->model_tool_image->resize($author_info['image'], 363, 195) : false;
 				$authordesc = $settings['author_info'];
 				if (isset($authordesc[$this->config->get('config_language_id')])) {
 					$data['author_desc'] = html_entity_decode($authordesc[$this->config->get('config_language_id')]['description'], ENT_QUOTES, 'UTF-8');
@@ -344,8 +344,8 @@ class ControllerNewsNcategory extends Controller {
 					'limit'           => $limit 
 				);
 			}
-			$bbwidth = ($this->config->get('ncategory_bnews_image_width')) ? $this->config->get('ncategory_bnews_image_width') : 80;
-			$bbheight = ($this->config->get('ncategory_bnews_image_height')) ? $this->config->get('ncategory_bnews_image_height') : 80;
+			$bbwidth = ($this->config->get('ncategory_bnews_image_width')) ? $this->config->get('ncategory_bnews_image_width') : 363;
+			$bbheight = ($this->config->get('ncategory_bnews_image_height')) ? $this->config->get('ncategory_bnews_image_height') : 195;
 			
 			if($this->config->get('ncategory_bnews_display_elements')) {
 				$elements = $this->config->get('ncategory_bnews_display_elements');

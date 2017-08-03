@@ -30,6 +30,10 @@ class ControllerCommonContentTop extends Controller {
 			$layout_id = $this->model_catalog_category->getCategoryLayoutId(end($path));
 		}
 
+		if($route == 'product/category'){
+			$layout_id = 2;
+		}
+
 		if ($route == 'product/product' && isset($this->request->get['product_id'])) {
 			$this->load->model('catalog/product');
 
@@ -46,12 +50,13 @@ $this->load->model('catalog/news');
 			if($information_id == 7 && $information_id!=""){
 				$layout_id = 8;
 			}
+
 		}
 
 		if ($route == 'gallery/gallery' && isset($this->request->get['gallimage_id'])) {
 			$this->load->model('catalog/gallimage');
 
-			$layout_id = $this->model_catalog_gallimage->getGalleryLayoutId($this->request->get['gallimage_id']);
+			$layout_id = $this->model_design_layout->getLayout($route);
 		}
 
 		if ($route == 'gallery/album' && isset($this->request->get['gcat'])) {
@@ -67,6 +72,7 @@ $this->load->model('catalog/news');
 		if (!$layout_id) {
 			$layout_id = $this->config->get('config_layout_id');
 		}
+
 
 		$this->load->model('extension/module');
 
@@ -88,7 +94,7 @@ $this->load->model('catalog/news');
 					$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
 				}
 			}
-		}
+		}	
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/content_top.tpl')) {
 			return $this->load->view($this->config->get('config_template') . '/template/common/content_top.tpl', $data);

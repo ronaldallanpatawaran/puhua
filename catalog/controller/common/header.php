@@ -83,8 +83,7 @@ class ControllerCommonHeader extends Controller {
 		$data['aboutus'] 		= $this->url->link('information/information&information_id=8');
 		$data['services'] 		= "#";
 		$data['products'] 		= $this->url->link('product/category');
-		$data['gallery'] 		= $this->url->link('gallery/gallery');
-		$data['news']			= $this->url->link('news/article');
+		$data['news']			= $this->url->link('news/headlines');
 		$data['shop']			= $this->url->link('product/category');
 		$data['wishlist'] 		= $this->url->link('account/wishlist', '', 'SSL');
 		$data['logged'] 		= $this->customer->isLogged();
@@ -100,6 +99,7 @@ class ControllerCommonHeader extends Controller {
 		$data['contact'] 		= $this->url->link('information/contact');
 		$data['telephone'] 		= $this->config->get('config_telephone');
 		$data['search']			= $this->url->link('common/search');
+		$data['gallery']		= $this->url->link('gallery/album&gcat=1');
 
 		$status = true;
 

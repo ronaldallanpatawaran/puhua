@@ -1,4 +1,5 @@
 <?php echo $header; ?>
+<?php echo $content_top; ?>
 <div class="container">
 	<div id="content">
 		<div id="search" class="input-group">

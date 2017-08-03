@@ -23,15 +23,7 @@ function getURLVar(key) {
 }
 
 $(document).ready(function() {
-
-	$('#company_timeline').owlCarousel({
-		items: 4,
-		autoPlay: 3000,
-		navigation: true,
-		navigationText: ['<i class="left-arrow fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
-		pagination: true
-	});
-
+	
 	// Adding the clear Fix
 	cols1 = $('#column-right, #column-left').length;
 	
@@ -123,7 +115,7 @@ $(document).ready(function() {
 		} else if (cols == 1) {
 			$('#content .product-layout').attr('class', 'product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12');
 		} else {
-			$('#content .product-layout').attr('class', 'product-layout product-grid col-lg-3 col-md-3 col-sm-6 col-xs-12');
+			$('#content .product-layout').attr('class', 'product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12');
 		}
 
 		 localStorage.setItem('display', 'grid');

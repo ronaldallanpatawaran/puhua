@@ -1,4 +1,5 @@
 <?php echo $header; ?>
+<?php echo $content_top; ?>
 <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -28,12 +29,7 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?>
-        <?php if ($weight) { ?>
-        &nbsp;(<?php echo $weight; ?>)
-        <?php } ?>
-      </h1>
+    <div id="content" class="<?php echo $class; ?>">
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
         <div class="table-responsive">
           <table class="table table-bordered">
@@ -75,8 +71,8 @@
                 <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
                     <input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" class="form-control" />
                     <span class="input-group-btn">
-                    <button type="submit" data-toggle="tooltip" title="<?php echo $button_update; ?>" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
-                    <button type="button" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger" onclick="cart.remove('<?php echo $product['key']; ?>');"><i class="fa fa-times-circle"></i></button></span></div></td>
+                    <button type="submit" data-toggle="tooltip" title="<?php echo $button_update; ?>" class="btn btn-primary btn_update"><i class="fa fa-refresh"></i></button>
+                    <button type="button" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger btn_delete" onclick="cart.remove('<?php echo $product['key']; ?>');"><i class="fa fa-times-circle"></i></button></span></div></td>
                 <td class="text-right"><?php echo $product['price']; ?></td>
                 <td class="text-right"><?php echo $product['total']; ?></td>
               </tr>
@@ -109,15 +105,15 @@
             <?php foreach ($totals as $total) { ?>
             <tr>
               <td class="text-right"><strong><?php echo $total['title']; ?>:</strong></td>
-              <td class="text-right"><?php echo $total['text']; ?></td>
+              <td class="text-right total"><?php echo $total['text']; ?></td>
             </tr>
             <?php } ?>
           </table>
         </div>
       </div>
       <div class="buttons">
-        <div class="pull-left"><a href="<?php echo $continue; ?>" class="btn btn-default"><?php echo $button_shopping; ?></a></div>
-        <div class="pull-right"><a href="<?php echo $checkout; ?>" class="btn btn-primary"><?php echo $button_checkout; ?></a></div>
+        <div class="pull-left"><a href="<?php echo $continue; ?>"><button style="background-color: #252525;" class="btn_green"><?php echo $button_shopping; ?></button></a></div>
+        <div class="pull-right"><a href="<?php echo $checkout; ?>"><button class="btn_green"><?php echo $button_checkout; ?></button></a></div>
       </div>
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>

@@ -1,4 +1,5 @@
 <?php echo $header; ?>
+<?php echo $content_top; ?>
 <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -16,7 +17,7 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+    <div id="content" class="<?php echo $class; ?>">
       <h2><?php echo $text_my_account; ?></h2>
       <ul class="list-unstyled">
         <li><a href="<?php echo $edit; ?>"><?php echo $text_edit; ?></a></li>

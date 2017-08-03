@@ -1,3 +1,4 @@
+
 <div id="login">
   <div class="col-sm-6 text-left">
 	<label class="col-sm-3" for="input-login-email"><?php echo $entry_email; ?></label>
@@ -5,6 +6,7 @@
 	  <input type="text" name="email" value="" class="form-control" id="input-login-email" />
 	</div>
   </div>
+  <br><br>
   <div class="col-sm-6 text-left">
 	<label class="col-sm-3" for="input-login-password"><?php echo $entry_password; ?> <a href="<?php echo $forgotten; ?>" title="<?php echo $text_forgotten; ?>" data-toggle="tooltip"><i class="fa fa-question-circle"></i></a></label>
 	<div class="col-sm-9">

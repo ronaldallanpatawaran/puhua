@@ -93,12 +93,12 @@ class ControllerNewsArticle extends Controller {
 		if (isset($this->request->get['news_id'])) {
 			$news_id = (int)$this->request->get['news_id'];
 		} else {
-			$news_id = 0;
+			$news_id = 1;
 		}
 		$this->document->addLink($this->url->link('news/article', 'news_id=' . $news_id), 'canonical');
 			
 		$news_info = $this->model_catalog_news->getNewsStory($news_id);
-			
+				
 		if ($news_info) {
 				if ($news_info['ctitle']) {
 					$this->document->setTitle($news_info['ctitle']); 

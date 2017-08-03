@@ -1,5 +1,18 @@
 <?php echo $header; ?>
+<?php echo $content_top; ?>
 <div class="container">
+  <div class="row">
+    <?php if ($categories) { ?>
+      <div class="row">
+        <div class="banner_navigation col-sm-12">
+        <?php foreach ($categories as $category) { ?>
+          <?php $class = $category['category_id'] == $gcat ? "active" : ""; ?>
+          <a href="<?php echo $category['href']; ?>"><button class="<?php echo $class; ?>"><?php echo $category['name']; ?></button></a> &nbsp;
+        <?php } ?>
+        </div>  
+      </div>
+      <?php } ?>
+  </div>
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
@@ -11,28 +24,14 @@
     <?php } elseif ($column_left || $column_right) { ?>
     <?php $class = 'col-sm-9'; ?>
     <?php } else { ?>
-    <?php $class = 'col-sm-12'; ?>
+    <?php $class = 'col-sm-10 col-sm-offset-1'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
-      <?php if ($categories) { ?>
-      <h3><?php echo $text_category; ?></h3>
-      <div class="row">
-        <?php foreach ($categories as $category) { ?>
-        <div class="col-sm-4">
-          <div class="image text-center"><a href="<?php echo $category['href']; ?>"><img src="<?php echo $category['thumb']; ?>" alt="<?php echo $category['name']; ?>" title="<?php echo $category['name']; ?>" class="img-responsive" /></a></div>
-          <div class="name text-center"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></div>
-        </div>
-        <?php } ?>
-      </div>
-      <?php } ?>
+    <div id="content" class="<?php echo $class; ?>">
       <?php if ($gallalbums) { ?>
-      <h3><?php echo $text_album; ?></h3>
       <div class="row">
         <?php foreach ($gallalbums as $gallalbum) { ?>
-        <div class="col-sm-4">
+        <div class="col-md-3">
           <div class="image text-center"><a href="<?php echo $gallalbum['href']; ?>"><img src="<?php echo $gallalbum['thumb']; ?>" alt="<?php echo $gallalbum['name']; ?>" title="<?php echo $gallalbum['name']; ?>" /></a></div>
-          <div class="name text-center"><a href="<?php echo $gallalbum['href']; ?>"><?php echo $gallalbum['name']; ?></a></div>
         </div>
         <?php } ?>
       </div>

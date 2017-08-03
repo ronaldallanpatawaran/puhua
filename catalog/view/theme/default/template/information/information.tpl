@@ -48,6 +48,28 @@
           </div>
         <?php }; ?>
           </div>
+          <div id="company_clients_logo" class="col-xs-12">
+            <?php if($company_clients): ?>
+              <?php foreach ($company_clients as $client) {
+                echo "<div class='col-md-2 col-sm-4 col-xs-2'><img class='img-responsive' src='image/".$client['image']."'></div>";
+              } ?>
+            <?php endif; ?>
+        </div>
+
+        <div id="company_testimonial_section" class="col-xs-12">
+        <hr>
+        <h3 class="about_us_section_title"><?php echo $text_testimonials; ?></h3>
+          <?php 
+            if($testimonials):
+              foreach ($testimonials as $testimonial) {
+                echo "<div class='testimonials col-md-6 col-xs-12'><p>" . html_entity_decode($testimonial['text']) . "</p><br><span class='author'>".$testimonial['author']."</span><br><span class='date_added'>".$testimonial['date_added']."</span></div>";
+              }
+            endif;
+           ?>
+           <div class="col-md-12">
+             <br>
+             <a href="<?php echo $testimonial_link; ?>"><button class="btn_green"><?php echo $text_see_more; ?></button></a>
+           </div> 
         </div>
       <?php } ?>
       <?php if($information_id == 9){ echo $content_bottom; } ?>
@@ -61,4 +83,15 @@
     </div>
   </div>
 </div>
+</div>
 <?php echo $footer; ?>
+
+<script type="text/javascript">
+    $('#company_timeline').owlCarousel({
+    items: 4,
+    autoPlay: 3000,
+    navigation: true,
+    navigationText: ['<i class="left-arrow fa-5x"></i>', '<i class="right-arrow fa-5x"></i>'],
+    pagination: true
+  });
+</script>

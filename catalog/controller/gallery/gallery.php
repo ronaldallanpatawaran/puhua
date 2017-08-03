@@ -49,6 +49,7 @@ class ControllerGalleryGallery extends Controller {
 		} 
 
 		$gallimage_info = $this->model_catalog_gallimage->getGallalbum($gallimage_id);
+		
 
 		if ($gallimage_info) {
 			$this->document->setTitle($gallimage_info['meta_title']);
@@ -109,8 +110,10 @@ class ControllerGalleryGallery extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/gallery/gallery.tpl')) {
+
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/gallery/gallery.tpl', $data));
 			} else {
+
 				$this->response->setOutput($this->load->view('default/template/gallery/gallery.tpl', $data));
 			}
 		} else {
@@ -137,6 +140,7 @@ class ControllerGalleryGallery extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
+
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/error/not_found.tpl', $data));
 			} else {
 				$this->response->setOutput($this->load->view('default/template/error/not_found.tpl', $data));

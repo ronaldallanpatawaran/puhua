@@ -46,7 +46,43 @@ class ControllerInformationInformation extends Controller {
 		}
 
 		if($information_id == 8){
-			$data['company_timeline'] = $this->model_design_banner->getBanner(13);
+			$this->load->model('catalog/oca_testimonial');
+			$this->load->model('tool/image');
+
+			$data['text_testimonials'] 	= $this->language->get('text_testimonials');
+			$data['text_see_more']		= $this->language->get('text_see_more');
+			$data['company_timeline']	= $this->model_design_banner->getBanner(13);
+			$data['company_clients'] 	= $this->model_design_banner->getBanner(14);
+			$data['testimonials'] 		= array();
+
+			$data['testimonial_link']	= $this->url->link('information/testimonial');
+
+			$filter_data = array(
+				'sort'               => 'p.sort_order',
+				'order'              => 'DESC',
+				'start'              => 0,
+				'limit'              => 6
+			);
+
+			$testimonial_total = $this->model_catalog_oca_testimonial->getTotalTestimonials($filter_data);
+
+			$results = $this->model_catalog_oca_testimonial->getTestimonials($filter_data);
+			foreach ($results as $result) {
+				if ($result['image']) {
+					$image = $this->model_tool_image->resize($result['image'], 120 , 120);
+				} else {
+					$image = $this->model_tool_image->resize('placeholder.png', 120 , 120);
+				}
+
+				$data['testimonials'][] = array(
+					'testimonial_id'  => $result['testimonial_id'],
+					'thumb'           => $image,
+					'author'          => $result['author'],
+					'text'            =>  html_entity_decode($result['text'], ENT_QUOTES, 'UTF-8'),
+					'date_added'	  => date('Y-m-d', strtotime($result['date_added']))
+				);
+			}
+
 		}
 
 
@@ -57,7 +93,7 @@ class ControllerInformationInformation extends Controller {
 
 			$data['heading_title'] = $this->language->get('heading_title');
 
-			$data['geocode'] = "";
+			$data['geocode'] = "";	
 			$data['text_location'] = $this->language->get('text_location');
 			$data['text_store'] = $this->language->get('text_store');
 			$data['text_contact'] = $this->language->get('text_contact');

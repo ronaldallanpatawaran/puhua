@@ -287,3 +287,114 @@
 2017-07-31 17:14:34 - PHP Notice:  Undefined variable: class in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\information.tpl on line 20
 2017-07-31 17:15:36 - PHP Notice:  Undefined variable: class in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\information.tpl on line 20
 2017-07-31 17:16:00 - PHP Notice:  Undefined variable: class in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\information.tpl on line 20
+2017-08-01 10:14:42 - PHP Notice:  Undefined variable: company_client in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\information.tpl on line 52
+2017-08-01 10:41:49 - PHP Notice:  Undefined variable: sort in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\information\information.php on line 54
+2017-08-01 10:41:49 - PHP Notice:  Undefined variable: order in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\information\information.php on line 55
+2017-08-01 10:41:49 - PHP Notice:  Undefined variable: page in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\information\information.php on line 56
+2017-08-01 10:41:49 - PHP Notice:  Undefined variable: limit in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\information\information.php on line 56
+2017-08-01 10:41:49 - PHP Notice:  Undefined variable: limit in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\information\information.php on line 57
+2017-08-01 10:47:02 - PHP Notice:  Error: Could not load model C:\xampp\htdocs\e-commerce\puhua/catalog/model/oca_testimonial.php! in C:\xampp\htdocs\e-commerce\puhua\vqmod\vqcache\vq2-system_engine_loader.php on line 24
+2017-08-01 10:47:47 - PHP Notice:  Error: Could not load model C:\xampp\htdocs\e-commerce\puhua/catalog/model/catalog/tool_image.php! in C:\xampp\htdocs\e-commerce\puhua\vqmod\vqcache\vq2-system_engine_loader.php on line 24
+2017-08-01 11:46:47 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\e-commerce\puhua\admin\model\catalog\gallimage.php on line 19
+2017-08-01 11:49:27 - PHP Notice:  Undefined variable: setting in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\gallery\gallery.php on line 134
+2017-08-01 11:49:27 - PHP Notice:  Undefined index: banner_id in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\module\banner.php on line 15
+2017-08-01 11:50:23 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\e-commerce\puhua\admin\model\catalog\gallimage.php on line 108
+2017-08-01 11:54:09 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\e-commerce\puhua\admin\model\catalog\gallimage.php on line 108
+2017-08-01 13:44:58 - PHP Notice:  Undefined variable: banner in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\gallery\album.tpl on line 2
+2017-08-01 13:45:21 - PHP Notice:  Undefined variable: banners in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\gallery\album.tpl on line 2
+2017-08-01 13:45:49 - PHP Notice:  Undefined index: banners in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\gallery\album.php on line 42
+2017-08-01 13:47:36 - PHP Notice:  Undefined variable: setting in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\gallery\album.php on line 36
+2017-08-01 13:47:36 - PHP Notice:  Undefined variable: setting in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\gallery\album.php on line 36
+2017-08-01 13:47:37 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in C:\xampp\htdocs\e-commerce\puhua\vqmod\vqcache\vq2-system_library_image.php on line 242
+2017-08-01 13:47:37 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in C:\xampp\htdocs\e-commerce\puhua\vqmod\vqcache\vq2-system_library_image.php on line 251
+2017-08-01 13:47:37 - PHP Warning:  imagefilledrectangle() expects parameter 1 to be resource, boolean given in C:\xampp\htdocs\e-commerce\puhua\vqmod\vqcache\vq2-system_library_image.php on line 254
+2017-08-01 13:47:37 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in C:\xampp\htdocs\e-commerce\puhua\vqmod\vqcache\vq2-system_library_image.php on line 256
+2017-08-01 13:57:56 - PHP Notice:  Undefined variable: banners in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\gallery\album.tpl on line 2
+2017-08-01 14:18:33 - PHP Notice:  Undefined index: gcat in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\gallery\album.php on line 64
+2017-08-01 14:18:33 - PHP Notice:  Undefined index: gcat in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\gallery\album.php on line 75
+2017-08-01 14:18:33 - PHP Notice:  Undefined index: gcat in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\gallery\album.php on line 106
+2017-08-01 14:18:33 - PHP Notice:  Undefined index: gcat in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\gallery\album.php on line 166
+2017-08-01 14:19:03 - PHP Notice:  Undefined index: gcat in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\gallery\album.php on line 64
+2017-08-01 14:19:03 - PHP Notice:  Undefined index: gcat in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\gallery\album.php on line 75
+2017-08-01 14:19:03 - PHP Notice:  Undefined index: gcat in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\gallery\album.php on line 106
+2017-08-01 14:19:03 - PHP Notice:  Undefined index: gcat in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\gallery\album.php on line 166
+2017-08-01 14:53:45 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\e-commerce\puhua\admin\model\catalog\gallimage.php on line 19
+2017-08-01 14:53:53 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\e-commerce\puhua\admin\model\catalog\gallimage.php on line 19
+2017-08-01 14:54:58 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\e-commerce\puhua\admin\model\catalog\gallimage.php on line 19
+2017-08-01 14:55:07 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\e-commerce\puhua\admin\model\catalog\gallimage.php on line 19
+2017-08-01 14:55:15 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\e-commerce\puhua\admin\controller\catalog\gallimage.php on line 391
+2017-08-01 14:55:20 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\e-commerce\puhua\admin\model\catalog\gallimage.php on line 19
+2017-08-01 14:55:50 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\e-commerce\puhua\admin\model\catalog\gallimage.php on line 19
+2017-08-01 14:57:10 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\e-commerce\puhua\admin\model\catalog\gallimage.php on line 19
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: ctitle in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 103
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 106
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: meta_desc in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 108
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: meta_key in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 109
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 120
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 124
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: gal_slider_h in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 253
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: gal_slider_w in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 254
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: acom in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 255
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 256
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: description in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 257
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: cfield1 in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 260
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: cfield2 in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 261
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: cfield3 in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 262
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: cfield4 in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 263
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: date_added in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 264
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: date_updated in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 265
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: nauthor_id in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 267
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: ntags in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 286
+2017-08-01 17:25:54 - PHP Notice:  Undefined index: image in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 309
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: ctitle in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 106
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 109
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: meta_desc in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 111
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: meta_key in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 112
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 123
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 127
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: gal_slider_h in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 256
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: gal_slider_w in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 257
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: acom in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 258
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 259
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: description in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 260
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: cfield1 in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 263
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: cfield2 in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 264
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: cfield3 in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 265
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: cfield4 in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 266
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: date_added in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 267
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: date_updated in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 268
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: nauthor_id in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 270
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: ntags in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 289
+2017-08-01 17:26:53 - PHP Notice:  Undefined index: image in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 312
+2017-08-02 9:25:18 - PHP Notice:  Undefined index: news_id in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 199
+2017-08-02 9:26:24 - PHP Notice:  Undefined index: news_id in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 199
+2017-08-02 9:26:28 - PHP Notice:  Undefined index: news_id in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\news\article.php on line 199
+2017-08-02 10:22:37 - PHP Notice:  Undefined index: product_id in C:\xampp\htdocs\e-commerce\puhua\vqmod\vqcache\vq2-catalog_controller_common_content_top.php on line 36
+2017-08-02 13:31:18 - PHP Notice:  Undefined variable: categories in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\product\product.tpl on line 20
+2017-08-02 13:36:34 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:36:34 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:36:34 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:38:13 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:38:13 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:38:13 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:38:55 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:38:55 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:38:55 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:42:09 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:42:09 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:42:09 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:42:11 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:42:11 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:42:11 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:42:14 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:42:14 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:42:14 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\product.php on line 84
+2017-08-02 13:55:49 - PHP Notice:  Undefined variable: path_id in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\category.php on line 77
+2017-08-02 13:55:49 - PHP Notice:  Undefined variable: path_id in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\category.php on line 82
+2017-08-02 13:56:00 - PHP Notice:  Undefined variable: path_id in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\category.php on line 82
+2017-08-02 13:56:01 - PHP Notice:  Undefined variable: path_id in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\product\category.php on line 82
+2017-08-02 14:11:40 - PHP Notice:  Array to string conversion in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\product\category.tpl on line 36
+2017-08-02 14:11:40 - PHP Notice:  Array to string conversion in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\product\category.tpl on line 36
+2017-08-02 14:11:40 - PHP Notice:  Array to string conversion in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\product\category.tpl on line 36
+2017-08-02 14:50:57 - PHP Notice:  Undefined variable: content_top in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\common\search.tpl on line 2
+2017-08-02 16:14:27 - PHP Notice:  Undefined index: attribute_group_id in C:\xampp\htdocs\e-commerce\puhua\admin\model\catalog\attribute.php on line 6
