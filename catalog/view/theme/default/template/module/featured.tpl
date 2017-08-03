@@ -1,4 +1,17 @@
-<h3><?php echo $heading_title; ?></h3>
+<br><br>
+<div class="col-md-12">
+    <center>
+        <div class="hr_col col-sm-3">
+          <hr>
+        </div>
+        <div class="col-sm-6"><h1 class="information_title"><?php echo strtoupper($heading_title); ?></h1></div>
+        <div class="hr_col col-sm-3">
+          <hr>
+        </div>
+  </center>
+    <br>
+</div>
+<br>
 <div class="row">
   <?php foreach ($products as $product) { ?>
   <div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -31,12 +44,19 @@
         </p>
         <?php } ?>
       </div>
-      <div class="button-group">
+<!--       <div class="button-group">
         <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
         <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
         <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>
-      </div>
+      </div> -->
     </div>
   </div>
   <?php } ?>
+  <br>
+  <div class="row">
+    <div class="col-xs-12">
+      <center><a href="<?php echo $shop_link; ?>"><button style="height: 50px; width: 180px;" class="btn_green">SHOP NOW</button></center></a>
+    </div>
+  </div>
+  <br>
 </div>

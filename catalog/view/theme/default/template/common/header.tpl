@@ -48,9 +48,11 @@
     <?php echo $language; ?>
     <div id="top-links" class="nav pull-right">
       <ul class="list-inline">
-        <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone; ?></span></li>
         <li>
-          <a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $text_wishlist; ?>"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_wishlist; ?></span></a>
+          <a href="<?php echo $contact; ?>" id="wishlist-total" title="<?php echo $text_contact; ?>"> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_contact; ?></span></a>&nbsp;<span style="color: #939393;">
+        </li>
+        <li id="register_or_login">
+          <a href="<?php echo $register; ?>" id="wishlist-total" title="<?php echo $text_register; ?>"> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_register; ?></span></a>&nbsp;<span style="color: #939393;">OR</span>&nbsp;<a href="<?php echo $login; ?>" id="wishlist-total" title="<?php echo $text_login; ?>"> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_login; ?></span></a>
         </li>
       </ul>
     </div>

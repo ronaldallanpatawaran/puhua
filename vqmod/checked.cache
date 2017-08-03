@@ -418,3 +418,11 @@ admin\model\payment\pp_express.php
 admin\controller\payment\bank_transfer.php
 catalog\model\payment\cod.php
 catalog\language\english\payment\cod.php
+admin\controller\module\featured.php
+admin\view\template\module\featured.tpl
+catalog\controller\module\featured.php
+catalog\language\english\module\featured.php
+catalog\view\theme\default\template\module\featured.tpl
+catalog\controller\account\register.php
+catalog\language\english\account\register.php
+catalog\view\theme\default\template\account\register.tpl

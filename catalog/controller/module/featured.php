@@ -77,6 +77,8 @@ class ControllerModuleFeatured extends Controller {
 			}
 		}
 
+		$data['shop_link'] = $this->url->link('product/category');
+
 		if ($data['products']) {
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/featured.tpl')) {
 				return $this->load->view($this->config->get('config_template') . '/template/module/featured.tpl', $data);
