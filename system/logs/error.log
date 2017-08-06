@@ -398,3 +398,7 @@
 2017-08-02 14:11:40 - PHP Notice:  Array to string conversion in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\product\category.tpl on line 36
 2017-08-02 14:50:57 - PHP Notice:  Undefined variable: content_top in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\common\search.tpl on line 2
 2017-08-02 16:14:27 - PHP Notice:  Undefined index: attribute_group_id in C:\xampp\htdocs\e-commerce\puhua\admin\model\catalog\attribute.php on line 6
+2017-08-04 16:06:22 - PHP Notice:  Undefined variable: date_day_added in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\news\article.tpl on line 38
+2017-08-04 16:06:22 - PHP Notice:  Undefined variable: date_month_added in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\news\article.tpl on line 38
+2017-08-04 17:24:01 - PHP Notice:  Undefined variable: blogs in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\gallery\album.tpl on line 30
+2017-08-04 17:24:20 - PHP Notice:  Undefined variable: blogs in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\gallery\album.tpl on line 30

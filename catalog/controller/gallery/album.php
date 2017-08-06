@@ -19,6 +19,10 @@ class ControllerGalleryAlbum extends Controller {
 		'href' => $this->url->link('gallery/album')
 	);
 
+	if(isset($_GET['gcat']) && $_GET['gcat'] == 3){
+		$this->response->redirect($this->url->link('news/headlines'));
+	}
+
 	$data['text_gallery'] = $this->language->get('text_gallery');
 	$data['text_category'] = $this->language->get('text_category');
 	$data['text_album'] = $this->language->get('text_album');
@@ -99,6 +103,7 @@ class ControllerGalleryAlbum extends Controller {
 		} else {
 			$image = $this->model_tool_image->resize('placeholder.png', $cwidth, $cheight);
 		}
+		$href = $this->url->link('news/headlines');
 		if($category_id != 0) {
 			$data['categories'][] = array(
 				'name'  => $result['name'],
@@ -115,6 +120,8 @@ class ControllerGalleryAlbum extends Controller {
 			);
 		}
 	}
+
+
 
 	$data['gallalbums'] = array();
 		
@@ -176,6 +183,7 @@ class ControllerGalleryAlbum extends Controller {
 	$data['content_bottom'] = $this->load->controller('common/content_bottom');
 	$data['footer'] = $this->load->controller('common/footer');
 	$data['header'] = $this->load->controller('common/header');
+
 
     if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/gallery/album.tpl')) {
 		$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/gallery/album.tpl', $data));

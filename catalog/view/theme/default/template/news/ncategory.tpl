@@ -45,21 +45,29 @@
   </div>
   <?php } ?>
 <?php } ?>
-<?php if ($article) { ?>
-<div class="col-md-4">
+<?php 
+	if ($article) { 
+		$counter = 0;
+?>
+
 	<div class="bnews-list<?php if ($display_style) { ?> bnews-list-2<?php } ?>">
 		<?php foreach ($article as $articles) { ?>
-					<?php 
-						if ($articles['date_added']) { 
-							$date_month_added = date('M', strtotime($articles['date_added']));
-							$date_day_added = date('d', strtotime($articles['date_added']));
-						}
+		<?php 
+			if ($articles['date_added']) { 
+				$date_month_added = date('M', strtotime($articles['date_added']));
+				$date_day_added = date('d', strtotime($articles['date_added']));
+			}
 
-					?>
+			$counter++;
+
+		?>
+		<div class="col-md-4">
 			<div class="artblock<?php if ($display_style) { ?> artblock-2<?php } ?>">
 				<?php if ($articles['thumb']) { ?>
 					<a href="<?php echo $articles['href']; ?>"><img class="article-image" align="left" src="<?php echo $articles['thumb']; ?>" title="<?php echo $articles['name']; ?>" alt="<?php echo $articles['name']; ?>" /></a>
 				<?php } ?>
+				<div class="date"><?php echo $date_day_added . "<br>" .  $date_month_added; ?></div>
+				<div class="caption">
 				<?php if ($articles['custom1']) { ?>
 					<div class="custom1"><?php echo $articles['custom1']; ?></div>
 				<?php } ?>
@@ -88,12 +96,17 @@
 				  <?php } ?>
 				<?php } ?>
 				<?php if ($articles['button']) { ?>
-					<div class="blog-button"><a class="button" href="<?php echo $articles['href']; ?>"><?php echo $button_more; ?></a></div>
+					<br>
+					<div class="blog-button">
+						<a href="<?php echo $articles['href']; ?>"><button><?php echo $button_more; ?></button></a>
+					</div>
 				<?php } ?>
+				</div>
 			</div>
 		</div>
+		<?php if($counter % 3 == 0){  echo '<div class="clearfix"></div>'; } ?>
 		<?php } ?>
-  </div>
+  </div	>
   <div class="row">
         <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
         <div class="col-sm-6 text-right"><?php echo $pag_results; ?></div>

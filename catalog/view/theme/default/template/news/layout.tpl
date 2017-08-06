@@ -1,4 +1,4 @@
-<?php echo $header; ?>
+  <?php echo $header; ?>
 <?php echo $content_top; ?>
 <div class="container">
   <ul class="breadcrumb">
@@ -15,7 +15,6 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>">
-      <h1><?php echo $heading_title; ?></h1>
       <?php echo $description; ?></div>
       <div class="row">
         <div class="col-sm-12">

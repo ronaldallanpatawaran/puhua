@@ -304,8 +304,8 @@ class ControllerNewsArticle extends Controller {
 				
 		$data['news_related'] = $this->language->get('news_related');
 		
-		$bwidth = ($this->config->get('ncategory_bnews_thumb_width')) ? $this->config->get('ncategory_bnews_thumb_width') : 230;
-        $bheight = ($this->config->get('ncategory_bnews_thumb_height')) ? $this->config->get('ncategory_bnews_thumb_height') : 230;
+		$bwidth = ($this->config->get('ncategory_bnews_thumb_width')) ? $this->config->get('ncategory_bnews_thumb_width') : 1100;
+        $bheight = ($this->config->get('ncategory_bnews_thumb_height')) ? $this->config->get('ncategory_bnews_thumb_height') : 450;
 		if ($news_info['image']) {
 				$data['thumb'] = $this->model_tool_image->resize($news_info['image'], $bwidth, $bheight);
 				$data['popup'] = $this->model_tool_image->resize($news_info['image'], 600, 600);
@@ -524,12 +524,15 @@ class ControllerNewsArticle extends Controller {
 		foreach ($results as $result) {
 			$replies = array();
 			$allreplies = $this->model_catalog_ncomments->getCommentsByNewsId($data['news_id'], 0, 1000, $result['ncomment_id']);
+			$date_month_added = date('M', strtotime($reply['date_added']));
+			$date_day_added = date('d', strtotime($reply['date_added']));
+			$date = $date_day_added . "<br>" .  $date_month_added;
 			foreach ($allreplies as $reply) {
 				$replies[] = array (
         		'ncomment_id' => $reply['author'],
         		'author'      => $reply['author'],
 				'text'        => strip_tags($reply['text']),
-        		'date_added'  => date('d.m.Y', strtotime($reply['date_added']))
+        		'date_added'  => $date
 				);
 			}
         	$data['comment'][] = array(
@@ -537,7 +540,7 @@ class ControllerNewsArticle extends Controller {
         		'author'      => $result['author'],
 				'replies'     => $replies,
 				'text'        => strip_tags($result['text']),
-        		'date_added'  => date('d.m.Y', strtotime($result['date_added']))
+        		'date_added'  => $date
         	);
 		}
 			$limit = 10;
@@ -548,7 +551,7 @@ class ControllerNewsArticle extends Controller {
 			$pagination->url = $this->url->link('news/article', 'news_id=' . $data['news_id'] . '&page={page}');
 
 			$data['pagination'] = $pagination->render();
-			
+			$data['blogs'] = $this->url->link('news/headlines');
 			$data['pag_results'] = sprintf($this->language->get('text_pagination'), ($comment_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($comment_total - $limit)) ? $comment_total : ((($page - 1) * $limit) + $limit), $comment_total, ceil($comment_total / $limit));
 			
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/news/article.tpl')) {

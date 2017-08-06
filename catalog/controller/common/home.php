@@ -9,6 +9,7 @@ class ControllerCommonHome extends Controller {
 			$this->document->addLink(HTTP_SERVER, 'canonical');
 		}
 
+		$data['shop']		= $this->url->link('product/category');
 		$data['news']		= $this->url->link('news/headlines');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');

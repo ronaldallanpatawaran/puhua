@@ -19,6 +19,9 @@
 			<!-- ShareThis Button END -->
 		</div>
 	</div>
+	<div class="col-md-9 col-md-offset-2">
+		<a href="<?php echo $blogs; ?>"><label id="backtoblogs" class="pull-right">back to blogs</label></a>
+	</div>
 	<?php if ($thumb) { ?>
 		<a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="colorbox"><img style="padding: 15px; " align="left" src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image-article" /></a>
 	<?php } ?>
@@ -34,6 +37,17 @@
 	<?php if ($custom4) { ?>
 		<div class="article-custom-4"><?php echo $custom4; ?></div>
 	<?php } ?>
+	<?php 
+		if ($date_added) { 
+			$date_month_added = date('M', strtotime($date_added));
+			$date_day_added = date('d', strtotime($date_added));
+		}
+
+	 ?>
+	<div class="article-title col-md-12">
+		<div style="left: auto;" class="date"><?php echo $date_day_added . "<br>" .  $date_month_added; ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
+		<p><h1><?php echo strtoupper($heading_title); ?>d</h1></p>
+	</div>
 	<?php echo $description; ?>
 	<?php if ($article_videos) { ?>
 		<div class="content blog-videos">
