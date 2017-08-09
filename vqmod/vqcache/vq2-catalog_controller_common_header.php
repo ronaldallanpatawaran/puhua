@@ -82,7 +82,7 @@ $data['extra_tags'] = $this->document->getExtraTags();
 
 		$data['home'] 			= $this->url->link('common/home');
 		$data['aboutus'] 		= $this->url->link('information/information&information_id=8');
-		$data['services'] 		= "#";
+		$data['services'] 		= $this->url->link('information/information&information_id=12');
 		$data['products'] 		= $this->url->link('product/category');
 		$data['news']			= $this->url->link('news/headlines');
 		$data['shop']			= $this->url->link('product/category');

@@ -7,16 +7,18 @@
     <?php } ?>
   </ul>
   <div class="row">
-    <div class="banner_navigation col-sm-12">
-      <a href="<?php echo $company_profile; ?>">
-        <button class="<?php echo $company_profile_active; ?>"><?php echo $text_company_profile; ?></button>
-      </a>&nbsp;
-      <a href="<?php echo $our_benefits; ?>"><button class="<?php echo $our_benefits_active; ?>"><?php echo $text_our_benefits; ?>
-        </button>
-      </a>&nbsp;
-      <a href="<?php echo $certifications; ?>"><button class="<?php echo $certifications_active; ?>"><?php echo $text_certifications; ?></button>
-      </a>
-    </div>
+    <?php if($information_id != 12){ ?>
+      <div class="banner_navigation col-sm-12">
+        <a href="<?php echo $company_profile; ?>">
+          <button class="<?php echo $company_profile_active; ?>"><?php echo $text_company_profile; ?></button>
+        </a>&nbsp;
+        <a href="<?php echo $our_benefits; ?>"><button class="<?php echo $our_benefits_active; ?>"><?php echo $text_our_benefits; ?>
+          </button>
+        </a>&nbsp;
+        <a href="<?php echo $certifications; ?>"><button class="<?php echo $certifications_active; ?>"><?php echo $text_certifications; ?></button>
+        </a>
+      </div>
+    <?php } ?>
     <div id="content" class="col-sm-12">
       <center>
         <div class="hr_col col-sm-4">
@@ -83,6 +85,21 @@
     </div>
   </div>
 </div>
+<div id="information_services">
+  <?php if($information_id == 12){ echo $content_service; ?>
+  <div class="container">
+    <div class="col-md-12">
+        <div class="col-md-6">
+          asdasd
+        </div>
+        <div class="col-md-6">
+          asdasd
+        </div>
+    </div>
+  </div>
+  <?php } ?>
+</div>
+
 </div>
 <?php echo $footer; ?>
 

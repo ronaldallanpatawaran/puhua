@@ -17,6 +17,7 @@ class ControllerModuleBanner extends Controller {
 		foreach ($results as $result) {
 			if (is_file(DIR_IMAGE . $result['image'])) {
 				$data['banners'][] = array(
+					'module_id' => $result['banner_image_id'],
 					'title' => $result['title'],
 					'link'  => $result['link'],
 					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']),
@@ -24,7 +25,7 @@ class ControllerModuleBanner extends Controller {
 				);
 			}
 		}
-
+		
 		$data['module'] = $module++;
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/banner.tpl')) {

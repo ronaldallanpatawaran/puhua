@@ -534,12 +534,13 @@ form label{
 	color: #69b923;
 }
 
-.boxes div{
+.boxes > div{
 	background: #ebebeb;
-    height: 115px;
+    height: 130px;
     border-radius: 35px;
     border: #cccccc 1px solid;
     margin-bottom: 15px;
+    padding: 8%;
 }
 
 .owl-wrapper-outer{
@@ -831,6 +832,52 @@ li.sub_categories{
 .bnews-list .artblock .description{
 	max-height: 80px;
     overflow-y: hidden;
+}
+.information-information .panel-primary{
+	border-color: #cccccc !important;
+    border-radius: 10px;
+}
+.information-information .panel-heading{
+	text-align: center !important;
+    border-top-left-radius: 9px !important;
+    border-top-right-radius: 9px !important;
+    height: 45px;
+   	font-size: 18px;
+}
+.information-information .panel-body{
+	padding: 0px;
+	overflow-x: auto;
+}
+table#services thead tr.headers th{
+	background-color: #7ac241 !important;
+	color: #333333 !important;
+	font-size: 14px !important;
+	font-weight: bolder !important;
+	border: #909090 1px solid;
+	font-family: "OpenSansBold";
+	height: 80px;
+    text-align: center;
+}
+table#services tbody tr td{
+	height: 80px;
+	text-align: center;
+    padding-top: 25px;
+}
+table#services tbody tr td.highlights{
+	background: rgba(122,194,65, 0.5);
+}
+table#services thead th span{
+	position: relative;
+    top: -40%;
+}
+#information_services #banner1{
+	margin-top: 20px;
+}
+#information_services #banner1 img{
+	min-height: 100px !important;
+}
+#information_services #banner1 h1.banner_description{
+	font-size: 35px !important;
 }
 /* end of content */
 

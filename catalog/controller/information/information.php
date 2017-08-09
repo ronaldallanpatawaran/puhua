@@ -272,6 +272,7 @@ class ControllerInformationInformation extends Controller {
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
+			$data['content_service'] = $this->load->controller('module/banner', array('banner_id'=> 22, 'height' => 157, 'width'=> 1920));
 			$data['content_middle'] = $this->load->controller('common/content_middle');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
@@ -312,6 +313,8 @@ class ControllerInformationInformation extends Controller {
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
+			$data['content_service'] = $this->load->controller('module/banner', array('banner_id'=> 22, 'height' => 157, 'width'=> 1920));
+
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
