@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2017 at 09:08 PM
+-- Generation Time: Aug 09, 2017 at 11:56 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -264,7 +264,11 @@ INSERT INTO `banner` (`banner_id`, `name`, `status`) VALUES
 (18, 'Accounts', 1),
 (19, 'General', 1),
 (20, 'News Banner', 1),
-(21, 'Services', 1);
+(21, 'Services', 1),
+(22, 'Banner Services 2', 1),
+(23, 'Normal Painting Service', 1),
+(24, '2in1 Painting Service', 1),
+(25, 'Custom Painting Services', 1);
 
 -- --------------------------------------------------------
 
@@ -337,7 +341,21 @@ INSERT INTO `banner_image` (`banner_image_id`, `banner_id`, `link`, `image`, `so
 (253, 18, '', 'catalog/banners/about us/banner-1.jpg', 0),
 (254, 19, '', 'catalog/banners/banner.jpg', 0),
 (255, 20, '', 'catalog/banners/news/banner.jpg', 0),
-(256, 21, '', 'catalog/banners/services/banner.jpg', 0);
+(256, 21, '', 'catalog/banners/services/banner.jpg', 0),
+(257, 22, '', 'catalog/banners/services/enquire-bg.jpg', 0),
+(267, 23, '', 'catalog/banners/services/img.jpg', 0),
+(266, 23, '', 'catalog/banners/services/img.jpg', 0),
+(265, 23, '', 'catalog/banners/services/img.jpg', 0),
+(264, 23, '', 'catalog/banners/services/img.jpg', 0),
+(263, 23, '', 'catalog/banners/services/img.jpg', 0),
+(275, 24, '', 'catalog/banners/services/img.jpg', 0),
+(274, 24, '', 'catalog/banners/services/img.jpg', 0),
+(273, 24, '', 'catalog/banners/services/img.jpg', 0),
+(272, 24, '', 'catalog/banners/services/img.jpg', 0),
+(276, 25, '', 'catalog/banners/services/img.jpg', 0),
+(277, 25, '', 'catalog/banners/services/img.jpg', 0),
+(278, 25, '', 'catalog/banners/services/img.jpg', 0),
+(279, 25, '', 'catalog/banners/services/img.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -411,7 +429,21 @@ INSERT INTO `banner_image_description` (`banner_image_id`, `language_id`, `banne
 (253, 1, 18, 'banner-1.jpg', '&lt;p&gt;Accounts&lt;/p&gt;\r\n', 1),
 (254, 1, 19, 'banner.jpg', '&lt;p&gt;PUHUA&lt;/p&gt;\r\n', 1),
 (255, 1, 20, 'banner.jpg', '&lt;p&gt;NEWS&lt;/p&gt;\r\n', 1),
-(256, 1, 21, 'banner.jpg', '&lt;p&gt;Our Services&lt;/p&gt;\r\n', 1);
+(256, 1, 21, 'banner.jpg', '&lt;p&gt;Our Services&lt;/p&gt;\r\n', 1),
+(257, 1, 22, 'enquire-bg.jpg', '&lt;p&gt;Call us at 6264 5585 to enquire!&lt;/p&gt;\r\n', 1),
+(263, 1, 23, 'img.jpg', '&lt;h1&gt;&lt;span style=&quot;color:#7ac241;&quot;&gt;Normal Paint Painting Service&lt;/span&gt;&lt;/h1&gt;\r\n\r\n&lt;p&gt;Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.&amp;nbsp;&lt;/p&gt;\r\n', 1),
+(264, 1, 23, 'img.jpg', '&lt;h1&gt;&lt;span style=&quot;color: rgb(122, 194, 65);&quot;&gt;Normal Paint Painting Service&lt;/span&gt;&lt;/h1&gt;\r\n\r\n&lt;p&gt;Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.&amp;nbsp;&lt;/p&gt;\r\n', 1),
+(265, 1, 23, 'img.jpg', '&lt;h1&gt;&lt;span style=&quot;color: rgb(122, 194, 65);&quot;&gt;Normal Paint Painting Service&lt;/span&gt;&lt;/h1&gt;\r\n\r\n&lt;p&gt;Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.&amp;nbsp;&lt;/p&gt;\r\n', 1),
+(266, 1, 23, 'img.jpg', '&lt;h1&gt;&lt;span style=&quot;color: rgb(122, 194, 65);&quot;&gt;Normal Paint Painting Service&lt;/span&gt;&lt;/h1&gt;\r\n\r\n&lt;p&gt;Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.&amp;nbsp;&lt;/p&gt;\r\n', 1),
+(267, 1, 23, 'img.jpg', '&lt;h1&gt;&lt;span style=&quot;color: rgb(122, 194, 65);&quot;&gt;Normal Paint Painting Service&lt;/span&gt;&lt;/h1&gt;\r\n\r\n&lt;p&gt;Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.&amp;nbsp;&lt;/p&gt;\r\n', 1),
+(275, 1, 24, 'img.jpg', '', 0),
+(274, 1, 24, 'img.jpg', '', 0),
+(273, 1, 24, 'img.jpg', '', 0),
+(272, 1, 24, 'img.jpg', '', 0),
+(276, 1, 25, 'img.jpg', '', 0),
+(277, 1, 25, 'img.jpg', '', 0),
+(278, 1, 25, 'img.jpg', '', 0),
+(279, 1, 25, 'img.jpg', '', 0);
 
 -- --------------------------------------------------------
 
@@ -909,7 +941,7 @@ CREATE TABLE `currency` (
 --
 
 INSERT INTO `currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_place`, `value`, `status`, `date_modified`) VALUES
-(4, 'Singapore Dollar', 'SGD', '$', '', '2', 1.00000000, 1, '2017-08-04 16:34:20');
+(4, 'Singapore Dollar', 'SGD', '$', '', '2', 1.00000000, 1, '2017-08-09 11:06:33');
 
 -- --------------------------------------------------------
 
@@ -1673,7 +1705,7 @@ INSERT INTO `information` (`information_id`, `bottom`, `sort_order`, `status`) V
 (8, 0, 0, 1),
 (9, 0, 0, 1),
 (10, 0, 0, 1),
-(11, 0, 0, 1);
+(12, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -1704,7 +1736,7 @@ INSERT INTO `information_description` (`information_id`, `language_id`, `title`,
 (8, 1, 'Company Profile', '&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-sm-7&quot;&gt;\r\n&lt;h2&gt;&lt;span style=&quot;color:#000000;&quot;&gt;&lt;span style=&quot;font-size:18px;&quot;&gt;&lt;b&gt;History of Company&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;\r\n\r\n&lt;p&gt;&lt;span style=&quot;font-size:14px;&quot;&gt;Pu Hua International was founded in 1996 by a team of professionals with extensive managerial and technical expertise.&lt;/span&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;span style=&quot;font-size:14px;&quot;&gt;After over a decade of research and development, the company has developed the&amp;lsquo;Pu Hua Diatomite Air Purifying Wall Coating&amp;rsquo;, an eco-friendly air purifying wall coating that affords multiple benefits, all of which are proven by quantified laboratory tests. &amp;nbsp;&lt;/span&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;span style=&quot;font-size:14px;&quot;&gt;With well developed quality management systems for our manufacturing process in place, our product quality is assured.&lt;/span&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;span style=&quot;font-size:14px;&quot;&gt;With a keen grasp of our product&amp;rsquo;s technological basis and manufacturing process, our company has the ability to create products that cater to the specific nuances of different market segments, be they aesthetic or functional requirements.&lt;/span&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;span style=&quot;font-size:14px;&quot;&gt;Pu Hua International seeks to be at the fore of the market for green building products.&lt;/span&gt;&lt;/p&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-sm-5&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;http://localhost/e-commerce/puhua/image/catalog/banners/about%20us/img.jpg&quot; /&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-12&quot;&gt;\r\n&lt;hr /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-12&quot;&gt;\r\n&lt;h2&gt;&lt;span style=&quot;color:#000000;&quot;&gt;&lt;span style=&quot;font-size:18px;&quot;&gt;&lt;b&gt;Company Timeline&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n', 'Company Profile', '', ''),
 (9, 1, 'Our Benefits', '&lt;div class=&quot;row&quot; style=&quot;border-bottom: #e5e5e5 2px solid;\r\n    padding-bottom: 20px;&quot;&gt;\r\n&lt;div class=&quot;col-md-6&quot;&gt;\r\n&lt;p&gt;orem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.&lt;/p&gt;\r\n\r\n&lt;p&gt;Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris.&lt;/p&gt;\r\n\r\n&lt;p&gt;Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula&amp;nbsp;&lt;/p&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-6&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/diagram.png&quot; style=&quot;max-width: 100%;&quot; /&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;center&gt;&amp;nbsp;&lt;/center&gt;\r\n\r\n&lt;center&gt;&lt;strong&gt;&lt;span style=&quot;color:#000000;&quot;&gt;&lt;span style=&quot;font-size:18px;&quot;&gt;About Puhua Diatomaceous Earth Nature Wall Material&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/center&gt;\r\n\r\n&lt;center&gt;&amp;nbsp;&lt;/center&gt;\r\n\r\n&lt;div class=&quot;col-md-12&quot;&gt;\r\n&lt;div class=&quot;boxes col-md-3&quot;&gt;\r\n&lt;div&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;boxes col-md-3&quot;&gt;\r\n&lt;div&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;boxes col-md-3&quot;&gt;\r\n&lt;div&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;boxes col-md-3&quot;&gt;\r\n&lt;div&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-12&quot;&gt;\r\n&lt;center&gt;&amp;nbsp;&lt;/center&gt;\r\n\r\n&lt;center&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;&lt;span style=&quot;font-size:18px;&quot;&gt;&lt;b&gt;SAME PRICE AS TRADITIONAL PAINTING. CHOOSE HEALTH, CHOOSE PUHUA&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;/center&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;div class=&quot;row&quot; style=&quot;border-bottom: #e5e5e5 2px solid;\r\n    padding-bottom: 20px;&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-12&quot;&gt;\r\n&lt;center&gt;&amp;nbsp;&lt;/center&gt;\r\n\r\n&lt;center&gt;&lt;strong&gt;&lt;span style=&quot;font-size:18px;&quot;&gt;About Puhua Diatomaceous Earth Household&lt;/span&gt;&lt;/strong&gt;&lt;/center&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-12&quot;&gt;\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-10 col-md-offset-1&quot;&gt;\r\n&lt;div class=&quot;col-md-4&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;/div&gt;\r\n&lt;/div&gt;\r\n    &lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-4&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;/div&gt;\r\n&lt;/div&gt;\r\n    &lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-4&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;/div&gt;\r\n&lt;/div&gt;\r\n  &lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n', 'Our Benefits', '', ''),
 (10, 1, 'Certifications', '&lt;p&gt;&amp;nbsp; &amp;nbsp;&lt;/p&gt;\r\n', 'Certifications', '', ''),
-(11, 1, 'Services', '&lt;p&gt;asdasd&lt;/p&gt;\r\n', 'Services', '', '');
+(12, 1, 'Services', '&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;br /&gt;\r\n&lt;a href=&quot;&quot;&gt;Test Report&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;br /&gt;\r\n&lt;a href=&quot;&quot;&gt;Test Report&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;br /&gt;\r\n&lt;a href=&quot;&quot;&gt;Test Report&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;br /&gt;\r\n&lt;a href=&quot;&quot;&gt;Test Report&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;br /&gt;\r\n&lt;a href=&quot;&quot;&gt;Test Report&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;br /&gt;\r\n&lt;a href=&quot;&quot;&gt;Test Report&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;br /&gt;\r\n&lt;a href=&quot;&quot;&gt;Test Report&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-3&quot;&gt;\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/about%20us/01_prevent-mould.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-7&quot;&gt;Prevent Mould &amp;amp; Balance PH Value&lt;br /&gt;\r\n&lt;a href=&quot;&quot;&gt;Test Report&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-12&quot;&gt;\r\n&lt;div class=&quot;panel panel-primary&quot;&gt;\r\n&lt;div class=&quot;panel-heading&quot; style=&quot;background-color: #333333; border-color: #333333;&quot;&gt;Normal Paint&lt;/div&gt;\r\n\r\n&lt;div class=&quot;panel-body&quot;&gt;\r\n&lt;table class=&quot;table table-bordered table-responsive&quot; id=&quot;services&quot;&gt;\r\n	&lt;thead&gt;\r\n		&lt;tr&gt;\r\n			&lt;td colspan=&quot;3&quot;&gt;&amp;nbsp;&lt;/td&gt;\r\n			&lt;td colspan=&quot;2&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/services/product.png&quot; /&gt;&lt;/td&gt;\r\n			&lt;td colspan=&quot;2&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/services/product.png&quot; /&gt;&lt;/td&gt;\r\n			&lt;td colspan=&quot;2&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/services/product.png&quot; /&gt;&lt;/td&gt;\r\n			&lt;td colspan=&quot;2&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;image/catalog/banners/services/product.png&quot; /&gt;&lt;/td&gt;\r\n		&lt;/tr&gt;\r\n		&lt;tr class=&quot;headers&quot;&gt;\r\n			&lt;th colspan=&quot;2&quot;&gt;&lt;span&gt;HBD&lt;/span&gt;&lt;/th&gt;\r\n			&lt;th&gt;&lt;span&gt;Private Properties&lt;/span&gt;&lt;/th&gt;\r\n			&lt;th&gt;&lt;span&gt;Usual&lt;/span&gt;&lt;/th&gt;\r\n			&lt;th&gt;&lt;span&gt;Now&lt;/span&gt;&lt;/th&gt;\r\n			&lt;th&gt;&lt;span&gt;Usual&lt;/span&gt;&lt;/th&gt;\r\n			&lt;th&gt;&lt;span&gt;Now&lt;/span&gt;&lt;/th&gt;\r\n			&lt;th&gt;&lt;span&gt;Usual&lt;/span&gt;&lt;/th&gt;\r\n			&lt;th&gt;&lt;span&gt;Now&lt;/span&gt;&lt;/th&gt;\r\n			&lt;th&gt;&lt;span&gt;Usual&lt;/span&gt;&lt;/th&gt;\r\n			&lt;th&gt;&lt;span&gt;Now&lt;/span&gt;&lt;/th&gt;\r\n		&lt;/tr&gt;\r\n	&lt;/thead&gt;\r\n	&lt;tbody&gt;\r\n		&lt;tr&gt;\r\n			&lt;td colspan=&quot;2&quot;&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td class=&quot;highlights&quot;&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n		&lt;/tr&gt;\r\n		&lt;tr&gt;\r\n			&lt;td colspan=&quot;2&quot;&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td class=&quot;highlights&quot;&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n		&lt;/tr&gt;\r\n		&lt;tr&gt;\r\n			&lt;td colspan=&quot;2&quot;&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td class=&quot;highlights&quot;&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n		&lt;/tr&gt;\r\n		&lt;tr&gt;\r\n			&lt;td colspan=&quot;2&quot;&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td class=&quot;highlights&quot;&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n			&lt;td&gt;asdasdsad&lt;/td&gt;\r\n		&lt;/tr&gt;\r\n		&lt;tr&gt;\r\n			&lt;td colspan=&quot;4&quot;&gt;1601 sqft and Landed Property&lt;/td&gt;\r\n			&lt;td colspan=&quot;7&quot;&gt;View to Quote&lt;/td&gt;\r\n		&lt;/tr&gt;\r\n	&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-12&quot; style=&quot;text-align: center;&quot;&gt;\r\n&lt;video controls=&quot;&quot; height=&quot;400&quot; width=&quot;60%&quot;&gt;&lt;source src=&quot;image/catalog/videos/sample.mp4&quot; type=&quot;video/mp4&quot; /&gt; Your browser does not support the video tag.&lt;/video&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;boxes col-md-3&quot;&gt;\r\n&lt;div&gt;\r\n&lt;div class=&quot;col-xs-4&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;http://localhost/e-commerce/puhua/image/catalog/banners/services/made-in-sg.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-xs-6&quot;&gt;Patented&lt;br /&gt;\r\nand Made&amp;nbsp;&lt;br /&gt;\r\nin Singapore&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;boxes col-md-3&quot;&gt;\r\n&lt;div&gt;\r\n&lt;div class=&quot;col-xs-4&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;http://localhost/e-commerce/puhua/image/catalog/banners/services/ecofriendly.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-xs-6&quot;&gt;Natural and&lt;br /&gt;\r\nEcofriendly&lt;br /&gt;\r\nDiatomaceous&lt;br /&gt;\r\nEarth&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;boxes col-md-3&quot;&gt;\r\n&lt;div&gt;\r\n&lt;div class=&quot;col-xs-4&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;http://localhost/e-commerce/puhua/image/catalog/banners/services/longlasting.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-xs-6&quot;&gt;Natural and&lt;br /&gt;\r\nEcofriendly&lt;br /&gt;\r\nDiatomaceous&lt;br /&gt;\r\nEarth&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;boxes col-md-3&quot;&gt;\r\n&lt;div&gt;\r\n&lt;div class=&quot;col-xs-4&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;http://localhost/e-commerce/puhua/image/catalog/banners/services/quality.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-xs-6&quot;&gt;Rigorously&lt;br /&gt;\r\nTested for&lt;br /&gt;\r\nAssured Quality&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n', 'Services', '', '');
 
 -- --------------------------------------------------------
 
@@ -1731,7 +1763,7 @@ INSERT INTO `information_to_layout` (`information_id`, `store_id`, `layout_id`) 
 (8, 0, 0),
 (9, 0, 0),
 (10, 0, 0),
-(11, 0, 0);
+(12, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1757,7 +1789,7 @@ INSERT INTO `information_to_store` (`information_id`, `store_id`) VALUES
 (8, 0),
 (9, 0),
 (10, 0),
-(11, 0);
+(12, 0);
 
 -- --------------------------------------------------------
 
@@ -1856,7 +1888,7 @@ INSERT INTO `layout_module` (`layout_module_id`, `layout_id`, `code`, `position`
 (159, 1, 'html.42', 'content_middle', 0),
 (163, 1, 'html.45', 'content_bottom', 0),
 (167, 19, 'banner.46', 'content_top', 0),
-(173, 20, 'banner.47', 'content_top', 0);
+(180, 20, 'banner.47', 'content_top', 0);
 
 -- --------------------------------------------------------
 
@@ -1890,14 +1922,14 @@ INSERT INTO `layout_route` (`layout_route_id`, `layout_id`, `store_id`, `route`)
 (53, 13, 0, 'product/search'),
 (54, 14, 0, 'product/special'),
 (119, 15, 0, '*'),
-(138, 20, 0, 'information/information'),
 (132, 19, 0, 'news/%'),
 (129, 16, 0, 'gallery/gallery'),
 (128, 16, 0, 'gallery/album'),
 (135, 11, 0, 'information/add_testimonial'),
 (134, 11, 0, 'information/testimonial'),
 (115, 2, 0, 'product/product'),
-(114, 2, 0, 'quickcheckout/checkout');
+(114, 2, 0, 'quickcheckout/checkout'),
+(142, 20, 0, 'information/information');
 
 -- --------------------------------------------------------
 
@@ -2050,7 +2082,13 @@ INSERT INTO `module` (`module_id`, `name`, `code`, `setting`) VALUES
 (44, 'Home Product Category', 'html', 'a:3:{s:4:"name";s:21:"Home Product Category";s:18:"module_description";a:1:{i:1;a:2:{s:5:"title";s:0:"";s:11:"description";s:626:"&lt;div class=&quot;row&quot;&gt;\r\n&lt;div class=&quot;col-md-3&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;http://localhost/e-commerce/puhua/image/catalog/banners/home/natural-paint_03.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-5&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;http://localhost/e-commerce/puhua/image/catalog/banners/home/category_2_03.png&quot; /&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col-md-4&quot; style=&quot;padding-left: 55px; &quot;&gt;&lt;img alt=&quot;&quot; src=&quot;http://localhost/e-commerce/puhua/image/catalog/banners/home/category_3_03.png&quot; /&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n";}}s:6:"status";s:1:"1";}'),
 (45, 'Featured News', 'html', 'a:3:{s:4:"name";s:13:"Featured News";s:18:"module_description";a:1:{i:1;a:2:{s:5:"title";s:0:"";s:11:"description";s:1189:"&lt;div class=&quot;home_news col-md-4 col-xs-6&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;http://localhost/e-commerce/puhua/image/catalog/banners/home/shutterstock_29073742.jpg&quot; /&gt;\r\n&lt;div class=&quot;caption&quot;&gt;\r\n&lt;h4&gt;asdsadass&lt;/h4&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;home_news col-md-4 col-xs-6&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;http://localhost/e-commerce/puhua/image/catalog/banners/home/shutterstock_131474807-copy.jpg&quot; /&gt;\r\n&lt;div class=&quot;caption&quot;&gt;\r\n&lt;h4&gt;asdsadass&lt;/h4&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;home_news col-md-4 col-xs-6&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;http://localhost/e-commerce/puhua/image/catalog/banners/home/shutterstock_95030080.jpg&quot; /&gt;\r\n&lt;div class=&quot;caption&quot;&gt;\r\n&lt;h4&gt;asdsadass&lt;/h4&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n";}}s:6:"status";s:1:"1";}'),
 (46, 'News', 'banner', 'a:5:{s:4:"name";s:4:"News";s:9:"banner_id";s:2:"20";s:5:"width";s:4:"1920";s:6:"height";s:3:"255";s:6:"status";s:1:"1";}'),
-(47, 'Services', 'banner', 'a:5:{s:4:"name";s:8:"Services";s:9:"banner_id";s:2:"21";s:5:"width";s:4:"1920";s:6:"height";s:3:"255";s:6:"status";s:1:"1";}');
+(47, 'Services', 'banner', 'a:5:{s:4:"name";s:8:"Services";s:9:"banner_id";s:2:"21";s:5:"width";s:4:"1920";s:6:"height";s:3:"255";s:6:"status";s:1:"1";}'),
+(48, 'Services 2', 'banner', 'a:5:{s:4:"name";s:10:"Services 2";s:9:"banner_id";s:2:"22";s:5:"width";s:4:"1920";s:6:"height";s:3:"157";s:6:"status";s:1:"1";}'),
+(49, 'Normal Painting Service', 'carousel', 'a:5:{s:4:"name";s:23:"Normal Painting Service";s:9:"banner_id";s:2:"23";s:5:"width";s:3:"547";s:6:"height";s:3:"345";s:6:"status";s:1:"1";}'),
+(50, 'Normal Painting Service HTML', 'html', 'a:3:{s:4:"name";s:28:"Normal Painting Service HTML";s:18:"module_description";a:1:{i:1;a:2:{s:5:"title";s:0:"";s:11:"description";s:447:"&lt;h1&gt;&lt;span style=&quot;color: rgb(122, 194, 65);&quot;&gt;Normal Paint Painting Service&lt;/span&gt;&lt;/h1&gt;\r\n\r\n&lt;p&gt;Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.&amp;nbsp;&lt;/p&gt;\r\n\r\n";}}s:6:"status";s:1:"1";}'),
+(51, '2 in 1 Painting Service', 'html', 'a:3:{s:4:"name";s:23:"2 in 1 Painting Service";s:18:"module_description";a:1:{i:1;a:2:{s:5:"title";s:0:"";s:11:"description";s:438:"&lt;h1&gt;&lt;span style=&quot;color: rgb(122, 194, 65);&quot;&gt;2 in1 Painting Service&lt;/span&gt;&lt;/h1&gt;\r\n\r\n&lt;p&gt;Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.&amp;nbsp;&lt;/p&gt;\r\n";}}s:6:"status";s:1:"0";}'),
+(52, 'Custom Desgin Painting Service', 'html', 'a:3:{s:4:"name";s:30:"Custom Desgin Painting Service";s:18:"module_description";a:1:{i:1;a:2:{s:5:"title";s:0:"";s:11:"description";s:459:"&lt;h1&gt;&lt;span style=&quot;color: rgb(122, 194, 65);&quot;&gt;Custom Design Feature Wall Painting Service&lt;/span&gt;&lt;/h1&gt;\r\n\r\n&lt;p&gt;Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.&amp;nbsp;&lt;/p&gt;\r\n";}}s:6:"status";s:1:"0";}'),
+(53, '2in1 Painting Service', 'carousel', 'a:5:{s:4:"name";s:21:"2in1 Painting Service";s:9:"banner_id";s:2:"23";s:5:"width";s:3:"130";s:6:"height";s:3:"100";s:6:"status";s:1:"1";}');
 
 -- --------------------------------------------------------
 
@@ -3704,12 +3742,12 @@ INSERT INTO `url_alias` (`url_alias_id`, `query`, `keyword`) VALUES
 (1075, 'news_id=17', 'lorem-ipsum-dolor-sit-amet-copy-copy-25245'),
 (1078, 'news_id=18', 'lorem-ipsum-dolor-sit-amet-copy-copy-copy'),
 (1076, 'news_id=16', 'lorem-ipsum-dolor-sit-amet-copy-11636'),
-(1083, 'information_id=11', 'services'),
 (1073, 'news_id=15', 'lorem-ipsum-dolor-sit-amet-copy-copy'),
 (1079, 'news_id=14', 'lorem-ipsum-dolor-sit-amet-copy'),
 (1063, 'news_id=13', 'lorem-ipsum-dolor-sit-amet'),
 (1082, 'news_id=19', 'lorem-ipsum-dolor-sit-amet-copy-copy-786'),
-(1071, 'news_id=20', 'lorem-ipsum-dolor-sit-amet-copy-31459');
+(1071, 'news_id=20', 'lorem-ipsum-dolor-sit-amet-copy-31459'),
+(1137, 'information_id=12', 'services-28384');
 
 -- --------------------------------------------------------
 
@@ -9284,12 +9322,12 @@ ALTER TABLE `attribute_group`
 -- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `banner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `banner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `banner_image`
 --
 ALTER TABLE `banner_image`
-  MODIFY `banner_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
+  MODIFY `banner_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=280;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -9424,7 +9462,7 @@ ALTER TABLE `geo_zone`
 -- AUTO_INCREMENT for table `information`
 --
 ALTER TABLE `information`
-  MODIFY `information_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `information_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `language`
 --
@@ -9439,12 +9477,12 @@ ALTER TABLE `layout`
 -- AUTO_INCREMENT for table `layout_module`
 --
 ALTER TABLE `layout_module`
-  MODIFY `layout_module_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
+  MODIFY `layout_module_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 --
 -- AUTO_INCREMENT for table `layout_route`
 --
 ALTER TABLE `layout_route`
-  MODIFY `layout_route_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `layout_route_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 --
 -- AUTO_INCREMENT for table `length_class`
 --
@@ -9479,7 +9517,7 @@ ALTER TABLE `modification`
 -- AUTO_INCREMENT for table `module`
 --
 ALTER TABLE `module`
-  MODIFY `module_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `module_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 --
 -- AUTO_INCREMENT for table `oca_testimonial`
 --
@@ -9699,7 +9737,7 @@ ALTER TABLE `upload`
 -- AUTO_INCREMENT for table `url_alias`
 --
 ALTER TABLE `url_alias`
-  MODIFY `url_alias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1084;
+  MODIFY `url_alias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1138;
 --
 -- AUTO_INCREMENT for table `user`
 --
