@@ -90,15 +90,59 @@
   <div class="container">
     <div class="col-md-12">
         <div class="col-md-6">
-          asdasd
+          <?php echo $content_painting_service; ?>
         </div>
         <div class="col-md-6">
-          asdasd
+          <?php echo $html_normal_painting_service; ?>
+          <div class="row">
+            <div class="col-sm-12">
+              <a href="<?php echo $shop; ?>"><button class="services_button">Shop Now</button></a>
+              &nbsp;
+              <a href=""><button class="services_button">Color Chart</button></a>
+              &nbsp;
+              <a href=""><button class="price services_button">Price</button></a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-6">
+          <?php echo $html_2in1_painting_service; ?>
+          <div class="row">
+            <div class="col-sm-12">
+              <a href="<?php echo $shop; ?>"><button class="services_button">Shop Now</button></a>
+              &nbsp;
+              <a href=""><button class="services_button">Color Chart</button></a>
+              &nbsp;
+              <a href=""><button class="price services_button">Price</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <?php echo $content_2in1_painting_service; ?>
+        </div>
+    </div>
+        <div class="col-md-12">
+        <div class="col-md-6">
+          <?php echo $content_custom_painting_service; ?>
+        </div>
+        <div class="col-md-6">
+          <?php echo $custom_painting_service; ?>
+          <div class="row">
+            <div class="col-sm-12">
+              <a href="<?php echo $shop; ?>"><button class="services_button">Shop Now</button></a>
+              &nbsp;
+              <a href=""><button class="services_button">Color Chart</button></a>
+              &nbsp;
+              <a href=""><button class="price services_button">Price</button></a>
+            </div>
+          </div>
         </div>
     </div>
   </div>
   <?php } ?>
 </div>
+
 
 </div>
 <?php echo $footer; ?>

@@ -6,6 +6,7 @@ class ControllerInformationInformation extends Controller {
 		$this->load->language('information/information');
 		$this->load->model('design/banner');
 		$this->load->model('catalog/information');
+		$this->load->model('extension/module');
 
 		$data['information_id'] = isset($_GET['information_id']) && $_GET['information_id'] != "" ? $_GET['information_id'] : "";
 
@@ -272,7 +273,17 @@ class ControllerInformationInformation extends Controller {
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
+			
+			# Painting Services
 			$data['content_service'] = $this->load->controller('module/banner', array('banner_id'=> 22, 'height' => 157, 'width'=> 1920));
+			$data['content_painting_service'] = $this->load->controller('module/carousel', array('banner_id'=> 23, 'height' => 345, 'width'=> 547));
+			$data['content_2in1_painting_service'] = $this->load->controller('module/carousel', array('banner_id'=> 24, 'height' => 345, 'width'=> 547));
+			$data['content_custom_painting_service'] = $this->load->controller('module/carousel', array('banner_id'=> 25, 'height' => 345, 'width'=> 547));
+			$data['html_normal_painting_service'] = $this->load->controller('module/html', $this->model_extension_module->getModule(50));
+			$data['html_2in1_painting_service'] = $this->load->controller('module/html', $this->model_extension_module->getModule(51));
+			$data['custom_painting_service'] = $this->load->controller('module/html', $this->model_extension_module->getModule(52));
+			$data['shop'] = $this->url->link('product/category');
+
 			$data['content_middle'] = $this->load->controller('common/content_middle');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
@@ -314,6 +325,16 @@ class ControllerInformationInformation extends Controller {
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
 			$data['content_service'] = $this->load->controller('module/banner', array('banner_id'=> 22, 'height' => 157, 'width'=> 1920));
+
+			# Painting Services
+			$data['content_service'] = $this->load->controller('module/banner', array('banner_id'=> 22, 'height' => 157, 'width'=> 1920));
+			$data['content_2in1_painting_service'] = $this->load->controller('module/carousel', array('banner_id'=> 23, 'height' => 345, 'width'=> 547));
+			$data['content_2in1_painting_service'] = $this->load->controller('module/carousel', array('banner_id'=> 23, 'height' => 345, 'width'=> 547));
+			$data['content_custom_painting_service'] = $this->load->controller('module/carousel', array('banner_id'=> 25, 'height' => 345, 'width'=> 547));
+			$data['html_normal_painting_service'] = $this->load->controller('module/html', $this->model_extension_module->getModule(50));
+			$data['html_2in1_painting_service'] = $this->load->controller('module/html', $this->model_extension_module->getModule(51));
+			$data['custom_painting_service'] = $this->load->controller('module/html', $this->model_extension_module->getModule(52));
+			$data['shop'] = $this->url->link('product/category');
 
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');

@@ -879,6 +879,31 @@ table#services thead th span{
 #information_services #banner1 h1.banner_description{
 	font-size: 35px !important;
 }
+#information_services .owl-pagination{
+	display: none !important;
+}
+.services_button{
+    height: 50px;
+    border-radius: 20px;
+    border: #7ac241 1px solid;
+    width: 120px;
+    background-color: #ffffff;
+    color: #333333;
+}
+.services_button.price{
+	background-color: #7ac241;
+	color: #ffffff;
+}
+#information_services p{
+    line-height: 25px;
+}
+#information_services h1 span{
+    font-family: "OpenSansBold";
+    font-size: 23px;
+}
+#information_services{
+	padding-bottom: 200px;
+}
 /* end of content */
 
 /* footer */
