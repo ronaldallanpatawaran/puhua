@@ -30,6 +30,8 @@ class ControllerModuleCarousel extends Controller {
 
 		$results = $this->model_design_banner->getBanner($setting['banner_id']);
 
+		$data['slides'] = isset($setting['slides_per_page']) && $setting['slides_per_page'] !="" ? (int)$setting['slides_per_page']: 4;
+
 		foreach ($results as $result) {
 			if (is_file(DIR_IMAGE . $result['image'])) {
 				$data['banners'][] = array(

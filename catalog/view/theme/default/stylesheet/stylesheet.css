@@ -844,7 +844,7 @@ li.sub_categories{
     height: 45px;
    	font-size: 18px;
 }
-.information-information .panel-body{
+.information-information.iid-12 .panel-body{
 	padding: 0px;
 	overflow-x: auto;
 }

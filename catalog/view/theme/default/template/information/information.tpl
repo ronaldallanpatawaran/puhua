@@ -155,4 +155,5 @@
     navigationText: ['<i class="left-arrow fa-5x"></i>', '<i class="right-arrow fa-5x"></i>'],
     pagination: true
   });
+
 </script>

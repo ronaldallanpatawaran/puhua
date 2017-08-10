@@ -426,3 +426,6 @@ catalog\view\theme\default\template\module\featured.tpl
 catalog\controller\account\register.php
 catalog\language\english\account\register.php
 catalog\view\theme\default\template\account\register.tpl
+admin\controller\catalog\review.php
+admin\language\english\catalog\review.php
+admin\view\template\catalog\review_list.tpl
