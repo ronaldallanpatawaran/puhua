@@ -1049,6 +1049,8 @@ class ControllerCatalogProduct extends Controller {
 			}
 		}
 
+		
+
 		// Filters
 		$this->load->model('catalog/filter');
 

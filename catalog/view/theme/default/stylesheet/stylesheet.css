@@ -904,6 +904,50 @@ table#services thead th span{
 #information_services{
 	padding-bottom: 200px;
 }
+#product_page_categories label{
+	background-color: #ffffff;
+    padding: 15px 50px 15px 50px;
+    border-radius: 50px;
+    border: #ebebeb 1px solid;
+    cursor: pointer;
+    min-width: 225px;
+}
+#product_page_categories label.active{
+	color: #7ac241;
+	border-color: #7ac241;
+}
+#product_page_categories{
+	text-align: center;
+}
+#product_page_content #right_column{
+    padding-left: 50px;
+    min-height: 361px;
+}
+#product_page_content h1 span{
+	color: #7ac241;
+    font-size: 24px;
+    font-family: "OpenSansRegular";
+    font-weight: bold;
+}
+#product_page_content p{
+	font-family: "OpenSansRegular";
+    font-size: 14px;
+    line-height: 25px;
+}
+#btn_product_page{
+	width: 130px;
+    height: 50px;
+    border-radius: 20px;
+    border: #7ac241 1px solid;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 14px;
+    margin-bottom: 2%;
+}
+#product_page_content div.hr{
+	padding-bottom: 50px;
+    border-bottom: #e5e5e5 1px solid;
+}
 /* end of content */
 
 /* footer */
