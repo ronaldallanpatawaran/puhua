@@ -63,6 +63,7 @@ $data['extra_tags'] = $this->document->getExtraTags();
 		$data['text_news']	   	= $this->language->get('text_news');
 		$data['text_shop']	   	= $this->language->get('text_shop');
 		$data['text_contact'] 	= $this->language->get('text_contact');
+		$data['text_product']	= $this->language->get('text_product');
 		
 		$data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
 		$data['text_shopping_cart'] = $this->language->get('text_shopping_cart');
@@ -85,6 +86,7 @@ $data['extra_tags'] = $this->document->getExtraTags();
 		$data['services'] 		= $this->url->link('information/information&information_id=12');
 		$data['products'] 		= $this->url->link('product/category');
 		$data['news']			= $this->url->link('news/headlines');
+		$data['products']		= $this->url->link('information/product');
 		$data['shop']			= $this->url->link('product/category');
 		$data['wishlist'] 		= $this->url->link('account/wishlist', '', 'SSL');
 		$data['logged'] 		= $this->customer->isLogged();
