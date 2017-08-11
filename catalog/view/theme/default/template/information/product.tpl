@@ -39,28 +39,28 @@
 			</div>
 			<br><br><br>
 			<div class="col-md-12">
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-6">
 					<div class="col-xs-3">
 						<img src="image/catalog/banners/about us/01_prevent-mould.png">
 					</div>
 					<div class="col-xs-9">						<?php echo $text_benefits_1; ?>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-6">
 					<div class="col-xs-3">
 						<img src="image/catalog/banners/about us/02_nochemicals.png">
 					</div>
 					<div class="col-xs-9">						<?php echo $text_benefits_2; ?>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-6">
 					<div class="col-xs-3">
 						<img src="image/catalog/banners/about us/03_releasenegativeions.png">
 					</div>
 					<div class="col-xs-9">						<?php echo $text_benefits_3; ?>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-6">
 					<div class="col-xs-3">
 						<img src="image/catalog/banners/about us/04_flameresistant.png">
 					</div>
@@ -70,14 +70,14 @@
 			</div>
 			<br><br><br>
 			<div class="col-md-12">
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-6">
 					<div class="col-xs-3">
 						<img src="image/catalog/banners/about us/05_antibacteria.png">
 					</div>
 					<div class="col-xs-9">						<?php echo $text_benefits_5; ?>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-6">
 					<div class="col-xs-3">
 						<img src="image/catalog/banners/about us/06_eliminatessmoke.png">
 					</div>
@@ -85,7 +85,7 @@
 						<?php echo $text_benefits_6; ?>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-6">
 					<div class="col-xs-3">
 						<img src="image/catalog/banners/about us/07_savesenergy.png">
 					</div>
@@ -93,7 +93,7 @@
 						<?php echo $text_benefits_7; ?>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-6">
 					<div class="col-xs-3">
 						<img src="image/catalog/banners/about us/08_soundabsorption.png">
 					</div>

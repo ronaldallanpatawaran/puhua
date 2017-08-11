@@ -991,6 +991,9 @@ img.image-responsive{
 .information-product #content{
 	margin-bottom: 150px;
 }
+#benefits_row *{
+	color: #000000;
+}
 /* end of content */
 
 /* footer */
