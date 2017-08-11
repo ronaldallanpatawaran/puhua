@@ -911,6 +911,7 @@ table#services thead th span{
     border: #ebebeb 1px solid;
     cursor: pointer;
     min-width: 225px;
+    margin-bottom: 10px;
 }
 #product_page_categories label.active{
 	color: #7ac241;
@@ -920,7 +921,7 @@ table#services thead th span{
 	text-align: center;
 }
 #product_page_content #right_column{
-    padding-left: 50px;
+    padding-left: 5%;
     min-height: 361px;
 }
 #product_page_content h1 span{
@@ -947,6 +948,48 @@ table#services thead th span{
 #product_page_content div.hr{
 	padding-bottom: 50px;
     border-bottom: #e5e5e5 1px solid;
+    margin-bottom: 20px;
+}
+img.image-responsive{
+	max-width: 100%;
+}
+#product_page_content #carousel_products img{
+	width: 100%;
+    height: 170px;
+}
+#product_page_content #carousel_products .owl-pagination{
+	display: none;
+}
+.center-align{
+	text-align: center;
+}
+#carousel_products{
+	font-family: "OpenSansBold";
+}
+#carousel_products .title{
+	color: #363636;
+	font-size: 14px;
+	font-family: inherit;
+}
+#carousel_products .description{
+	padding: 5px 17px 5px 17px;
+	color: #7d7d7d;
+	font-family: "OpenSansSemiBold";
+}
+#benefits_row{
+	min-height: 240px;
+	background-color: #ebebeb;
+	margin-bottom: 50px;
+	border: #cccccc 1px solid;
+	padding: 30px;
+}
+#benefits_title{
+	font-size: 18px;
+	font-family: "OpenSansBold";
+	color: #000000;
+}
+.information-product #content{
+	margin-bottom: 150px;
 }
 /* end of content */
 
