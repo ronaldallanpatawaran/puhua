@@ -475,3 +475,5 @@
 2017-08-11 9:50:17 - PHP Notice:  Undefined index: path in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\information\product.php on line 72
 2017-08-11 9:50:17 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\information\product.php on line 72
 2017-08-11 9:57:09 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\information\product.php on line 72
+2017-08-11 15:21:01 - PHP Notice:  Undefined index: HOST_NAME in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\module\featured.tpl on line 16
+2017-08-11 15:21:11 - PHP Notice:  Undefined index: LOCALHOST in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\module\featured.tpl on line 16
