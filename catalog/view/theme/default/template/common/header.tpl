@@ -80,7 +80,7 @@
             <li><a href="<?php echo $home; ?>" <?php echo (isset($route) && $route=="common/home") ? 'class="active"' : '' ; ?>><?php echo $text_home; ?></a></li>
             <li><a href="<?php echo $aboutus; ?>" <?php echo (isset($route) && $route=="information/information") & $information_id != 12 ? 'class="active"' : '' ; ?>><?php echo $text_aboutus; ?></a></li>
             <li><a href="<?php echo $services; ?>" <?php echo (isset($route) && $route=="information/information") && $information_id == 12 ? 'class="active"' : '' ; ?>><?php echo $text_services; ?></a></li>
-            <li><a href="<?php echo $products; ?>" <?php echo (isset($route) && $route=="information/product") && $information_id == 12 ? 'class="active"' : '' ; ?>><?php echo $text_product; ?></a></li>
+            <li><a href="<?php echo $products; ?>" <?php echo (isset($route) && $route=="information/product") ? 'class="active"' : '' ; ?>><?php echo $text_product; ?></a></li>
             <li><a href="<?php echo $gallery; ?>" <?php echo (isset($route) && $route=="gallery/album") ? 'class="active"' : '' ; ?>><?php echo $text_gallery; ?></a></li>
             <li><a href="<?php echo $news; ?>" <?php echo (isset($route) && $route=="news/ncategory") ? 'class="active"' : '' ; ?>><?php echo $text_news; ?></a></li>
             <li><a href="<?php echo $shop; ?>" <?php echo (isset($route) && $route=="product/category") ? 'class="active"' : '' ; ?>><?php echo $text_shop; ?></a></li>
@@ -127,7 +127,6 @@
             </div>
         </div>
       </nav>
-
     </div>
   </div>
 
