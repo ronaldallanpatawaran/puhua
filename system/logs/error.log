@@ -477,3 +477,13 @@
 2017-08-11 9:57:09 - PHP Notice:  Undefined variable: url in C:\xampp\htdocs\e-commerce\puhua\catalog\controller\information\product.php on line 72
 2017-08-11 15:21:01 - PHP Notice:  Undefined index: HOST_NAME in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\module\featured.tpl on line 16
 2017-08-11 15:21:11 - PHP Notice:  Undefined index: LOCALHOST in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\module\featured.tpl on line 16
+2017-08-16 11:18:16 - PHP Notice:  Undefined variable: localisation in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\contact.tpl on line 2
+2017-08-16 11:44:39 - PHP Notice:  Undefined index: email in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\contact.tpl on line 130
+2017-08-16 11:44:39 - PHP Notice:  Undefined index: email in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\contact.tpl on line 130
+2017-08-16 11:44:39 - PHP Notice:  Undefined index: email in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\contact.tpl on line 130
+2017-08-16 11:48:35 - PHP Notice:  Undefined index: email in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\contact.tpl on line 130
+2017-08-16 11:48:35 - PHP Notice:  Undefined index: email in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\contact.tpl on line 130
+2017-08-16 11:48:35 - PHP Notice:  Undefined index: email in C:\xampp\htdocs\e-commerce\puhua\catalog\view\theme\default\template\information\contact.tpl on line 130
+2017-08-16 11:49:23 - PHP Notice:  Undefined index: email in C:\xampp\htdocs\e-commerce\puhua\vqmod\vqcache\vq2-catalog_controller_information_contact.php on line 172
+2017-08-16 11:49:23 - PHP Notice:  Undefined index: email in C:\xampp\htdocs\e-commerce\puhua\vqmod\vqcache\vq2-catalog_controller_information_contact.php on line 172
+2017-08-16 11:49:23 - PHP Notice:  Undefined index: email in C:\xampp\htdocs\e-commerce\puhua\vqmod\vqcache\vq2-catalog_controller_information_contact.php on line 172

@@ -432,3 +432,14 @@ admin\view\template\catalog\review_list.tpl
 admin\controller\catalog\filter.php
 catalog\controller\information\product.php
 catalog\view\theme\default\template\information\product.tpl
+admin\controller\error\not_found.php
+admin\language\english\error\not_found.php
+admin\view\template\error\not_found.tpl
+catalog\language\english\account\wishlist.php
+admin\controller\catalog\option.php
+admin\language\english\catalog\option.php
+admin\view\template\catalog\option_list.tpl
+admin\controller\localisation\location.php
+admin\language\english\localisation\location.php
+admin\view\template\localisation\location_list.tpl
+admin\view\template\localisation\location_form.tpl

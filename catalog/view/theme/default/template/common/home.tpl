@@ -45,7 +45,6 @@
                 <center><a href="<?php echo $news; ?>"><button id="view_more">View More</button></a></center>
             </div>
         </div>
-
     </div>
 </div>
 <?php echo $footer; ?>

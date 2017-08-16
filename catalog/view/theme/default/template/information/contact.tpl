@@ -111,119 +111,31 @@
                 </div>
               </div>
             </div>
+            <?php if($locations): foreach($locations as $location):?>
             <div class="panel-group accordion" role="tablist" aria-multiselectable="true">
               <div class="panel panel-default">
-                <a role="button" data-toggle="collapse" data-parent=".accordion" href="#factory_address" aria-expanded="false" aria-controls="collapseOne">
+                <a role="button" data-toggle="collapse" data-parent=".accordion" href="#offce_<?php echo $location['location_id'] ?>" aria-expanded="false" aria-controls="collapseOne">
                 <div class="panel-heading" role="tab" id="headingOne">
                   <h4 class="panel-title">
-                      <?php echo strtoupper($text_factory_address); ?>
+                      <?php echo strtoupper($location['name']); ?>
                       <span class="pull-right">___</span>
                   </h4>
                 </div>
                 </a>
-                <div id="factory_address" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div id="offce_<?php echo $location['location_id'] ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body">
                     <div class="row">
                       <div class="address_col col-sm-12"><?php echo $address; ?></div>
-                      <div class="address_col col-sm-12">Tel: <?php echo $telephone; ?></div>
-                      <div class="address_col col-sm-12"><?php echo $text_email; echo ":&nbsp;"; echo $config_email; ?></div>
+                      <div class="address_col col-sm-12">Tel: <?php echo $location['address']; ?></div>
+                      <div class="address_col col-sm-12"><?php echo $text_email; echo ":&nbsp;"; echo $location['email']; ?></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="panel-group accordion" role="tablist" aria-multiselectable="true">
-              <div class="panel panel-default">
-                <a role="button" data-toggle="collapse" data-parent=".accordion" href="#malaysia_branch" aria-expanded="false" aria-controls="collapseOne">
-                <div class="panel-heading" role="tab" id="headingOne">
-                  <h4 class="panel-title">
-                      <?php echo strtoupper($text_malaysia_branch); ?>
-                      <span class="pull-right">___</span>
-                  </h4>
-                </div>
-                </a>
-                <div id="malaysia_branch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="address_col col-sm-12"><?php echo $address; ?></div>
-                      <div class="address_col col-sm-12">Tel: <?php echo $telephone; ?></div>
-                      <div class="address_col col-sm-12"><?php echo $text_email; echo ":&nbsp;"; echo $config_email; ?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="panel-group accordion" role="tablist" aria-multiselectable="true">
-              <div class="panel panel-default">
-                <a role="button" data-toggle="collapse" data-parent=".accordion" href="#china_branch" aria-expanded="false" aria-controls="collapseOne">
-                <div class="panel-heading" role="tab" id="headingOne">
-                  <h4 class="panel-title">
-                      <?php echo strtoupper($text_china_branch); ?>
-                      <span class="pull-right">___</span>
-                  </h4>
-                </div>
-                </a>
-                <div id="china_branch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="address_col col-sm-12"><?php echo $address; ?></div>
-                      <div class="address_col col-sm-12">Tel: <?php echo $telephone; ?></div>
-                      <div class="address_col col-sm-12"><?php echo $text_email; echo ":&nbsp;"; echo $config_email; ?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <?php endforeach; endif; ?>
           </div>
         </div>
-      <?php if ($locations) { ?>
-      <h3><?php echo $text_store; ?></h3>
-      <div class="panel-group" id="accordion">
-        <?php foreach ($locations as $location) { ?>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><a href="#collapse-location<?php echo $location['location_id']; ?>" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"><?php echo $location['name']; ?> <i class="fa fa-caret-down"></i></a></h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-location<?php echo $location['location_id']; ?>">
-            <div class="panel-body">
-              <div class="row">
-                <?php if ($location['image']) { ?>
-                <div class="col-sm-3"><img src="<?php echo $location['image']; ?>" alt="<?php echo $location['name']; ?>" title="<?php echo $location['name']; ?>" class="img-thumbnail" /></div>
-                <?php } ?>
-                <div class="col-sm-3"><strong><?php echo $location['name']; ?></strong><br />
-                  <address>
-                  <?php echo $location['address']; ?>
-                  </address>
-                  <?php if ($location['geocode']) { ?>
-                  <a href="https://maps.google.com/maps?q=<?php echo urlencode($location['geocode']); ?>&hl=en&t=m&z=15" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> <?php echo $button_map; ?></a>
-                  <?php } ?>
-                </div>
-                <div class="col-sm-3"> <strong><?php echo $text_telephone; ?></strong><br>
-                  <?php echo $location['telephone']; ?><br />
-                  <br />
-                  <?php if ($location['fax']) { ?>
-                  <strong><?php echo $text_fax; ?></strong><br>
-                  <?php echo $location['fax']; ?>
-                  <?php } ?>
-                </div>
-                <div class="col-sm-3">
-                  <?php if ($location['open']) { ?>
-                  <strong><?php echo $text_open; ?></strong><br />
-                  <?php echo $location['open']; ?><br />
-                  <br />
-                  <?php } ?>
-                  <?php if ($location['comment']) { ?>
-                  <strong><?php echo $text_comment; ?></strong><br />
-                  <?php echo $location['comment']; ?>
-                  <?php } ?>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <?php } ?>
-      </div>
-      <?php } ?>
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
     </div>
