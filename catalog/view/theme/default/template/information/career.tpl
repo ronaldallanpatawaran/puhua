@@ -155,7 +155,7 @@
                   <span id="attachment_label"><?php echo $text_attachment; ?></span> <br>
                 </div>
                 <div id="attachment_col" class="col-sm-5 col-sm-offset-1">
-                  <input type="file" name="attachment">
+                  <input type="file" name="attachment" class="form-control">
                   <?php if ($error_attachment) { ?>
                   <div class="text-danger"><?php echo $text_attachment; ?></div>
                   <?php } ?>

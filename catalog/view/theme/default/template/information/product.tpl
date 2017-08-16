@@ -35,7 +35,7 @@
 		<br>
 		<div id="benefits_row" class="row">
 			<div class="col-md-12">
-				<label id="benefits_title">Benefits of Diatomaceous Earth</label>
+				<label id="benefits_title">8 BENEFITS OF DIATOMACEOUS EARTH</label>
 			</div>
 			<br><br><br>
 			<div class="col-md-12">
@@ -104,6 +104,29 @@
 		</div>
 	</div>
 </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-xg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Color Chart</h4>
+        </div>
+        <div class="modal-body">
+          <p><?php echo $content_chart; ?></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
 <?php echo $footer; ?>
 
 <script type="text/javascript">

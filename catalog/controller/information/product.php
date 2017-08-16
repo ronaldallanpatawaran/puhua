@@ -15,6 +15,7 @@ class ControllerInformationProduct extends Controller{
 		$data['active_category'] = $this->model_catalog_category->getCategory($data['category_id']);
 
 		$data['content_top'] = $this->load->controller('common/content_top');
+      $data['content_chart'] = $this->load->controller('module/banner', array('banner_id'=> 27, 'height' => 720, 'width'=>  1920));
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 

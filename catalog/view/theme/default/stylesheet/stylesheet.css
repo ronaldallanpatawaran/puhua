@@ -21,11 +21,6 @@
 	src: url('fonts/Opensans/OpenSans-Bold.ttf');
 }
 
-@font-face{
-	font-family: "GothamRoundedBook";
-	src: url('fonts/Gotham Rounded/Gotham Rounded Book.otf');
-}
-
 
 body {
     font-family: 'OpenSansSemiBold';
@@ -545,7 +540,7 @@ form label{
     border-radius: 35px;
     border: #cccccc 1px solid;
     margin-bottom: 15px;
-    padding: 8%;
+    padding: 6%;
 }
 
 .owl-wrapper-outer{
@@ -594,7 +589,7 @@ form label{
 	top: 100px;
 }
 .timeline.down span.description p{
-	top: -100px;
+	top: -110px;
 }
 .left-arrow:before{
 	content: url('banners/about/company profile/left-arrow.png');
@@ -608,6 +603,7 @@ form label{
 #company_clients_logo div > img{
 	box-shadow: #c1c1c1 0px 0px 9px 3px;
     margin-bottom: 10px;
+    height: 150px;
 }
 #company_timeline .owl-pagination{
 	top: -40px !important;
@@ -711,7 +707,6 @@ li.sub_categories{
 #home_background .product-thumb{
 	background-color: #ffffff;
 	border: #f0f0f0 2px solid;
-	position: relative;
 }
 #home_background .caption{
 	height: 180px;
@@ -739,7 +734,7 @@ li.sub_categories{
 #home_news .caption h4{
 	color: #75b743;
     border-bottom: #e8e8e8 2px solid;
-    height: 30px;
+    height: 40px;
 }
 #home_news .caption p{
 	color: #333333;	
@@ -1000,72 +995,6 @@ img.image-responsive{
 #benefits_row *{
 	color: #000000;
 }
-.product-hover{
-    text-align: center;
-    position: absolute;
-    top: 60%;
-    width: 100%;
-}
-.product-hover button.add_to_cart{
-    background-color: #003e6c;
-    color: #ffffff;
-    border: 0px;
-    height: 40px;
-    display: none;
-    width: 150px;
-    border-radius: 100px;
-}
-.product-hover button.wishlist{
-	background-color: #ffffff;
-	border: 0px;
-	display: none;
-}
-.product-hover button.wishlist i:before{
-	content: url('banners/home/wishlist.png') !important;
-}
-#home_background .product-thumb:hover button.wishlist, #home_background .product-thumb:hover button.add_to_cart{
-	display: block;
-    display: block;
-    margin: auto;
-}
-#home_background .product-thumb:hover .product-hover{
-	top: 40%;
-}
-#home_background h4{
-	font-family: "GothamRoundedBook";
-	font-weight: lighter;
-	color: #000000;
-}
-#home_background button span{
-	font-family: "GothamRoundedBook";
-	font-weight: lighter;
-	color: #ffffff;
-}
-#home_background .fa-shopping-cart::before{
-	content: url('banners/home/products/cart-white.png') !important;
-}
-#product_category_section img{
-	max-width: 100%;
-	min-height: 350px;
-}
-#product_category_section > div {
-	min-height: 250px;
-	position: relative;
-	
-}
-#product_category_section > div > button{
-	position: absolute;
-    top: 10px;
-    left: 50%;
-    background-color: #ffffff;
-    border: #e1e1e1 1px solid;
-    border-radius: 15px;
-    height: 40px;
-    width: 150px;
-    color: #003e6c;
-}
-
-
 /* end of content */
 
 /* footer */
@@ -1665,3 +1594,26 @@ h2.price {
 	
 }
 
+.home-product-category img {
+    float: left; /* Commenting this out results in another weird result*/
+    display: inline-block;
+    width: 372px;
+}
+
+#home_news .home_news img {
+    height: 255px;
+}
+ 
+#home_news . caption {
+    max-height: 130px;
+}
+
+.modal-xg {
+    width: 1400px;
+}
+
+
+
+.services-types-of-service {
+    padding: 20px 0;
+}

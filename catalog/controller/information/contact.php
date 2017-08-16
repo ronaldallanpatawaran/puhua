@@ -136,16 +136,19 @@ class ControllerInformationContact extends Controller {
 		$data['comment'] = $this->config->get('config_comment');
 
 		$data['locations'] = array();
+
 		$this->load->model('localisation/location');
 
 		foreach((array)$this->config->get('config_location') as $location_id) {
 			$location_info = $this->model_localisation_location->getLocation($location_id);
+
 			if ($location_info) {
 				if ($location_info['image']) {
 					$image = $this->model_tool_image->resize($location_info['image'], $this->config->get('config_image_location_width'), $this->config->get('config_image_location_height'));
 				} else {
 					$image = false;
 				}
+
 				$data['locations'][] = array(
 					'location_id' => $location_info['location_id'],
 					'name'        => $location_info['name'],
@@ -154,7 +157,6 @@ class ControllerInformationContact extends Controller {
 					'telephone'   => $location_info['telephone'],
 					'fax'         => $location_info['fax'],
 					'image'       => $image,
-					'email'		  => $location_info['email'],
 					'open'        => nl2br($location_info['open']),
 					'comment'     => $location_info['comment']
 				);
@@ -207,7 +209,6 @@ class ControllerInformationContact extends Controller {
 			$this->response->setOutput($this->load->view('default/template/information/contact.tpl', $data));
 		}
 	}
-
 
 	public function success() {
 		$this->load->language('information/contact');

@@ -23,10 +23,7 @@ function getURLVar(key) {
 }
 
 $(document).ready(function() {
-	$(document).on('click', 'button.shop_now', function(e){
-		location.href = "index.php?route=product/category";
-	});
-
+	
 	// Adding the clear Fix
 	cols1 = $('#column-right, #column-left').length;
 	

@@ -74,7 +74,7 @@
            </div> 
         </div>
       <?php } ?>
-      <?php if($information_id == 9){ echo $content_bottom; } ?>
+      <?php if($information_id == 9 ){ echo $content_bottom; } ?>
       <?php if($information_id == 10){ ?>
       <center>  
         <div id="certifications">
@@ -88,7 +88,7 @@
 <div id="information_services">
   <?php if($information_id == 12){ echo $content_service; ?>
   <div class="container">
-    <div class="col-md-12">
+    <div class="col-md-12 services-types-of-service">
         <div class="col-md-6">
           <?php echo $content_painting_service; ?>
         </div>
@@ -98,23 +98,23 @@
             <div class="col-sm-12">
               <a href="<?php echo $shop; ?>"><button class="services_button">Shop Now</button></a>
               &nbsp;
-              <a href=""><button class="services_button">Color Chart</button></a>
+              <button class="services_button" data-toggle="modal" data-target="#myModal">Color Chart</button>
               &nbsp;
-              <a href=""><button class="price services_button">Price</button></a>
+              <a href="<?php echo $shop; ?>"><button class="price services_button">Price</button></a>
             </div>
           </div>
         </div>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12 services-types-of-service">
         <div class="col-md-6">
           <?php echo $html_2in1_painting_service; ?>
           <div class="row">
             <div class="col-sm-12">
               <a href="<?php echo $shop; ?>"><button class="services_button">Shop Now</button></a>
               &nbsp;
-              <a href=""><button class="services_button">Color Chart</button></a>
+              <button class="services_button" data-toggle="modal" data-target="#myModal">Color Chart</button>
               &nbsp;
-              <a href=""><button class="price services_button">Price</button></a>
+              <a href="<?php echo $shop; ?>"><button class="price services_button">Price</button></a>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
           <?php echo $content_2in1_painting_service; ?>
         </div>
     </div>
-        <div class="col-md-12">
+    <div class="col-md-12 services-types-of-service">
         <div class="col-md-6">
           <?php echo $content_custom_painting_service; ?>
         </div>
@@ -132,15 +132,40 @@
             <div class="col-sm-12">
               <a href="<?php echo $shop; ?>"><button class="services_button">Shop Now</button></a>
               &nbsp;
-              <a href=""><button class="services_button">Color Chart</button></a>
+              <button class="services_button" data-toggle="modal" data-target="#myModal">Color Chart</button>
               &nbsp;
-              <a href=""><button class="price services_button">Price</button></a>
+              <a href="<?php echo $shop; ?>"><button class="price services_button">Price</button></a>
             </div>
           </div>
         </div>
     </div>
   </div>
   <?php } ?>
+  
+  <?php if($information_id == 12){ ?> 
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-xg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Color Chart</h4>
+        </div>
+        <div class="modal-body">
+          <p><?php echo $content_chart; ?></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <?php  } ?>
 </div>
 
 

@@ -8,11 +8,11 @@ $_['text_testimonials'] = 'Testimonials';
 $_['text_see_more'] = "See More";
 
 
-$_['text_benefits_1'] = 'Prevent Mould &amp; Balance PH Value';
-$_['text_benefits_2'] = 'No Chemicals &amp; Eliminates VOC';
+$_['text_benefits_1'] = 'Anti-Mould, humidity and pH Control';
+$_['text_benefits_2'] = 'Anti Pollutants';
 $_['text_benefits_3'] = 'Release Negative Ions';
-$_['text_benefits_4'] = 'Flame Resistant';
-$_['text_benefits_5'] = 'Anti Bacterias';
-$_['text_benefits_6'] = 'Eliminates Smoke';
-$_['text_benefits_7'] = 'Saves Energy';
-$_['text_benefits_8'] = 'Sound Absorption';
+$_['text_benefits_4'] = 'Heat Insulation';
+$_['text_benefits_5'] = 'Anti Bacteria &amp; Dust Mites';
+$_['text_benefits_6'] = 'Fire Retardant &amp; Anti-Smoke';
+$_['text_benefits_7'] = 'Beneficial Far Infrared Rays';
+$_['text_benefits_8'] = 'Sound Insulation';
