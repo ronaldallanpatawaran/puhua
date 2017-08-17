@@ -1598,6 +1598,7 @@ h2.price {
     float: left; /* Commenting this out results in another weird result*/
     display: inline-block;
     width: 372px;
+    min-height: 372px;
 }
 
 #home_news .home_news img {
