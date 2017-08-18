@@ -24,6 +24,10 @@ class ControllerCommonContentTop extends Controller {
 			$layout_id = 2;
 		}
 
+		if($route == 'information/product'){
+			$layout_id = 21;
+		}
+
 		if ($route == 'product/product' && isset($this->request->get['product_id'])) {
 			$this->load->model('catalog/product');
 
